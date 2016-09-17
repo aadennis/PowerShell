@@ -1,40 +1,41 @@
 ﻿#Login-AzureRmAccount
 #first, save the password you will use to a secure flat file...
 $vmUser = "administrator99"
-$passFile = ".\vmUserPass3.txt"
+$passFile = ".\vmUserPass4.txt"
 
 # Existing service and virtual network
 
 
-ConvertTo-SecureString   "HornetsNest99" -AsPlainText -Force | ConvertFrom-SecureString | Out-File -FilePath $passFile -Force
+ConvertTo-SecureString   "xashdfwfd98vcy1234!£6$%^" -AsPlainText -Force | ConvertFrom-SecureString | Out-File -FilePath $passFile -Force
 
 # next works fine...
-$azureClassicService = "DenService2"
+$azureClassicService = "DenService3"
 New-AzureService -ServiceName $azureClassicService -Label "MyTestService" -Location "West Europe"
 
 
 #First create your dependencies: net and subnet
 # easiest to do this in CLI
 $virtualNetwork = "DenVirtualNetwork"
-azure network vnet create --vnet $virtualNetwork -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "East US"
+azure network vnet create --vnet $virtualNetwork -e 192.168.0.0 -i 16 -n $virtualNetwork -p 192.168.1.0 -r 24 -l "East US"
 
 #azure network vnet delete --vnet $virtualNetwork
 
-azure network vnet subnet create -t $virtualNetwork -n BackEnd -a 192.168.2.0/24
+$subnetName = "BackEnd"
+azure network vnet subnet create -t $virtualNetwork -n $subnetName -a 192.168.2.0/24
 
 $imageFamilyName ="Windows Server 2012 R2 Datacenter"
 $imageFamilyName 
 $imageName = Get-AzureVMImage | where { $_.ImageFamily -eq $imageFamilyName } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 $imageName
 
-$vmName = "ABCD_IVV"
-$vmSize="F4"
+$vmName = "ABCD-IVV2"
+$vmSize="Standard_F4"
 $vmConfig = New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $imageName
 $vmConfig
-$vmConfig | Add-AzureProvisioningConfig -Windows -AdminUsername administrator99 -Password (get-content $passFile) | Set-AzureSubnet 'DenSubNet-1'
-New-AzureVM -ServiceName $azureClassicService -VNetName $azureVNet -VMs $vmConfig
+$vmConfig | Add-AzureProvisioningConfig -Windows -AdminUsername administrator99 -Password (get-content $passFile) | Set-AzureSubnet $subnetName
+New-AzureVM -ServiceName $azureClassicService -VNetName $virtualNetwork -VMs $vmConfig -Location "East US"
 
-
+<#
 
 Add-AzureProvisioningConfig -VM $vmName
 
@@ -56,3 +57,5 @@ $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabe
 $svcname="Azure-TailspinToys"
 $vnetname="AZDatacenter"
 New-AzureVM –ServiceName $svcname -VMs $vmConfig -VNetName $vnetname
+
+#>
