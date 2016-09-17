@@ -1,7 +1,7 @@
 #Login-AzureRmAccount
 
 $family="Windows Server 2012 R2 Datacenter"
-$family
+$family 
 $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 $vmname="LOB1"
 $vmsize="Large"
