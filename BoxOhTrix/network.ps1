@@ -2,6 +2,12 @@
 #first, save the password you will use to a secure flat file...
 $vmUser = "administrator99"
 $passFile = ".\vmUserPass4.txt"
+$azureClassicService = "DenService3d"
+$virtualNetwork = "PerfectPetd"
+$subnetName = "BackEndd"
+$vmName = "ABCD-IVVd"
+$vmSize="Standard_F4"
+
 
 # Existing service and virtual network
 
@@ -9,32 +15,32 @@ $passFile = ".\vmUserPass4.txt"
 ConvertTo-SecureString   "xashdfwfd98vcy1234!£6$%^" -AsPlainText -Force | ConvertFrom-SecureString | Out-File -FilePath $passFile -Force
 
 # next works fine...
-$azureClassicService = "DenService3"
+
 New-AzureService -ServiceName $azureClassicService -Label "MyTestService" -Location "West Europe"
 
 
 #First create your dependencies: net and subnet
 # easiest to do this in CLI
-$virtualNetwork = "DenVirtualNetwork"
+Get-Date
 azure network vnet create --vnet $virtualNetwork -e 192.168.0.0 -i 16 -n $virtualNetwork -p 192.168.1.0 -r 24 -l "East US"
-
+Get-Date
 #azure network vnet delete --vnet $virtualNetwork
 
-$subnetName = "BackEnd"
-azure network vnet subnet create -t $virtualNetwork -n $subnetName -a 192.168.2.0/24
 
+azure network vnet subnet create -t $virtualNetwork -n $subnetName -a 192.168.2.0/24
+Get-Date
 $imageFamilyName ="Windows Server 2012 R2 Datacenter"
 $imageFamilyName 
 $imageName = Get-AzureVMImage | where { $_.ImageFamily -eq $imageFamilyName } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 $imageName
 
-$vmName = "ABCD-IVV2"
-$vmSize="Standard_F4"
+
 $vmConfig = New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $imageName
 $vmConfig
 $vmConfig | Add-AzureProvisioningConfig -Windows -AdminUsername administrator99 -Password (get-content $passFile) | Set-AzureSubnet $subnetName
+Get-Date
 New-AzureVM -ServiceName $azureClassicService -VNetName $virtualNetwork -VMs $vmConfig -Location "East US"
-
+Get-Date
 <#
 
 Add-AzureProvisioningConfig -VM $vmName
