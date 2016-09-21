@@ -9,14 +9,15 @@ Set-StrictMode -Version latest
 
 <#
 .Synopsis
-   Return the filenames in the passed zip file
+   Return the filenames in the passed zip file, and write the same set to the clipboard
 .Example
    Get-NamesInZipFile -zipFileLocation "c:\temp\my.zip"
 #>
 function Get-NamesInZipFile {
 [CmdletBinding(SupportsShouldProcess)]
     Param (
-        [Parameter(mandatory = $true)] $zipFileLocation
+        [Parameter(mandatory = $true)] $zipFileLocation,
+        [switch] $numberedList
     )
 
     if (-not (Test-Path $zipFileLocation)) {
@@ -26,16 +27,12 @@ function Get-NamesInZipFile {
 
     [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem')
     $entries = [IO.Compression.ZipFile]::OpenRead($zipFileLocation).Entries
-    $entries | % {
-        "[$($_.FullName)] size:[$($_.Length)]"}
-
-    $response = Read-Host -Prompt "Enter [y] if you want the output in your clipboard" 
-    if ($response -eq "y") {
-        $entries | % {"[$($_.FullName)] size:[$($_.Length)]"} | clip
-        "Content is in your clipboard"
-    }
+    Write-Host "[$($entries.count)] File names found in [$zipFileLocation]:" -BackgroundColor Black -ForegroundColor White
+    $entries | % {"$_"}
+    $entries | % {"$_"} | clip
+    Write-Host "File names found in [$zipFileLocation] are in your clipboard" -BackgroundColor Black -ForegroundColor White
 
 }
 
-
-Get-NamesInZipFile "C:\scratch\CreateADBDC.ps1.zip"
+#Get-NamesInZipFile "C:\scratch\CreateADBDC.ps1.zip"
+Get-NamesInZipFile "C:\scratch\CreateADBDC.ps1.zip" -numberedList
