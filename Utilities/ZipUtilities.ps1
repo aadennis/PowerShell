@@ -29,7 +29,7 @@ function Get-NamesInZipFile {
     $entries | % {
         "[$($_.FullName)] size:[$($_.Length)]"}
 
-    $response = Read-Host -Prompt "Enter [y] if you want the output in your clipboard"
+    $response = Read-Host -Prompt "Enter [y] if you want the output in your clipboard" 
     if ($response -eq "y") {
         $entries | % {"[$($_.FullName)] size:[$($_.Length)]"} | clip
         "Content is in your clipboard"
