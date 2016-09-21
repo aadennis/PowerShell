@@ -14,7 +14,7 @@ Set-StrictMode -Version latest
    Get-NamesInZipFile -zipFileLocation "c:\temp\my.zip"
 #>
 function Get-NamesInZipFile {
-[CmdletBinding(SupportsShouldProcess)]
+[CmdletBinding()]
     Param (
         [Parameter(mandatory = $true)] $zipFileLocation,
         [switch] $numberedList
@@ -25,7 +25,7 @@ function Get-NamesInZipFile {
         throw
     }
 
-    [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem')
+    [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem') | Out-Null
     $entries = [IO.Compression.ZipFile]::OpenRead($zipFileLocation).Entries
     Write-Host "[$($entries.count)] File names found in [$zipFileLocation]:" -BackgroundColor Black -ForegroundColor White
     $entries | % {"$_"}
