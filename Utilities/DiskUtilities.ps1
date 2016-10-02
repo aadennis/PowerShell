@@ -12,7 +12,7 @@
   "localhost" , "Jan-PC" | Get-DiskSpace
  
 #>
-Set-StrictMode -Version 3
+Set-StrictMode -Version Latest
 function Get-DiskSpace
 {
 	Param
