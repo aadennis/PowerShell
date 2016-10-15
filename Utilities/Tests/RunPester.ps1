@@ -1,4 +1,5 @@
-﻿cd C:\tempo\PowerShell\Utilities\Tests
+﻿# Execute this from the folder [Tests]
+
 . ..\DateFormatUtility\DateFormatUtility.ps1
 . ..\LogUtility\LogUtility.ps1
 
