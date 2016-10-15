@@ -13,4 +13,8 @@
         convertFrom-yymmddhhmmssFormat "20120432" | should be "20120432"
         convertFrom-yymmddhhmmssFormat "000000000020120899235959" | should be "000000000020120899235959"
     }
+
+    #It "converts any dates in a CSV record to a required format" {
+    #    Convert-DateFieldsInCsvRecord "xxxx" -verbose | should be "yyyy"
+    #}
 }

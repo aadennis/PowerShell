@@ -7,7 +7,8 @@
 .Example 
     convertFrom-yymmddhhmmssFormat "000000000010660228230022" => "28/02/1066"
 #>
-function convertFrom-yymmddhhmmssFormat ([string] $CandidateDate) {
+function convertFrom-yymmddhhmmssFormat ([CmdletBinding()]
+    [string] $CandidateDate) {
     $inFormat = "yyyyMMddHHmmss"
     $outFormat = "dd/MM/yyyy"
     $culture = [System.Globalization.CultureInfo]::InvariantCulture
@@ -20,3 +21,4 @@ function convertFrom-yymmddhhmmssFormat ([string] $CandidateDate) {
         $CandidateDate
     }
 }
+
