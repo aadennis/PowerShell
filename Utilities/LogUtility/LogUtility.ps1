@@ -14,3 +14,16 @@ function New-PsLog ([string]$LogName) {
     New-EventLog -LogName $LogName -Source $LogName
     Write-EventLog -LogName $LogName -Source $LogName -Message "initial entry: discard" -EventId 1
 }
+
+<# 
+.Synopsis 
+    PUBLIC
+    Write a message to an existing Windows Event Log.
+    Assumption: the logname and the source have the same name.
+.Example 
+    Add-PsLogEvent -LogName "YoutubeDemo" -Message 
+#>
+    [string]$LogName,
+    [string]$Message) {
+    Write-EventLog -LogName $LogName -Source $LogName -Message $Message -EventId 1
+}

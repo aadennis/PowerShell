@@ -11,4 +11,9 @@
         # Assert
         Get-EventLog -LogName $LogName -Source $LogName | Should be $true
     }
+
+    It "writes an entry to an event log" {
+        $uniqueMsg = [system.guid]::NewGuid()
+        Add-PsLogMessage -LogName $logName -Message "This is a unique message: $uniqueMsg"
+    }
 }
