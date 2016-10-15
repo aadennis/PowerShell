@@ -23,6 +23,7 @@ function New-PsLog ([string]$LogName) {
 .Example 
     Add-PsLogEvent -LogName "YoutubeDemo" -Message 
 #>
+function Add-PsLogMessage(
     [string]$LogName,
     [string]$Message) {
     Write-EventLog -LogName $LogName -Source $LogName -Message $Message -EventId 1
