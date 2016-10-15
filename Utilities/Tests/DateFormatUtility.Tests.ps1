@@ -6,11 +6,11 @@
         convertFrom-yymmddhhmmssFormat "10660228230022" | should be "28/02/1066"
     }
 
-    It "converts an incoming malformed date to 00/00/0000" {
-        convertFrom-yymmddhhmmssFormat "this is nonsense" | should be "00/00/0000"
-        convertFrom-yymmddhhmmssFormat "" | should be "00/00/0000"
-        convertFrom-yymmddhhmmssFormat "20120404" | should be "00/00/0000"
-        convertFrom-yymmddhhmmssFormat "20120432" | should be "00/00/0000"
-        convertFrom-yymmddhhmmssFormat "000000000020120899235959" | should be "00/00/0000"
+    It "returns an incoming malformed date without change" {
+        convertFrom-yymmddhhmmssFormat "this is nonsense" | should be "this is nonsense"
+        convertFrom-yymmddhhmmssFormat "" | should be ""
+        convertFrom-yymmddhhmmssFormat "20120404" | should be "20120404"
+        convertFrom-yymmddhhmmssFormat "20120432" | should be "20120432"
+        convertFrom-yymmddhhmmssFormat "000000000020120899235959" | should be "000000000020120899235959"
     }
 }
