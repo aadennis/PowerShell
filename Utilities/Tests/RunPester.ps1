@@ -13,7 +13,7 @@ $totalCount = $result.TotalCount
 $passedCount = $result.PassedCount
 $failedCount = $result.FailedCount
 $msg = "Total tests:[$totalCount]; Passed:[$passedCount]; Failed:[$failedCount]"
-if ($failedCount -gt -1) {
+if ($failedCount -gt 0) {
     Write-Host $msg -f red -b White
     Throw
 }
