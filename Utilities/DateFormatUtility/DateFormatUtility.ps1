@@ -29,6 +29,6 @@ function Convert-DateFieldsInCsvRecord ([string]$RecordToConvert) {
         $convertedRecord += "$(convertFrom-yymmddhhmmssFormat $_),"
     }
     # great shortcut to remove last character from a string...
-    return $convertedRecord -replace ".$"
+    $convertedRecord -replace ".$"
 }
 
