@@ -14,8 +14,14 @@
         convertFrom-yymmddhhmmssFormat "000000000020120899235959" | should be "000000000020120899235959"
     }
 
-    It "converts any dates in a CSV record to a required format" {
+    It "does not change a CSV record if there are no dates in the required format" {
         $expectedResult = "the first column,the second field,666555,"
         Convert-DateFieldsInCsvRecord $expectedResult | should be $expectedResult
+    }
+
+    It "converts any dates in a CSV record to a required format" {
+        $csvRecordIn = "the first column,20660228230022,666555,"
+        $expectedResult = "the first column,28/02/2066,666555,"
+        Convert-DateFieldsInCsvRecord $csvRecordIn | should be $expectedResult
     }
 }
