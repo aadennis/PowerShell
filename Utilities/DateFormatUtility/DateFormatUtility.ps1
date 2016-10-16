@@ -22,6 +22,16 @@ function convertFrom-yymmddhhmmssFormat ([CmdletBinding()]
     }
 }
 
+<# 
+.Synopsis 
+    PUBLIC
+    Convert a CSV record, converting fields that are in a given date format (dictated
+    by the rules in convertFrom-yymmddhhmmssFormat), and leaving all other fields as-is.
+    Return the converted record.
+.Example 
+    Convert-DateFieldsInCsvRecord -r "the first column,20660228230022,666555," =>
+        "the first column,28/02/2066,666555,"
+#>
 function Convert-DateFieldsInCsvRecord ([string]$RecordToConvert) {
     $convertedRecord = [string]::Empty
     $recordSet = $RecordToConvert -split ","
