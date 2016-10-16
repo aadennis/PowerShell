@@ -14,7 +14,8 @@
         convertFrom-yymmddhhmmssFormat "000000000020120899235959" | should be "000000000020120899235959"
     }
 
-    #It "converts any dates in a CSV record to a required format" {
-    #    Convert-DateFieldsInCsvRecord "xxxx" -verbose | should be "yyyy"
-    #}
+    It "converts any dates in a CSV record to a required format" {
+        $expectedResult = "the first column,the second field,666555,"
+        Convert-DateFieldsInCsvRecord $expectedResult | should be $expectedResult
+    }
 }

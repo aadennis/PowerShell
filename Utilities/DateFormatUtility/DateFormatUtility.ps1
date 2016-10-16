@@ -22,3 +22,13 @@ function convertFrom-yymmddhhmmssFormat ([CmdletBinding()]
     }
 }
 
+function Convert-DateFieldsInCsvRecord ([string]$RecordToConvert) {
+    $convertedRecord = [string]::Empty
+    $recordSet = $RecordToConvert -split ","
+    $recordSet | % {
+        $convertedRecord += "$(convertFrom-yymmddhhmmssFormat $_),"
+    }
+    # great shortcut to remove last character from a string...
+    return $convertedRecord -replace ".$"
+}
+

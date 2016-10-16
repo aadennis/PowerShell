@@ -1,4 +1,6 @@
-﻿Describe "Logging Utility" {
+﻿#https://github.com/pester/Pester/wiki/Should
+
+Describe "Logging Utility" {
     $logName = "LogForTesting"
     
     It "creates a new Windows Event Log [$logName]" {
