@@ -1,4 +1,4 @@
-$Global:configFilePath = "C:\tempo\PowerShell\Utilities\Tests\data\TestData\RealFriendsSpec2.json"
+$Global:configFilePath = "C:\tempo\PowerShell\Utilities\Tests\RealFriendsSpec2.json"
 Describe "File Utility" {
     It "should fail when no config file is included" {
         try {
@@ -22,26 +22,21 @@ Describe "File Utility" {
 
     It "should return a valid Json object" {
         $configObject = Get-FixedWidthJsonConfig $Global:configFilePath
-        $fieldSet = @("@{pos=0; length=4; name=Id}",
-            "@{pos=4; length=11; name=FirstName}","@{pos=65; length=20; name=IPAddress}")
+        $fieldSet = @(  "@{pos=0; length=4; name=Id; datatype=integer}",
+                        "@{pos=4; length=11; name=FirstName; datatype=string}",
+                        "@{pos=15; length=10; name=LastName; datatype=string}",
+                        "@{pos=25; length=34; name=Email; datatype=string}",
+                        "@{pos=59; length=6; name=Gender; datatype=string}"
+                        )
 
         $index = 0;
-        foreach ($field in $configObject.FriendsSpec.Fields) {
-            
-            Add-PsLogMessage -LogName "youtubedemo" -Message "field is: $field"
-            Add-PsLogMessage -LogName "youtubedemo" -Message "fieldthing is: $($field[$index])"
-            $field[$index] | should be $fieldSet[$index]
-
-
+        $configObject.FriendsSpec.Fields | % {
+            $field = $_
+            Add-PsLogMessage -LogName "youtubedemo" -Message "fieldthing is: $field)"
+            $field | should be $fieldSet[$index]
             $position = $field.pos
             Add-PsLogMessage -LogName "youtubedemo" -Message "Pos is: $position"
-
-
-
-
             $index++
         }
-      
     } 
-
 }
