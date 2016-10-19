@@ -21,7 +21,7 @@ function New-PsLog ([string]$LogName) {
     Write a message to an existing Windows Event Log.
     Assumption: the logname and the source have the same name.
 .Example 
-    Add-PsLogEvent -LogName "YoutubeDemo" -Message 
+    Add-PsLogEvent -LogName "YoutubeDemo" -Message "anything"
 #>
 function Add-PsLogMessage(
     [string]$LogName,

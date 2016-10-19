@@ -1,9 +1,14 @@
 ﻿#https://github.com/pester/Pester/wiki/Invoke-Pester
 # Execute this from the folder [Tests]
 
+try {
 . ..\DateFormatUtility\DateFormatUtility.ps1
 . ..\LogUtility\LogUtility.ps1
-
+. ..\FileUtility\FileUtility.ps1
+} catch {
+    "Error count[$($Error.Count)]"
+    throw
+}
 # Execute all the tests
 $result = Invoke-Pester -PassThru -Strict
 
