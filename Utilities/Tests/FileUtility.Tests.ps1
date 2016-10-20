@@ -1,5 +1,5 @@
 $Global:configFilePath = "C:\tempo\PowerShell\Utilities\Tests\RealFriendsSpec2.json"
-Describe "File Utility" {
+Describe "Config File Utility" {
     It "fails when no config file is included" {
         try {
             $ranOk = $false
@@ -33,4 +33,17 @@ Describe "File Utility" {
         $fields[2].length | should be "10"
         $fields[4].pos | should be "59"
     } 
+
+    
+}
+
+Describe "Data File Utility" {
+    It "gets data into an object" {
+        $configFilePath = ".\data\FixedWidthFile.config"
+        $csvPath = ".\data\TestData\SmallFile.csv"
+        $outputFWPath = ".\data\TestData\FWFile001.txt"
+        Copy-CsvWithConfigToFixedWidth $configFilePath $csvPath $outputFWPath
+        $content = Get-Content $outputFWPath
+        $content -match "a" | should be $true 
+    }
 }
