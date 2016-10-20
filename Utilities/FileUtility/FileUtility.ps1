@@ -24,6 +24,23 @@ Param (
     [ValidateNotNullOrEmpty()]
         [string] $outputFWPath=$(throw "outputFWPath is mandatory")
 )
-    Write-Host "Nothing to see"
+    $fileLengthSet = Get-FixedWidthJsonConfig $configFilePath
+    $dataContent = Get-Content -Path $csvPath
+    $fixedWidthFileContent = @()
+
+    $dataContent | select -Skip 2 | % {
+        $currentRecordIn = $_
+        $currentRecordOut = [string]::Empty
+        $index = 0
+
+        $currentRecordIn -split "," | % {
+            $currentField = $_
+            $currentRecordOut += $currentField.PadRight($fileLengthSet[$index++])
+
+        }
+        $fwFileContent += $currentRecordOut
+    }
+
+    $fwFileContent | out-file -FilePath $outputFWPath -Force
 }
 
