@@ -18,8 +18,9 @@ Describe "Logging Utility" {
         # Act
         Add-PsLogMessage -LogName $logName -Message "This is a unique message: $uniqueMsg"
         # Assert
-        (Get-WinEvent -LogName "LogForTesting" | 
-            where -Property Message -like "*$uniqueMsg").count | 
-            should be 1
+        [Object[]] $Events = Get-WinEvent -LogName $logName | where -Property Message -like "*$uniqueMsg" 
+        $Events.count | should be 1
+
+
     }
 }

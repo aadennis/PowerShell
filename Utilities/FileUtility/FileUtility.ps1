@@ -7,6 +7,6 @@ Param (
     [ValidateNotNullOrEmpty()]
     [string] $configFilePath=$(throw "configFilePath is mandatory")
 )
-    Get-Content $configFilePath | ConvertFrom-Json
+    Get-Content -Raw $configFilePath | ConvertFrom-Json
 }
 

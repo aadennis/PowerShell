@@ -1,6 +1,6 @@
 $Global:configFilePath = "C:\tempo\PowerShell\Utilities\Tests\RealFriendsSpec2.json"
 Describe "File Utility" {
-    It "should fail when no config file is included" {
+    It "fails when no config file is included" {
         try {
             $ranOk = $false
             $jsonSpecFile = Get-FixedWidthJsonConfig 
@@ -10,7 +10,7 @@ Describe "File Utility" {
         $ranOk | should be $false
     }
 
-    It "should succeed when a config file is included" {
+    It "succeeds when a config file is included" {
         try {
             $ranOk = $false
             $jsonSpecFile = Get-FixedWidthJsonConfig $Global:configFilePath
@@ -20,23 +20,17 @@ Describe "File Utility" {
         $ranOk | should be $true
     }
 
-    It "should return a valid Json object" {
+    It "returns a valid object when converting from Json" {
         $configObject = Get-FixedWidthJsonConfig $Global:configFilePath
-        $fieldSet = @(  "@{pos=0; length=4; name=Id; datatype=integer}",
-                        "@{pos=4; length=11; name=FirstName; datatype=string}",
-                        "@{pos=15; length=10; name=LastName; datatype=string}",
-                        "@{pos=25; length=34; name=Email; datatype=string}",
-                        "@{pos=59; length=6; name=Gender; datatype=string}"
-                        )
+        $fields = $configObject.FriendsSpec.Fields
 
-        $index = 0;
-        $configObject.FriendsSpec.Fields | % {
-            $field = $_
-            Add-PsLogMessage -LogName "youtubedemo" -Message "fieldthing is: $field)"
-            $field | should be $fieldSet[$index]
-            $position = $field.pos
-            Add-PsLogMessage -LogName "youtubedemo" -Message "Pos is: $position"
-            $index++
-        }
+        $configObject.GetType() | should be "System.Management.Automation.PSCustomObject"
+        $fields.GetType() | should be "System.Object[]"
+
+        $configObject.FriendsSpec.Fields.Count | should be 5
+        $fields[0].datatype | should be "integer"
+        $fields[1].name | should be "FirstName"
+        $fields[2].length | should be "10"
+        $fields[4].pos | should be "59"
     } 
 }
