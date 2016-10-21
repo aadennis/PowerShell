@@ -34,7 +34,7 @@ Param (
         [string] $outputFWPath=$(throw "outputFWPath is mandatory")
 )
     foreach ($file in $configFilePath, $csvPath) {
-        Check-EmptyFile $configFilePath
+        Check-EmptyFile $file
     }
 
     $fileLengthSet = Get-FixedWidthJsonConfig $configFilePath

@@ -1,4 +1,4 @@
-$Global:configFilePath = "C:\tempo\PowerShell\Utilities\Tests\RealFriendsSpec2.json"
+$Global:configFilePath = "..\Metadata\Friends.spec.json"
 Describe "Basic File Checks" {
     #https://github.com/pester/Pester/wiki/TestDrive
     It "throws an exception if the file is empty" { 
@@ -68,10 +68,10 @@ Describe "Config File Utility" {
 
 Describe "Data File Utility" {
     It "gets data into an object" {
-        $configFilePath = ".\data\FixedWidthFile.config"
         $csvPath = ".\data\TestData\SmallFile.csv"
         $outputFWPath = ".\data\TestData\FWFile001.txt"
-        Copy-CsvWithConfigToFixedWidth $configFilePath $csvPath $outputFWPath
+
+        Copy-CsvWithJsonConfigToFixedWidth $Global:configFilePath $csvPath $outputFWPath
         $content = Get-Content $outputFWPath
         $content | should be "asdfafd"
         $content -match "a" | should be $true 
