@@ -1,4 +1,33 @@
 $Global:configFilePath = "C:\tempo\PowerShell\Utilities\Tests\RealFriendsSpec2.json"
+Describe "Basic File Checks" {
+    #https://github.com/pester/Pester/wiki/TestDrive
+    It "throws an exception if the file is empty" { 
+        $emptyFile = "TestDrive:\empty.txt" # Join-Path "$TestDrive" "empty.txt"
+        New-Item -Path $emptyFile
+        try {
+            $ranOk = $false
+            Check-EmptyFile($emptyFile)
+            $ranOk = $true
+        }
+        catch{}
+        $ranOk | Should be $false
+    }
+
+    It "does nothing if the file has content" {
+        $fileWithContent = "TestDrive:\stuff.txt"
+        New-Item -Path $fileWithContent
+        Set-Content -Value "stuff" -Path $fileWithContent
+        try {
+            Check-EmptyFile($fileWithContent)
+            $ranOk = $true
+        } 
+        catch{
+            $ranOk = $false
+        }
+        $ranOK | Should be $true
+    }
+}
+
 Describe "Config File Utility" {
     It "fails when no config file is included" {
         try {
@@ -44,6 +73,7 @@ Describe "Data File Utility" {
         $outputFWPath = ".\data\TestData\FWFile001.txt"
         Copy-CsvWithConfigToFixedWidth $configFilePath $csvPath $outputFWPath
         $content = Get-Content $outputFWPath
+        $content | should be "asdfafd"
         $content -match "a" | should be $true 
     }
 }

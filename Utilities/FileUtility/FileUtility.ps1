@@ -1,5 +1,14 @@
 Set-StrictMode -Version latest
 
+function Check-EmptyFile($fileToCheck){
+    $content = Get-Content $fileToCheck
+    if ([string]::IsNullOrEmpty($content)) {
+        "22"
+        throw("$fileToCheck is empty")
+    }
+    "44"
+}
+
 function Get-FixedWidthJsonConfig {
 [CmdletBinding()]
 Param (
@@ -24,9 +33,15 @@ Param (
     [ValidateNotNullOrEmpty()]
         [string] $outputFWPath=$(throw "outputFWPath is mandatory")
 )
+    foreach ($file in $configFilePath, $csvPath) {
+        Check-EmptyFile $configFilePath
+    }
+
     $fileLengthSet = Get-FixedWidthJsonConfig $configFilePath
     $dataContent = Get-Content -Path $csvPath
+   
     $fixedWidthFileContent = @()
+    $fwFileContent = [string]::Empty
 
     $dataContent | select -Skip 2 | % {
         $currentRecordIn = $_
