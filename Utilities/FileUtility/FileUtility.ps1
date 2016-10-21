@@ -1,5 +1,11 @@
 Set-StrictMode -Version latest
 
+<#
+.Synopsis
+    If the passed file is empty, throw an exception
+.Example
+    Check-EmptyFile -f "c:\temp\empty.txt"
+#>
 function Check-EmptyFile($fileToCheck){
     $content = Get-Content $fileToCheck
     if ([string]::IsNullOrEmpty($content)) {
@@ -7,6 +13,12 @@ function Check-EmptyFile($fileToCheck){
     }
 }
 
+<#
+.Synopsis
+    Given a file in Json format, extract the content to a PSCustomObject
+.Example
+    Get-FixedWidthJsonConfig -c "c:\temp\spec.json"
+#>
 function Get-FixedWidthJsonConfig {
 [CmdletBinding()]
 Param (
@@ -17,7 +29,15 @@ Param (
     Get-Content -Raw $configFilePath | ConvertFrom-Json
 }
 
-
+<#
+.Synopsis
+    Given a csv data file, use the passed json spec file to build 
+    a fixed width structure, and save it to disk.
+    It can handle trailing commas.
+    Right now it only supports commas.
+.Example
+    Get-FixedWidthJsonConfig -c "c:\temp\spec.json"
+#>
 function Copy-CsvWithJsonConfigToFixedWidth {
 [CmdletBinding()]
 Param (
@@ -50,7 +70,7 @@ Param (
         $currentRecordOut = [string]::Empty
         $index = 0
         $currentRecordIn -split "," | % {
-            [string] $currentField = $_
+            $currentField = $_
             if ($currentField.length -eq 0) {
                 break
             }
