@@ -34,9 +34,9 @@ Param (
     Given a csv data file, use the passed json spec file to build 
     a fixed width structure, and save it to disk.
     It can handle trailing commas.
-    Right now it only supports commas.
+    Right now a) it only supports commas and b) assumes no header rows
 .Example
-    Get-FixedWidthJsonConfig -c "c:\temp\spec.json"
+    Copy-CsvWithJsonConfigToFixedWidth -co "c:\temp\spec.json" -cs "c:\temp\composers.csv" -o "c:\temp\composers.dat"
 #>
 function Copy-CsvWithJsonConfigToFixedWidth {
 [CmdletBinding()]
