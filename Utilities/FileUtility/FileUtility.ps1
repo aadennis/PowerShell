@@ -3,10 +3,8 @@ Set-StrictMode -Version latest
 function Check-EmptyFile($fileToCheck){
     $content = Get-Content $fileToCheck
     if ([string]::IsNullOrEmpty($content)) {
-        "22"
         throw("[$fileToCheck] is empty")
     }
-    "44"
 }
 
 function Get-FixedWidthJsonConfig {
@@ -51,15 +49,12 @@ Param (
         $currentRecordIn = $_
         $currentRecordOut = [string]::Empty
         $index = 0
-        $index
         $currentRecordIn -split "," | % {
             [string] $currentField = $_
             if ($currentField.length -eq 0) {
                 break
             }
-            $temp = $fields[$index].Length
-            $currentRecordOut += $currentField.PadRight($temp)
-            $index++
+            $currentRecordOut += $currentField.PadRight($fields[$index++].Length)
         }
         $fwFileContent += $currentRecordOut
     }
