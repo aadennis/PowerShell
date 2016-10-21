@@ -4,7 +4,7 @@ function Check-EmptyFile($fileToCheck){
     $content = Get-Content $fileToCheck
     if ([string]::IsNullOrEmpty($content)) {
         "22"
-        throw("$fileToCheck is empty")
+        throw("[$fileToCheck] is empty")
     }
     "44"
 }
@@ -20,7 +20,7 @@ Param (
 }
 
 
-function Copy-CsvWithConfigToFixedWidth {
+function Copy-CsvWithJsonConfigToFixedWidth {
 [CmdletBinding()]
 Param (
     [Parameter()]
