@@ -4,9 +4,9 @@ Set-StrictMode -Version latest
 .Synopsis
     If the passed file is empty, throw an exception
 .Example
-    Check-EmptyFile -f "c:\temp\empty.txt"
+    Test-EmptyFile -f "c:\temp\empty.txt"
 #>
-function Check-EmptyFile($fileToCheck){
+function Test-EmptyFile($fileToCheck){
     $content = Get-Content $fileToCheck
     if ([string]::IsNullOrEmpty($content)) {
         throw("[$fileToCheck] is empty")
@@ -55,7 +55,7 @@ Param (
     $1rowHeader = 1
     $2rowHeader = 2
     foreach ($file in $configFilePath, $csvPath) {
-        Check-EmptyFile $file
+        Test-EmptyFile $file
     }
 
     $fileLengthSet = Get-FixedWidthJsonConfig $configFilePath

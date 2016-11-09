@@ -6,7 +6,7 @@ Describe "Basic File Checks" {
         New-Item -Path $emptyFile
         try {
             $ranOk = $false
-            Check-EmptyFile($emptyFile)
+            Test-EmptyFile($emptyFile)
             $ranOk = $true
         }
         catch{}
@@ -18,7 +18,7 @@ Describe "Basic File Checks" {
         New-Item -Path $fileWithContent
         Set-Content -Value "stuff" -Path $fileWithContent
         try {
-            Check-EmptyFile($fileWithContent)
+            Test-EmptyFile($fileWithContent)
             $ranOk = $true
         } 
         catch{
