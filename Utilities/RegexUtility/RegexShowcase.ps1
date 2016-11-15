@@ -9,12 +9,19 @@ Add-Type -AssemblyName "System.Text.RegularExpressions"
 function Test-RegexMatch($pattern, $inputToMatch, $message, $expectedResult) {
     $regexPattern = $null
     $regexPattern = New-Object regex($pattern)
-    $actualResult = $($regexPattern.IsMatch($inputToMatch)).ToString().ToUpper()
+   
+    $actualTextResult = $regexPattern.Match($inputToMatch)
 
-    Write-Host "pattern:[$pattern]input:[$inputToMatch][expected result:$expectedResult ($pattern) $message][actual result:$actualResult]"
-    if ($actualResult -ne $expectedResult) {
+    $actualBooleanResult = $($regexPattern.IsMatch($inputToMatch)).ToString().ToUpper()
+
+    Write-Host "pattern:[$pattern]input:[$inputToMatch][expected result:$expectedResult ($pattern) $message][actual result:$actualBooleanResult]"
+    if ($actualBooleanResult -ne $expectedResult) {
         throw "*** Last test failed. exiting... ***"
     }
+    Write-Host $actualTextResult
+    write-host "*******************************************" -ForegroundColor Yellow 
+
+
 }
 
 $pattern = "cricket"
