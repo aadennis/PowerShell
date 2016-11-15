@@ -2,53 +2,83 @@
 
 # multiline mode modifier
 #https://msdn.microsoft.com/en-us/library/yd1hzczs(v=vs.110).aspx#Multiline
+Set-StrictMode -Version latest
 
 Add-Type -AssemblyName "System.Text.RegularExpressions"
 
-function Test-RegexMatch($pattern, $inputToMatch, $message) {
+function Test-RegexMatch($pattern, $inputToMatch, $message, $expectedResult) {
     $regexPattern = $null
     $regexPattern = New-Object regex($pattern)
-    $candidateMatch = $regexPattern.IsMatch($inputToMatch)
+    $actualResult = $($regexPattern.IsMatch($inputToMatch)).ToString().ToUpper()
 
-    Write-Host "pattern:[$pattern]input:[$inputToMatch][expected result:$message][actual result:$candidateMatch]"
+    Write-Host "pattern:[$pattern]input:[$inputToMatch][expected result:$expectedResult ($pattern) $message][actual result:$actualResult]"
+    if ($actualResult -ne $expectedResult) {
+        throw "*** Last test failed. exiting... ***"
+    }
 }
 
-
-
-
 $pattern = "cricket"
-$input = "cricket"
-$message = "TRUE: straight match"
 
-Test-RegexMatch $pattern $input $message
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "straight match"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+
+$input = "ricket"
+$expectedResult = "FALSE"
+$message = "[$pattern] not wholly found in [$input]"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "a cricket"
+$expectedResult = "TRUE"
+$message = "[$pattern] wholly found in [$input]"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "Cricket"
+$expectedResult = "FALSE"
+$message = "matches are case sensitive as this .Net, not PowerShell"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "^cricket"
+
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "cricket is found at the start of the string"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "a cricket"
+$expectedResult = "FALSE"
+$message = "[a cricket] is not found at the start of the string"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricket\nbat"
+$expectedResult = "TRUE"
+$message = "cricket is found at the start of the string (note the backslash escape, not backtick)"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "cricket$"
+
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "cricket is found at the end of the string"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "a cricket"
+$expectedResult = "TRUE"
+$message = "cricket is found at the end of the string"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricket\nbat"
+$expectedResult = "FALSE"
+$message = "cricket is not found at the end of the string"
+Test-RegexMatch $pattern $input $message $expectedResult
 
 return
-#$regex | gm
 
 
-$candidateMatch = $regexPattern.IsMatch("cricket")
-$candidateMatch #true
-
-$candidateMatch = $regexPattern.IsMatch("ricket")
-$candidateMatch #false
 
 
-$candidateMatch = $regexPattern.IsMatch("a cricket")
-$candidateMatch #true
-
-$candidateMatch = $regexPattern.IsMatch("Cricket")
-$candidateMatch #false
-
-$regexPattern = $null
-"-----"
-# ^
-$regexPattern = New-Object regex("^cricket")
-
-$candidateMatch = $regexPattern.IsMatch("cricket")
-$candidateMatch #true
-
-$candidateMatch = $regexPattern.IsMatch("a cricket")
-$candidateMatch #false
 
 $candidateMatch = $regexPattern.IsMatch("cricket\nbat")
 $candidateMatch #true
