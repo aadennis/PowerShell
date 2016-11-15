@@ -89,21 +89,27 @@ $input = "cricketbat"
 $expectedResult = "FALSE"
 $message = "$input contains 0 spaces"
 Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "cricket\s*and\s*somebats"
+
+$input = "cricket     and      somebats"
+$expectedResult = "TRUE"
+$message = "$input contains multiple spaces - OK"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "a cricket"
+$expectedResult = "FALSE"
+$message = "{$input} plain does not match {$pattern}"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricket\nbat"
+$expectedResult = "FALSE"
+$message = "{$input} plain does not match {$pattern}"
+Test-RegexMatch $pattern $input $message $expectedResult
 return
 
 
-"-----"
-#  \s*
-$regexPattern = New-Object regex("cricket\s*and\s*somebats")
 
-$candidateMatch = $regexPattern.IsMatch("cricket     and      somebats")
-$candidateMatch
-
-$candidateMatch = $regexPattern.IsMatch("a cricket")
-$candidateMatch
-
-$candidateMatch = $regexPattern.IsMatch("cricket\nbat")
-$candidateMatch 
 
 "-----"
 #  [\+-]?
