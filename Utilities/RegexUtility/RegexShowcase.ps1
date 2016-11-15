@@ -18,7 +18,11 @@ function Test-RegexMatch($pattern, $inputToMatch, $message, $expectedResult) {
     if ($actualBooleanResult -ne $expectedResult) {
         throw "*** Last test failed. exiting... ***"
     }
-    Write-Host $actualTextResult
+    if ($actualBooleanResult -eq "TRUE") {
+        Write-Host "[$actualTextResult][$($actualTextResult.Index)][$($actualTextResult.Length)]"
+        Write-Host $actualTextResult.Index
+    }
+
     write-host "*******************************************" -ForegroundColor Yellow 
 
 
