@@ -20,7 +20,6 @@ function Test-RegexMatch($pattern, $inputToMatch, $message, $expectedResult) {
     }
     if ($actualBooleanResult -eq "TRUE") {
         Write-Host "[$actualTextResult][$($actualTextResult.Index)][$($actualTextResult.Length)]"
-        Write-Host $actualTextResult.Index
     }
 
     write-host "*******************************************" -ForegroundColor Yellow 
@@ -117,6 +116,88 @@ $input = "cricket\nbat"
 $expectedResult = "FALSE"
 $message = "{$input} plain does not match {$pattern}"
 Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "(cricket)*"
+
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "cricket occurs 0 or more times"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricketcricket"
+$expectedResult = "TRUE"
+$message = "cricket occurs 0 or more times"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "batbat"
+$expectedResult = "TRUE"
+$message = "cricket occurs 0 or more times - but in real terms clearly nonsense"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "(cricket){1,2}"
+$input = "batbat"
+$expectedResult = "FALSE"
+$message = "cricket must occur 1 or 2 times in the input, and does not"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 1 or 2 times in the input, and does (1)"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricketcricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 1 or 2 times in the input, and does (2)"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "(cricket){3}"
+$input = "cricket"
+$expectedResult = "FALSE"
+$message = "cricket must occur 3 and only 3 times in the input, and does not"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricketcricketcricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 3 and only 3 times in the input, and does"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "(cricket)?"
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 0 to many times in the input, and does"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "batbat"
+$expectedResult = "TRUE"
+$message = "cricket must occur 0 to many times in the input, and does"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricketcricketcricketcricketcricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 0 to many times in the input, and does"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "batbat"
+$expectedResult = "TRUE"
+$message = "cricket must occur 0 or 1 times in the input, and does (0) - sic"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$pattern = "(cricket)+"
+$input = "cricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 1 or many times in the input, and does"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "batbat"
+$expectedResult = "FALSE"
+$message = "cricket must occur 1 or many times in the input, and does not"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricketcricketcricketcricketcricket"
+$expectedResult = "TRUE"
+$message = "cricket must occur 1 or many times in the input, and does"
+Test-RegexMatch $pattern $input $message $expectedResult
+
 return
 
 
