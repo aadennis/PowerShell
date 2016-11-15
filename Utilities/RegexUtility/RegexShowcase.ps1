@@ -1,8 +1,30 @@
-﻿Add-Type -AssemblyName "System.Text.RegularExpressions"
-$regexPattern = New-Object regex("cricket")
+﻿#https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx
+
+# multiline mode modifier
+#https://msdn.microsoft.com/en-us/library/yd1hzczs(v=vs.110).aspx#Multiline
+
+Add-Type -AssemblyName "System.Text.RegularExpressions"
+
+function Test-RegexMatch($pattern, $inputToMatch, $message) {
+    $regexPattern = $null
+    $regexPattern = New-Object regex($pattern)
+    $candidateMatch = $regexPattern.IsMatch($inputToMatch)
+
+    Write-Host "pattern:[$pattern]input:[$inputToMatch][expected result:$message][actual result:$candidateMatch]"
+}
+
+
+
+
+$pattern = "cricket"
+$input = "cricket"
+$message = "TRUE: straight match"
+
+Test-RegexMatch $pattern $input $message
+
+return
 #$regex | gm
 
-#https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx
 
 $candidateMatch = $regexPattern.IsMatch("cricket")
 $candidateMatch #true
@@ -69,10 +91,7 @@ $regexPattern = New-Object regex("[\+-].*")
 $candidateMatch = $regexPattern.IsMatch("x")
 $candidateMatch
 
-#https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx
 
-# multiline mode modifier
-#https://msdn.microsoft.com/en-us/library/yd1hzczs(v=vs.110).aspx#Multiline
 
 $regexPattern = [regex] '(?m)^cricket$'
 $regexPattern
@@ -112,3 +131,4 @@ $candidateMatch
 #false because [cket] cannot be found...
 $candidateMatch = $regexPattern.IsMatch("cric     ket")
 $candidateMatch
+
