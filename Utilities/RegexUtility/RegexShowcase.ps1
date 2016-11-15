@@ -74,28 +74,24 @@ $expectedResult = "FALSE"
 $message = "cricket is not found at the end of the string"
 Test-RegexMatch $pattern $input $message $expectedResult
 
+$pattern = "cricket\sbat"
+$input = "cricket bat"
+$expectedResult = "TRUE"
+$message = "$input contains 1 and only 1 space"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricket  bat"
+$expectedResult = "FALSE"
+$message = "$input contains 2 spaces"
+Test-RegexMatch $pattern $input $message $expectedResult
+
+$input = "cricketbat"
+$expectedResult = "FALSE"
+$message = "$input contains 0 spaces"
+Test-RegexMatch $pattern $input $message $expectedResult
 return
 
 
-
-
-
-$candidateMatch = $regexPattern.IsMatch("cricket\nbat")
-$candidateMatch #true
-
-$regexPattern = $null
-"-----"
-# $
-$regexPattern = New-Object regex("cricket$")
-
-$candidateMatch = $regexPattern.IsMatch("cricket")
-$candidateMatch #true
-
-$candidateMatch = $regexPattern.IsMatch("a cricket")
-$candidateMatch #false
-
-$candidateMatch = $regexPattern.IsMatch("cricket\nbat")
-$candidateMatch #true
 "-----"
 #  \s*
 $regexPattern = New-Object regex("cricket\s*and\s*somebats")
