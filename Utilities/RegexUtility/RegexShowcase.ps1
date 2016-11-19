@@ -386,6 +386,14 @@ $expectedResult = "Tottenham:0 WestHam:2 Leicester:3 Chelsea:4"
 
 Test-RegexPatternReplace $input $pattern $rule $expectedResult
 
+# Pattern-based replace - named groups...
+$input = [string] "Tottenham0 WestHam2 Leicester3 Chelsea4"
+$pattern = "(?<team>[A-Za-z]+)(?<score>\d+)\b";
+$rule = "`${teamx}`:`${score}"
+$expectedResult = "Tottenham:0 WestHam:2 Leicester:3 Chelsea:4"
+
+Test-RegexPatternReplace $input $pattern $rule $expectedResult
+
 return
 
 
