@@ -31,6 +31,25 @@ function Test-RegexMatch($pattern, $inputToMatch, $message, $expectedResult) {
 
 }
 
+function Test-RegexReplace($inputToReplace, $oldToken, $newToken, $expectedResult) {
+    $Global:testId++
+
+    $actualResult = [Regex]::Replace($inputToReplace, $oldToken, $newToken)
+
+    Write-Host "Test [$Global:testId] inputToReplace:[$inputToReplace] oldToken:[$oldToken] newToken:[$newToken]"
+    if ($expectedResult -ne $actualResult) {
+    
+        Write-Host "[expected result:$expectedResult][actual result:$actualResult]"
+        throw "*** Last test failed. exiting... ***"
+    }
+    Write-Host "[expected and actual result:$expectedResult]"
+   
+
+    write-host "*******************************************" -ForegroundColor Yellow 
+
+
+}
+
 $pattern = "cricket"
 
 $input = "cricket"
@@ -307,8 +326,6 @@ Test-RegexMatch $pattern $input $message $expectedResult
 
 $pattern = "^[\+-]+`\`$\d*\.?\d{2}?"
 
-
-
 $input = "-`$29."
 $expectedResult = "TRUE"
 $message = "digits after the dot are optional - found none - OK"
@@ -333,6 +350,18 @@ $input = "-`$483"
 $expectedResult = "TRUE"
 $message = "Both the dot and the digits after the dot are optional. OK"
 Test-RegexMatch $pattern $input $message $expectedResult
+
+#----
+
+#replacements...
+
+$input = "France yes France will win the World Cup"
+$expectedResult = "Spain yes Spain will win the World Cup"
+$oldToken = "France"
+$newToken = "Spain"
+
+
+Test-RegexReplace $input $oldToken $newToken $expectedResult
 
 return
 
