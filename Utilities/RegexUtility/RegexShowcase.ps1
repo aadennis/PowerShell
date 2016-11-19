@@ -3,6 +3,8 @@
 # multiline mode modifier
 #https://msdn.microsoft.com/en-us/library/yd1hzczs(v=vs.110).aspx#Multiline
 
+$OK=0
+$FAIL=1
 $Global:testId = 0
 Set-StrictMode -Version latest
 
@@ -53,11 +55,39 @@ function Test-RegexPatternReplace($stringToChange, $pattern, $rule, $expectedRes
 
     $actualResult = [Regex]::Replace($stringToChange, $pattern, $rule)
 
+
     Write-Host "Test [$Global:testId] stringToChange:[$stringToChange] pattern:[$pattern]"
     if ($expectedResult -ne $actualResult) {
     
         Write-Host "[expected result:$expectedResult][actual result:$actualResult]"
         throw "*** Last test failed. exiting... ***"
+    }
+    Write-Host "[expected and actual result:$expectedResult]"
+   
+
+    write-host "*******************************************" -ForegroundColor Yellow 
+}
+
+function Test-RegexSplit($stringToParse, $pattern, [array] $expectedResult, [bool] $testMustPass = $true) {
+    $Global:testId++
+    $actualResult = @()
+
+    $actualResult = [array] $( [Regex]::Split($stringToParse, $pattern))
+
+    
+   
+
+    Write-Host "Test [$Global:testId] stringToParse:[$stringToParse] pattern:[$pattern]"
+    $arrayDifferences = Compare-Object -ReferenceObject $expectedResult -DifferenceObject $actualResult
+    if ($arrayDifferences -ne $null -and $arrayDifferences.Count -gt 0) {
+    
+        Write-Host "Differences in expected and actual arrays:"
+        $arrayDifferences | % { "$_"}
+        if ($testMustPass) {
+            Write-Host "*** Test failed unexpectedly. Exiting ***"
+            return
+        }
+        
     }
     Write-Host "[expected and actual result:$expectedResult]"
    
@@ -378,7 +408,7 @@ $newToken = "Spain"
 
 Test-RegexReplace $input $oldToken $newToken $expectedResult
 
-# Pattern-based replace...
+# Pattern-based replace - \b denotes break
 $input = [string] "Tottenham0 WestHam2 Leicester3 Chelsea4"
 $pattern = "([A-Za-z]+)(\d+)\b";
 $rule = "`$1`:`$2"
@@ -389,10 +419,24 @@ Test-RegexPatternReplace $input $pattern $rule $expectedResult
 # Pattern-based replace - named groups...
 $input = [string] "Tottenham0 WestHam2 Leicester3 Chelsea4"
 $pattern = "(?<team>[A-Za-z]+)(?<score>\d+)\b";
-$rule = "`${teamx}`:`${score}"
+$rule = "`${team}`:`${score}"
 $expectedResult = "Tottenham:0 WestHam:2 Leicester:3 Chelsea:4"
 
 Test-RegexPatternReplace $input $pattern $rule $expectedResult
+
+#split...
+$input = "France,        yes, France,      will,     win,    the,    World,   Cup"
+$pattern = "`,`\s+"
+$expectedResult = [array] "France","yes","France","will","win","the","World","Cup"
+$testShouldPass = $true
+# Expected to pass...
+Test-RegexSplit $input $pattern $expectedResult
+
+# Expected to fail...
+$expectedResult = [array] "France","no","France","will","win","the","World","Cup"
+$testShouldPass = $false
+# Expected to pass...
+Test-RegexSplit $input $pattern $expectedResult $testShouldPass
 
 return
 
