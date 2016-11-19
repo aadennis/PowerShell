@@ -46,8 +46,23 @@ function Test-RegexReplace($inputToReplace, $oldToken, $newToken, $expectedResul
    
 
     write-host "*******************************************" -ForegroundColor Yellow 
+}
 
+function Test-RegexPatternReplace($stringToChange, $pattern, $rule, $expectedResult) {
+    $Global:testId++
 
+    $actualResult = [Regex]::Replace($stringToChange, $pattern, $rule)
+
+    Write-Host "Test [$Global:testId] stringToChange:[$stringToChange] pattern:[$pattern]"
+    if ($expectedResult -ne $actualResult) {
+    
+        Write-Host "[expected result:$expectedResult][actual result:$actualResult]"
+        throw "*** Last test failed. exiting... ***"
+    }
+    Write-Host "[expected and actual result:$expectedResult]"
+   
+
+    write-host "*******************************************" -ForegroundColor Yellow 
 }
 
 $pattern = "cricket"
@@ -333,7 +348,7 @@ Test-RegexMatch $pattern $input $message $expectedResult
 
 $input = "-`$29.."
 $expectedResult = "TRUE"
-$message = "digits after the dot are optional - found none - OK"
+$message = "digits after the dot are optional - found none - OK" 
 Test-RegexMatch $pattern $input $message $expectedResult
 
 $input = "-`$29.44"
@@ -362,6 +377,14 @@ $newToken = "Spain"
 
 
 Test-RegexReplace $input $oldToken $newToken $expectedResult
+
+# Pattern-based replace...
+$input = [string] "Tottenham0 WestHam2 Leicester3 Chelsea4"
+$pattern = "([A-Za-z]+)(\d+)\b";
+$rule = "`$1`:`$2"
+$expectedResult = "Tottenham:0 WestHam:2 Leicester:3 Chelsea:4"
+
+Test-RegexPatternReplace $input $pattern $rule $expectedResult
 
 return
 
@@ -420,4 +443,3 @@ $candidateMatch
 #false because [cket] cannot be found...
 $candidateMatch = $regexPattern.IsMatch("cric     ket")
 $candidateMatch
-
