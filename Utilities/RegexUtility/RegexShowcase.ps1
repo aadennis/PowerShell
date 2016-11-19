@@ -68,14 +68,11 @@ function Test-RegexPatternReplace($stringToChange, $pattern, $rule, $expectedRes
     write-host "*******************************************" -ForegroundColor Yellow 
 }
 
-function Test-RegexSplit($stringToParse, $pattern, [array] $expectedResult, [bool] $testMustPass = $true) {
+function Test-RegexSplit($stringToParse, $pattern, [array] $expectedResult, [bool] $testMustFail = $false) {
     $Global:testId++
     $actualResult = @()
 
-    $actualResult = [array] $( [Regex]::Split($stringToParse, $pattern))
-
-    
-   
+    $actualResult = [array] $( [Regex]::Split($stringToParse.trim(), $pattern))
 
     Write-Host "Test [$Global:testId] stringToParse:[$stringToParse] pattern:[$pattern]"
     $arrayDifferences = Compare-Object -ReferenceObject $expectedResult -DifferenceObject $actualResult
@@ -83,8 +80,8 @@ function Test-RegexSplit($stringToParse, $pattern, [array] $expectedResult, [boo
     
         Write-Host "Differences in expected and actual arrays:"
         $arrayDifferences | % { "$_"}
-        if ($testMustPass) {
-            Write-Host "*** Test failed unexpectedly. Exiting ***"
+        if (-not $testMustFail) {
+            Write-Host "*** Test failed unexpectedly. Exiting ***" -ForegroundColor Red -BackgroundColor Gray
             return
         }
         
@@ -425,18 +422,19 @@ $expectedResult = "Tottenham:0 WestHam:2 Leicester:3 Chelsea:4"
 Test-RegexPatternReplace $input $pattern $rule $expectedResult
 
 #split...
-$input = "France,        yes, France,      will,     win,    the,    World,   Cup"
+
+
+$input = "France,        yes, France,      will,     win,    the,    World,   Cup  "
 $pattern = "`,`\s+"
-$expectedResult = [array] "France","yes","France","will","win","the","World","Cup"
-$testShouldPass = $true
+
 # Expected to pass...
+$expectedResult = [array] "France","yes","France","will","win","the","World","Cup"
 Test-RegexSplit $input $pattern $expectedResult
 
 # Expected to fail...
 $expectedResult = [array] "France","no","France","will","win","the","World","Cup"
-$testShouldPass = $false
-# Expected to pass...
-Test-RegexSplit $input $pattern $expectedResult $testShouldPass
+$testMustFail = $true
+Test-RegexSplit $input $pattern $expectedResult $testMustFail
 
 return
 
