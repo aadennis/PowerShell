@@ -23,8 +23,8 @@ $fso = $null
 "root folder: [$rootDir]"
 $foldersBySizeDescending = $fx.GetEnumerator() | Sort-Object Key -Descending
 $foldersBySizeDescending
-"Folders originally counted: [$($foldersBySizeDescending.Count)]"
-"Folders in the dictionary: [$($folderSet.Count)]"
+"Folders originally counted: [$($folderSet.Count)]"
+"Folders in the dictionary: [$($foldersBySizeDescending.Count)]"
 
 
 if ($foldersBySizeDescending.Count -lt $folderSet.Count) {
