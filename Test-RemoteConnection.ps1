@@ -25,8 +25,6 @@ function Test-It ($remoteComputer, $cred) {
 
 function Test-RemoteConnection ($remoteComputer, $cred) {
     Set-TrustedHost $remoteComputer
-    $cred.Password
-
     Test-It -remoteComputer $remoteComputer -cred $cred
 }
 
