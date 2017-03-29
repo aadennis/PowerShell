@@ -32,9 +32,7 @@ function Test-RemoteConnection ($remoteComputer, $cred) {
 # Test execution...
 if ($cred -eq $null) {
     $cred =  Get-Credential -Message "Enter username and password to the remote server"
-
 }
-
 Test-RemoteConnection "I7" $cred
 
 
