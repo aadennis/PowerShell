@@ -51,13 +51,17 @@ $allowedNodeSet | % {
                 Type = "Directory"
                 Recurse = $false
             }
+
+            # see - https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource
+            # Windows audio is a useful example of a service under DSC as it seems quite maleable
+            Service ServiceTesty {
+                Name = "AudioSrv"
+                State = "Stopped" #"Running"
+                StartupType = "Disabled" #"Manual"
+            }
         }
     }
 
     BasicDscConfig -InstanceName $currentNode
     Start-DscConfiguration -Path .\BasicDscConfig -Wait -Verbose -Force #-Credential $cred
 }
-
-
-
-
