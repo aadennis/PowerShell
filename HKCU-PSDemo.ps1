@@ -9,7 +9,7 @@ Configuration Set-Color {
 
     Node ("localhost")
     {
-        Registry registoryColorSetting {
+        Registry registryColorSetting {
 
             Key = "HKEY_CURRENT_USER\\Software\Microsoft\\Command Processor"
             ValueName = "DefaultColor"
