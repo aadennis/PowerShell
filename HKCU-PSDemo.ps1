@@ -1,11 +1,15 @@
+function Set-Cred($username, $password) {
+    $secpasswd = ConvertTo-SecureString $password -AsPlainText -Force
+    New-Object System.Management.Automation.PSCredential ($username, $secpasswd)
+}
+
 Configuration Set-Color {
-    Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
-    $secpasswd = ConvertTo-SecureString "xxxx" -AsPlainText -Force
-    $cred = New-Object System.Management.Automation.PSCredential ("person1", $secpasswd)
+    Import-DscResource –ModuleName 'PSDesiredStateConfiguration'
+    $cred = Set-Cred "auser" "apassword"
 
     Node ("localhost")
     {
-        Registry registryColorSetting {
+        Registry registoryColorSetting {
 
             Key = "HKEY_CURRENT_USER\\Software\Microsoft\\Command Processor"
             ValueName = "DefaultColor"
@@ -14,7 +18,7 @@ Configuration Set-Color {
             Ensure = "Present"
             Force = $true
             Hex = $true
-            PsDscRunAsCredential = $cred # requires WMF 5.1 / PS 5.1
+            PsDscRunAsCredential = $cred # requires WMF 5.1
         }
     }
 }
