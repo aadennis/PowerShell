@@ -2,6 +2,58 @@ Set-StrictMode -Version latest
 
 <#
 .Synopsis
+   Copy the timestamp from a source AVI file to the converted equivalent MP4 file.
+.Description
+   The purpose is so that I can easily associate the AVI and the equivalent MP4 file by timestamp, 
+   when sorting or searching.
+.Example
+   Copy-SourceTimeStampToTarget "c:\temp\source.avi" "c:\temp\target.mp4"
+#>
+function Copy-SourceTimeStampToTarget ($sourceAvi, $targetMp4) {
+    $srcTime = Get-Item  $sourceAvi
+    $targetTime = Get-Item $targetMp4
+    $targetTime.LastWriteTime = $srcTime.LastWriteTime
+    $targetTime.CreationTime = $srcTime.CreationTime
+}
+
+<#
+.Synopsis
+   Given the named folder, count the number of files of the named type
+.Example
+   Get-FileTypeCount "c:\temp" "mp4"
+#>
+function Get-FileTypeCount ($folder, $extension) {
+    $set = (Get-ChildItem $folder -Filter "*.$extension") | Measure-Object
+    $setCount = $set.Count
+    "In folder [$folder], there are [$setCount] files of type [$extension]"
+    start-sleep 2
+}
+
+<#
+.Synopsis
+   Given the full path of a file, return its name only, including extension.
+   For the example below, "source.avi" would be returned.
+.Example
+   Get-FileNameFromFullPath "c:\temp\source.avi"
+#>
+function Get-FileNameFromFullPath ($file) {
+    Split-Path -Path $file -Leaf
+}
+
+<#
+.Synopsis
+   Given the full path of a file, return all parent folders, but not the filename.
+   For the example below, "c:\temp" would be returned.
+.Example
+   Remove-FileNameFromFullPath "c:\temp\source.avi"
+#>
+function Remove-FileNameFromFullPath ($file) {
+    [System.IO.Path]::GetDirectoryName($file)
+}
+
+
+<#
+.Synopsis
     If the passed file is empty, throw an exception
 .Example
     Test-EmptyFile -f "c:\temp\empty.txt"
