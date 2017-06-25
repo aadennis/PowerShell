@@ -2,6 +2,20 @@ Set-StrictMode -Version latest
 
 <#
 .Synopsis
+   Compare a reference folder and children, with a copy of that reference, to bring out any diffs
+.Description
+   A wrapper for Compare-Object for recursed folders
+.Example
+   Compare-FolderPair "c:\MyRefFolder" "c:\MyTargetFolder"
+#>
+function Compare-FolderPair ($refPath, $copyPath) {
+   $refSet = Get-ChildItem -Recurse -path $refPath
+   $copySet = Get-ChildItem -Recurse -path $copyPath
+   Compare-Object -ReferenceObject $refSet -DifferenceObject $copySet
+}
+
+<#
+.Synopsis
    Copy the timestamp from a source AVI file to the converted equivalent MP4 file.
 .Description
    The purpose is so that I can easily associate the AVI and the equivalent MP4 file by timestamp, 
