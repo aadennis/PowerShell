@@ -1,10 +1,44 @@
 Set-StrictMode -Version latest
 
-function Get-FolderSizeOfFirstLevelChildren {
-# Given a root folder, list the sizes in MB, sorted by descending size,
-# of each of the child folders, but not *their" children
+<#
+.Synopsis
+   Rename all the files in the given folder to have the given extension.
+   It handles the source extension, and the new extension, being empty. In this case, make sure you do not supply a 
+   trailing dot (#todo - support this possibility)
+.Example
+   Move-FileSetToNewExtension $currDir $originalExtension $newExtension
+#>
+function Move-FileSetToNewExtension ($currDir, $originalExtension, $newExtension) {
+   cd $currDir
+   $fileSet = gci -Path . -Filter *
+   #$fileSet
+   
+   $fileSet | % {
+      $currFile = $_.Name
+      if ($currFile.Contains(".")) {
+         $currFileBase = $($currFile.Split("."))[0]
+      } else {
+         $currFileBase = $currFile
+      }
+      
+      if (!$currFile.EndsWith($originalExtension)) {
+         "skipping..."
+         return
+      }
+      $newFile = "$currFileBase$newExtension"
+      #$newFile
+      move-item -Path $currDir\$currFile $currDir\$newFile
+   }
+}
 
-   $rootDir = "C:\"
+<#
+.Synopsis
+   Given a root folder, list the sizes in MB, sorted by descending size,
+   of each of the child folders, but not *their" children
+#>   
+function Get-FolderSizeOfFirstLevelChildren {
+
+$rootDir = "C:\"
    $fso = New-Object -ComObject Scripting.FileSystemObject
    $fx = [ordered] @{}
 
@@ -100,7 +134,6 @@ function Get-FileNameFromFullPath ($file) {
 function Remove-FileNameFromFullPath ($file) {
     [System.IO.Path]::GetDirectoryName($file)
 }
-
 
 <#
 .Synopsis
