@@ -2,6 +2,19 @@ Set-StrictMode -Version latest
 
 <#
 .Synopsis
+   Compare a reference folder and children, with another folder and children.
+.Example
+   Compare-ReferenceFolderTreeToAnotherTree -r "G:\VideosCollection\TheRest\MP4" -c "e:\set3"
+#>
+function Compare-ReferenceFolderTreeToAnotherTree ($referenceFolder, $targetFolder) {
+   $refSet = Get-ChildItem -Recurse -path $referenceFolder
+   $targetSet = Get-ChildItem -Recurse -path $targetFolder
+
+   Compare-Object -ReferenceObject $refSet -DifferenceObject $targetSet
+}
+
+<#
+.Synopsis
    Rename all the files in the given folder to have the given extension.
    It handles the source extension, and the new extension, being empty. In this case, make sure you do not supply a 
    trailing dot (#todo - support this possibility)
