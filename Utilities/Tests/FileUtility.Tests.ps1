@@ -1,30 +1,33 @@
 $Global:configFilePath = "..\Metadata\Friends.spec.json"
 Describe "Basic File Checks" {
-    #https://github.com/pester/Pester/wiki/TestDrive
-    It "throws an exception if the file is empty" { 
-        $emptyFile = "TestDrive:\empty.txt" # Join-Path "$TestDrive" "empty.txt"
-        New-Item -Path $emptyFile
-        try {
-            $ranOk = $false
-            Test-EmptyFile($emptyFile)
-            $ranOk = $true
-        }
-        catch{}
-        $ranOk | Should be $false
-    }
 
-    It "does nothing if the file has content" {
-        $fileWithContent = "TestDrive:\stuff.txt"
-        New-Item -Path $fileWithContent
-        Set-Content -Value "stuff" -Path $fileWithContent
-        try {
-            Test-EmptyFile($fileWithContent)
-            $ranOk = $true
-        } 
-        catch{
-            $ranOk = $false
+    Context "Test-EmptyFile function" {
+        #https://github.com/pester/Pester/wiki/TestDrive
+        It "throws an exception if the file is empty" { 
+            $emptyFile = "TestDrive:\empty.txt" # Join-Path "$TestDrive" "empty.txt"
+            New-Item -Path $emptyFile
+            try {
+                $ranOk = $false
+                Test-EmptyFile($emptyFile)
+                $ranOk = $true
+            }
+            catch{}
+            $ranOk | Should be $false
         }
-        $ranOK | Should be $true
+
+        It "does nothing if the file has content" {
+            $fileWithContent = "TestDrive:\stuff.txt"
+            New-Item -Path $fileWithContent
+            Set-Content -Value "stuff" -Path $fileWithContent
+            try {
+                Test-EmptyFile($fileWithContent)
+                $ranOk = $true
+            } 
+            catch{
+                $ranOk = $false
+            }
+            $ranOK | Should be $true
+        }
     }
 }
 

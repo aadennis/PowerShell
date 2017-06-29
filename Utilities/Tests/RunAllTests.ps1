@@ -1,5 +1,6 @@
 ﻿#https://github.com/pester/Pester/wiki/Invoke-Pester
 # Execute this from the folder [Tests]
+cd $PSScriptRoot
 
 try {
 . ..\DateFormatUtility\DateFormatUtility.ps1
@@ -10,7 +11,9 @@ try {
     throw
 }
 # Execute all the tests
-$result = Invoke-Pester -PassThru -Strict
+$outputName = Get-Random
+$outputFile = "$PSScriptRoot/$outputName.xml"
+$result = Invoke-Pester -PassThru -Strict -OutputFile $outputFile
 
 # Did any tests fail? If so, in a more rigorous scenario, the throw would be replaced
 # with some way to tell the build to fail
@@ -23,6 +26,7 @@ if ($failedCount -gt 0) {
     Throw
 }
 Write-Host $msg -f Green -b Blue
+"Results file is at [$outputFile]"
  
 
 
