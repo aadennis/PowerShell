@@ -26,5 +26,9 @@ function New-PsLog ([string]$LogName) {
 function Add-PsLogMessage(
     [string]$LogName,
     [string]$Message) {
-    Write-EventLog -LogName $LogName -Source $LogName -Message $Message -EventId 1
+        $logExists = [System.Diagnostics.EventLog]::SourceExists($LogName)
+        if (!$logExists) {
+            New-PsLog -LogName $LogName
+        }
+        Write-EventLog -LogName $LogName -Source $LogName -Message $Message -EventId 1
 }

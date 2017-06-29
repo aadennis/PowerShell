@@ -1,5 +1,7 @@
 ﻿#https://github.com/pester/Pester/wiki/Should
 
+. ..\LogUtility\LogUtility.ps1
+
 Describe "Logging Utility" {
     $logName = "LogForTesting"
     
@@ -20,7 +22,8 @@ Describe "Logging Utility" {
         # Assert
         [Object[]] $Events = Get-WinEvent -LogName $logName | where -Property Message -like "*$uniqueMsg" 
         $Events.count | should be 1
-
-
     }
 }
+
+
+

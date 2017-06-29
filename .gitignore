@@ -47,3 +47,6 @@ Temporary Items
 .apdisk
 x.ps1
 Utilities/test.ps1
+*.xml
+*.txt
+.vscode/launch.json
