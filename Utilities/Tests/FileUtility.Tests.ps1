@@ -1,3 +1,5 @@
+. ..\FileUtility\FileUtility.ps1
+
 $Global:configFilePath = "..\Metadata\Friends.spec.json"
 Describe "Basic File Checks" {
 
