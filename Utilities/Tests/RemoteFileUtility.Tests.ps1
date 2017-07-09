@@ -1,4 +1,5 @@
-$Global:configFilePath = "..\Metadata\Friends.spec.json"
+. ../LogUtility/LogUtility.ps1
+
 Describe "Folder Copy Checks" {
     #https://github.com/pester/Pester/wiki/TestDrive
     It "recursively copies files with the specified extension into a single specified folder " { 
@@ -20,15 +21,7 @@ Describe "Folder Copy Checks" {
             New-Item -Path $sourceSubFolder2\$file -ItemType File
         } 
 
-        gci -Path $sourceFolder -Recurse  | % { Add-PsLogMessage -LogName "YoutubeDemo" -Message $($_.FullName)}
-
-        try {
-            $ranOk = $false
-            Test-EmptyFile($emptyFile)
-            $ranOk = $true
-        }
-        catch{}
-        $ranOk | Should be $false
+        Get-ChildItem -Path $sourceFolder -Recurse  | ForEach-Object { Add-PsLogMessage -LogName "YoutubeDemo" -Message $($_.FullName)}
     }
 
 

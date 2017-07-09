@@ -1,4 +1,6 @@
-﻿Describe "Date Format Utility" {
+﻿. ../DateFormatUtility/DateFormatUtility.ps1 
+
+Describe "Date Format Utility" {
     It "converts an incoming date with format [0*]yyyyMMddHHmmss to dd/MM/yyyy" {
         convertFrom-yymmddhhmmssFormat "000000000020120808235959" | should be "08/08/2012"
         convertFrom-yymmddhhmmssFormat "000000000020011231225953" | should be "31/12/2001"
