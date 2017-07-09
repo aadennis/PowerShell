@@ -157,7 +157,8 @@ function Remove-FileNameFromFullPath ($file) {
 function Test-EmptyFile($fileToCheck){
     $content = Get-Content $fileToCheck
     if ([string]::IsNullOrEmpty($content)) {
-        throw("[$fileToCheck] is empty")
+        $errorMessage = "[$fileToCheck] is empty"
+        throw($errorMessage)
     }
 }
 
@@ -219,14 +220,12 @@ Param (
         $index = 0
         $currentRecordIn -split "," | % {
             $currentField = $_
-            if ($currentField.length -eq 0) {
-                break
+            if ($currentField.length -gt 0) {
+                $currentRecordOut += $currentField.PadRight($fields[$index++].Length)
             }
-            $currentRecordOut += $currentField.PadRight($fields[$index++].Length)
         }
         $fwFileContent += $currentRecordOut
     }
-
     $fwFileContent | out-file -FilePath $outputFWPath -Force
 }
 

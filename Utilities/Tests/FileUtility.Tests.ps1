@@ -8,13 +8,8 @@ Describe "FileUtility" {
         It "throws an exception if the file is empty" { 
             $emptyFile = "TestDrive:\empty.txt" # Join-Path "$TestDrive" "empty.txt"
             New-Item -Path $emptyFile
-            try {
-                $ranOk = $false
-                Test-EmptyFile($emptyFile)
-                $ranOk = $true
-            }
-            catch {}
-            $ranOk | Should be $false
+            # Note that the test call must be wrapped in script braces {}
+            {Test-EmptyFile($emptyFile)} | Should Throw "[$emptyFile] is empty"
         }
 
         It "does nothing if the file has content" {
@@ -31,8 +26,6 @@ Describe "FileUtility" {
             $ranOK | Should be $true
         }
     }
-
-
 
     Context "Get-FixedWidthJsonConfig" {
         It "fails when no config file is included" {
@@ -68,19 +61,22 @@ Describe "FileUtility" {
             $fields[2].length | should be "10"
             $fields[4].pos | should be "59"
         } 
-
-    
     }
 
     Context " Copy-CsvWithJsonConfigToFixedWidth" {
         It "gets data into an object" {
+            
             $csvPath = ".\data\SmallFile.csv"
             $outputFWPath = ".\data\FWFile001.txt"
+            Remove-Item -Path $outputFWPath -Force -ErrorAction SilentlyContinue
 
             Copy-CsvWithJsonConfigToFixedWidth $Global:configFilePath $csvPath $outputFWPath
             $content = Get-Content $outputFWPath
-            $content | should be "asdfafd"
-            $content -match "a" | should be $true 
+            # Next line is a full match, not a partial string
+            $content | should be "0001James      Thurber   jt@mail.com                       male  9988Jeanne     Darc      jd@franceinter.fr                 female"
+            # Next line is a match for the search string, anywhere inside the $content string.
+            # -match is case-INsensitive
+            $content -match "urB" | should be $true 
         }
     }
 }
