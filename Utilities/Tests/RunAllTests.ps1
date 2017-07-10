@@ -13,7 +13,7 @@ try {
 # Execute all the tests
 $outputName = Get-Random
 $outputFile = "$PSScriptRoot/$outputName.xml"
-$result = Invoke-Pester -PassThru -Strict -OutputFile $outputFile
+$result = Invoke-Pester -PassThru -Strict -OutputFile $outputFile -OutputFormat NUnitXml
 
 # Did any tests fail? If so, in a more rigorous scenario, the throw would be replaced
 # with some way to tell the build to fail
