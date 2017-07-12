@@ -6,7 +6,7 @@ Describe "FileUtility" {
     Context "Test-EmptyFile" {
         #https://github.com/pester/Pester/wiki/TestDrive
         It "throws an exception if the file is empty" { 
-            $emptyFile = "TestDrive:\empty.txt" # Join-Path "$TestDrive" "empty.txt"
+            $emptyFile = "TestDrive:\empty.txt" 
             New-Item -Path $emptyFile
             # Note that the test call must be wrapped in script braces {}
             {Test-EmptyFile($emptyFile)} | Should Throw "[$emptyFile] is empty"
@@ -16,14 +16,7 @@ Describe "FileUtility" {
             $fileWithContent = "TestDrive:\stuff.txt"
             New-Item -Path $fileWithContent
             Set-Content -Value "stuff" -Path $fileWithContent
-            try {
-                Test-EmptyFile($fileWithContent)
-                $ranOk = $true
-            } 
-            catch {
-                $ranOk = $false
-            }
-            $ranOK | Should be $true
+            {Test-EmptyFile($fileWithContent)} | Should Not Throw
         }
     }
 
