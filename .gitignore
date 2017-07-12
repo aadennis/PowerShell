@@ -50,3 +50,6 @@ Utilities/test.ps1
 *.xml
 *.txt
 .vscode/launch.json
+*.exe
+*.nupkg
+*.html
