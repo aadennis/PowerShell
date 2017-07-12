@@ -72,4 +72,13 @@ Describe "FileUtility" {
             $content -match "urB" | should be $true 
         }
     }
+
+    Context "Compare-ReferenceFolderTreeToAnotherTree" {
+        It "returns one thing if the folder comparison has no differences" {
+
+        }
+         It "returns another thing if the folder comparison have no differences" {
+
+        }
+    }
 }
