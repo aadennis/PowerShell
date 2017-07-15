@@ -2,9 +2,17 @@
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 . "$here\$sut"
 
+function Remove-Function ($FunctionName) {
+	$functionInCache = "Function:\$FunctionName"
+	if (Test-Path $functionInCache) {
+		Remove-Item -Path $functionInCache
+	}
+}
+
 # The functions to be mocked must exist...
-Remove-Item -Path Function:\Get-Version
-Remove-Item -Path Function:\Get-NextVersion
+Remove-Function "Get-Version"
+Remove-Function "Get-NextVersion"
+
 function Get-Version {}
 function Get-NextVersion {}
 
