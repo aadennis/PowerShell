@@ -22,7 +22,7 @@ Describe "BuildIfChanged" {
     	Mock Get-NextVersion { return 1.1 }
     	Mock Build {}
 
-    	$result = BuildIfChanged
+    	BuildIfChanged
 
 	    It "Should not build the next version" {
 	        Assert-MockCalled Build -Times 0 -ParameterFilter {$version -eq 1.1}
