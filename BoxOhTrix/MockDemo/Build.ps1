@@ -11,7 +11,3 @@ function BuildIfChanged {
 	return $nextVersion
 }
 
-# The 
-function Get-Version {}
-
-function Get-NextVersion {}
