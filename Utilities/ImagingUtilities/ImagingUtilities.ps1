@@ -1,4 +1,5 @@
-﻿
+﻿. ../FileUtility/FileUtility.ps1
+
 # private function
 $gsDir = "C:\Program Files\gs\gs9.21\bin\" 
 
