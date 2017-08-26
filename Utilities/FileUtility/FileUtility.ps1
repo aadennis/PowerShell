@@ -229,3 +229,25 @@ Param (
     $fwFileContent | out-file -FilePath $outputFWPath -Force
 }
 
+<#
+.SYNOPSIS
+Return a file name, without its extension
+
+.DESCRIPTION
+If the input filename is e.g. test.txt, then the function returns test.
+The function works by looking for the left-most part of a string using a dot character as the delimiter.
+
+
+.PARAMETER fileName
+$fileNameNoExt =  Get-FileNameNoExtension -fileName "test.txt"
+
+.EXAMPLE
+An example
+
+.NOTES
+General notes
+#>
+function Get-FileNameNoExtension ($fileName) {
+    $($fileName.Split("."))[0]
+}
+

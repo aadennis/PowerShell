@@ -3,6 +3,15 @@
 $Global:configFilePath = "..\Metadata\Friends.spec.json"
 Describe "FileUtility" {
 
+    Context "Get-FileNameNoExtension" {
+        It "Returns the name of a file without its extension" {
+            $file = "testingFile.xxxisx"
+            $fileNameNoExt = Get-FileNameNoExtension $file
+            $fileNameNoExt | Should Be "testingFile"
+        }
+    }
+
+
     Context "Test-EmptyFile" {
         #https://github.com/pester/Pester/wiki/TestDrive
         It "throws an exception if the file is empty" { 
@@ -77,7 +86,7 @@ Describe "FileUtility" {
         It "returns one thing if the folder comparison has no differences" {
 
         }
-         It "returns another thing if the folder comparison have no differences" {
+        It "returns another thing if the folder comparison have no differences" {
 
         }
     }

@@ -7,9 +7,6 @@ $gsDir = "C:\Program Files\gs\gs9.21\bin\"
 $argumentListStart = "-dNOPAUSE -dBATCH -sDEVICE=png16m -r600 -dDownScaleFactor=3 -sOutputFile="
 #$argumentListStart = "-dNOPAUSE -dBATCH -sDEVICE=jpeg -dJPEGQ=100 -sOutputFile="
 
-function Get-FileNameNoExtension ($fileName) {
-    $($fileName.Split("."))[0]
-}
 
 function ConvertTo-PngFromPdf {
     Param (

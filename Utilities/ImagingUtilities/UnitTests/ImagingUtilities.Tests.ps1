@@ -14,12 +14,4 @@ Describe "ConvertTo-PngFromPdf" {
     }
 }
 
-#This to be moved to file utilities...
-Describe "Get-FileNameNoExtension" {
-    
-        It "Returns the name of a file without its extension" {
-            $file = "testingFile.xxxisx"
-            $fileNameNoExt = Get-FileNameNoExtension $file
-            $fileNameNoExt | Should Be "testingFile"
-        }
-    }
+
