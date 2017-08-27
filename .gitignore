@@ -53,3 +53,5 @@ Utilities/test.ps1
 *.exe
 *.nupkg
 *.html
+thing1/thing2.Tests.ps1
+thing1/thing2.ps1
