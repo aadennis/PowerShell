@@ -3,7 +3,7 @@ $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 $featureType = "Utilities"
 . "$here\..\$featureType\$sut"
 
-$Global:configFilePath = "Metadata\Friends.spec.json"
+$Global:configFilePath = "$here\Metadata\Friends.spec.json"
 Describe "FileUtility" {
 
     # todo - store a test pdf in the test artifacts folder, and use that.
@@ -72,8 +72,8 @@ Describe "FileUtility" {
     Context " Copy-CsvWithJsonConfigToFixedWidth" {
         It "gets data into an object" {
             
-            $csvPath = ".\Data\SmallFile.csv"
-            $outputFWPath = ".\Data\FWFile001.txt"
+            $csvPath = "$here\Data\SmallFile.csv"
+            $outputFWPath = "$here\Data\FWFile001.txt"
             Remove-Item -Path $outputFWPath -Force -ErrorAction SilentlyContinue
 
             Copy-CsvWithJsonConfigToFixedWidth $Global:configFilePath $csvPath $outputFWPath
