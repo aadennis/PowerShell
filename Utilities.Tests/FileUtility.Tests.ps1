@@ -1,14 +1,12 @@
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 $featureType = "Utilities"
-
-# todo - store a test pdf in the test artifacts folder, and use that.
-
 . "$here\..\$featureType\$sut"
 
 $Global:configFilePath = "Metadata\Friends.spec.json"
 Describe "FileUtility" {
 
+    # todo - store a test pdf in the test artifacts folder, and use that.
     Context "Get-FileNameNoExtension" {
         It "Returns the name of a file without its extension" {
             $file = "testingFile.xxxisx"
