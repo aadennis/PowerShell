@@ -1,6 +1,12 @@
-. ..\FileUtility\FileUtility.ps1
+$here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
+$featureType = "Utilities"
 
-$Global:configFilePath = "..\Metadata\Friends.spec.json"
+# todo - store a test pdf in the test artifacts folder, and use that.
+
+. "$here\..\$featureType\$sut"
+
+$Global:configFilePath = "Metadata\Friends.spec.json"
 Describe "FileUtility" {
 
     Context "Get-FileNameNoExtension" {
@@ -68,8 +74,8 @@ Describe "FileUtility" {
     Context " Copy-CsvWithJsonConfigToFixedWidth" {
         It "gets data into an object" {
             
-            $csvPath = ".\data\SmallFile.csv"
-            $outputFWPath = ".\data\FWFile001.txt"
+            $csvPath = ".\Data\SmallFile.csv"
+            $outputFWPath = ".\Data\FWFile001.txt"
             Remove-Item -Path $outputFWPath -Force -ErrorAction SilentlyContinue
 
             Copy-CsvWithJsonConfigToFixedWidth $Global:configFilePath $csvPath $outputFWPath
