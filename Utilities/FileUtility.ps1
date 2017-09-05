@@ -251,3 +251,101 @@ function Get-FileNameNoExtension ($fileName) {
     $($fileName.Split("."))[0]
 }
 
+<#
+.SYNOPSIS
+Show the content of a file, converted from fixed width to csv, in order to display
+   it through out-gridview.
+
+.DESCRIPTION
+    You must specify the data file, a file containing the widths of each of the columns,
+   and optionally the number of header lines to ignore from the format file (default 0) and the maximum number of
+   records to return from the input data file (in case the file is very large, and you just want
+   a sample of the data).
+
+.PARAMETER dataFile
+Parameter description
+
+.PARAMETER formatFile
+Parameter description
+
+.PARAMETER formatHeaderLinesToIgnore
+Parameter description
+
+.PARAMETER maxRecords
+Parameter description
+
+.EXAMPLE
+An example
+
+.NOTES
+General notes
+#>
+function Show-File
+{
+    [CmdletBinding(SupportsShouldProcess=$True)]
+    Param (
+        [Parameter(Mandatory=$true)]
+        [ValidateScript({Test-Path $_ })]
+        [string] $dataFile,
+ 
+        [Parameter(Mandatory=$true)]
+        [ValidateScript({Test-Path $_ })]
+        [string] $formatFile,
+ 
+        [Parameter(Mandatory=$false)]
+        [int] $formatHeaderLinesToIgnore = 0,
+ 
+        [Parameter(Mandatory=$false)]
+        [int] $maxRecords = 100
+    )
+    $outputDataFile = New-Item -ItemType File $env:Temp\output.dat -Force
+ 
+    $columnNameIndex = 0
+    $columnWidthIndex = 1
+ 
+    $formatRuleSet = Get-Content $formatFile | Select-Object -Skip $formatHeaderLinesToIgnore
+ 
+    $formatRulesArray = @()
+    $first = $True
+    $formatRuleSet | % {
+        $columnOffset =
+            if ($first -eq $true) {
+                0
+            } else {
+                $columnOffset + $rule[$columnWidthIndex]
+            }
+        $first = $false
+        $rule = $_.split(",")
+        $formatRulesArray += New-Object psobject -Property @{
+            columnName =
+                if ([System.String]::IsNullOrEmpty($rule[$columnNameIndex])) {
+                    [string]::format("dummy{0}", [system.guid]::NewGuid()) } else {
+                    $rule[$columnNameIndex]
+                }
+            columnWidth = $rule[$columnWidthIndex]
+            colOffset = $columnOffset
+        }
+    }
+ 
+    $msg = [string]::Format("Starting to write data... [{0}]", [System.DateTime]::utcnow); Write-Verbose $msg
+ 
+    Clear-Content $outputDataFile
+ 
+    Get-Content $dataFile | Select-Object -First $maxRecords | foreach {
+        $tempData = $_
+        $currentRow = $formatRulesArray | foreach {
+            [string]::format("`"{0}`"", [string]($tempData.substring($_.colOffSet,$_.columnWidth)).Trim());
+        }
+        $tidiedData = [System.String]::Join(",", $currentRow)
+        Add-Content $outputDataFile $tidiedData
+    }
+    $quoteHeader = $formatRulesArray | % {
+        [string]::format("`"{0}`"", [string]$_.columnName)
+    } 
+ 
+    $msg = [string]::Format("Finished writing data; starting import for rendering... [{0}]", [System.DateTime]::utcnow); Write-Verbose $msg
+ 
+    Import-Csv -Path $outputDataFile -Header $quoteHeader | Out-GridView
+ 
+    $msg = [string]::Format("Finished rendering... [{0}]", [System.DateTime]::utcnow); Write-Verbose $msg
+}
