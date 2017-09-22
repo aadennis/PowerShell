@@ -1,3 +1,4 @@
+Set-StrictMode -Version latest
 function Get-FileName($extension = "txt") {
     "{0}{1}_{2}.{3}" -f ($outputRootDir, $outputFileNamePrefix, $chunk, $extension)
 }
@@ -11,8 +12,8 @@ function Write-WavFile($textToSpeak) {
     $speech = $null
 }
 function Split-File (
+    $numberOfLinesPerSpeechFile = 1000,    
     $fileToSplit = 'C:\Temp\917-0.txt',
-    $splitMarker = "SPLITHERE",
     $outputFileNamePrefix = "BarnabyRudge",
     $outputRootDir = "c:\temp\"
 ) {
@@ -21,14 +22,18 @@ function Split-File (
     $chunk = 1
     $speech = New-Object -TypeName System.Speech.Synthesis.SpeechSynthesizer
     $speech.SelectVoice("Microsoft Hazel Desktop")
+    $speechBlock = [String]::Empty
+    $currentSpeechFileLineCount = 0
     while (($line = $reader.ReadLine()) -ne $null) {
-        if ($line -match $splitMarker) {
+        if ($currentSpeechFileLineCount -ge $numberOfLinesPerSpeechFile) {
             Write-WavFile $speechBlock
             $chunk++
             $speechBlock = [String]::Empty
+            $currentSpeechFileLineCount = 0
         }
         else {
             $speechBlock += $line + " "
+            $currentSpeechFileLineCount++
         }
     }
     Write-WavFile
