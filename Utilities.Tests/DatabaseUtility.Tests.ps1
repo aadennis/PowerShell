@@ -44,15 +44,27 @@ Describe "DatabaseUtility" {
             }
         }
 
-        It "throws an exception if no connection string is passed" {
+    }
+
+    Context "Execute-SQL" {
+        It "executes non-select SQL" {
+            $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnection
             try {
-                $dbConnection = Open-DbConnection
-                throw "Expected: database could not be opened. Actual: database was likely opened."
-            } 
-            catch {
-                $e = $_
-                $e.exception.Message | Should -Be 'Exception calling "Open" with "0" argument(s): "The ConnectionString property has not been initialized."'
-            }
+            Execute-SQL $dbConnection  "create database mahDb" } catch {}
+            try {
+            Execute-SQL $dbConnection  "create table [mahDb].[dbo].[mahTable] (id bigint identity, description nvarchar(80))" } catch {}
+            try {
+                Execute-SQL $dbConnection  "insert into [mahDb].[dbo].[mahTable] (description) values ('Twenty three pied pipers')" } catch {}
+            
+        }
+    }
+
+    Context "Read-SQL" {
+        It "Selects SQL" {
+            $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnection
+            $x = Read-SQL $dbConnection "select * from  [mahDb].[dbo].[mahTable]" 
+            Format-sql $x
+            
         }
     }
 
