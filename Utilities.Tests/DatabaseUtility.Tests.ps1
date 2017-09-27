@@ -11,9 +11,21 @@ Describe "DatabaseUtility" {
     $defaultDatabaseConnection = "Server=(localdb)\MSSQLLocalDB;Initial Catalog=tempdb;User Id = sa; Password={0};Connection Timeout=3;" -f $dbPassword
 
     Context "Open-DbConnection" {
-        It "opens the default database (the items in the passed connection string must be right for the environment under test)" {
+        It "opens the specified database (the items in the passed connection string must be right for the environment under test)" {
             $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnection
             $dbConnection.database | Should -Be "tempdb"
+        }
+
+        It "throws an exception if no connection string is passed" {
+            try {
+                
+                $dbConnection = Open-DbConnection
+                throw "Expected: database could not be opened. Actual: database was likely opened."
+            } 
+            catch {
+                $e = $_
+                $e.exception.Message | Should -Be 'Exception calling "Open" with "0" argument(s): "The ConnectionString property has not been initialized."'
+            }
         }
     }
 }
