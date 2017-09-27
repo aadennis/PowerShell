@@ -25,7 +25,7 @@ function Split-File (
     $speechBlock = [String]::Empty
     $currentSpeechFileLineCount = 0
     while (($line = $reader.ReadLine()) -ne $null) {
-        if ($currentSpeechFileLineCount -ge $numberOfLinesPerSpeechFile) {
+        if ($currentSpeechFileLineCount -gt $numberOfLinesPerSpeechFile) {
             Write-WavFile $speechBlock
             $chunk++
             $speechBlock = [String]::Empty
