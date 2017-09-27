@@ -5,3 +5,10 @@ function Open-DbConnection($sqlConnectionString) {
     $conn.Open()
     $conn
 }
+
+function Close-DbConnection($conn) {
+    $conn.Close()
+    $conn = $null
+    start-sleep 1
+    $conn
+}
