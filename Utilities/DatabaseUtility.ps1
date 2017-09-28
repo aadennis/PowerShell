@@ -29,10 +29,10 @@ function Read-SQL($conn, $sql) {
 }
 
 function Format-SQL($dataSet) {
+    $result = @()
     $dataSet | foreach {
-        $result = $null
         $currentRow = $_
-        $result +=  "{0}/{1}" -f $currentRow[0],$currentRow[1]
+        $result += "{0}^{1}" -f $currentRow[0],$currentRow[1]
     }
     $result
 }

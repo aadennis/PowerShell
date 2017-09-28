@@ -54,6 +54,8 @@ Describe "DatabaseUtility" {
             Execute-SQL $dbConnection $("create database {0}" -f  $workingDbName)
             Execute-SQL $dbConnection $("create table [{0}].[dbo].[mahTable] (id bigint identity, description nvarchar(80))" -f $workingDbName)
             Execute-SQL $dbConnection $("insert into [{0}].[dbo].[mahTable] (description) values ('Twenty three pied pipers')" -f $workingDbName)
+            Execute-SQL $dbConnection $("insert into [{0}].[dbo].[mahTable] (description) values ('Twenty four pied pipers')" -f $workingDbName)
+            
            
         }
     }
@@ -63,8 +65,8 @@ Describe "DatabaseUtility" {
             $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnection
             $result = Read-SQL $dbConnection $("select * from  [{0}].[dbo].[mahTable]" -f $workingDbName)
             $formattedResult = Format-sql $result
-            $formattedResult | Should -Be "1/Twenty three pied pipers"
-            
+            $formattedResult[0] | Should -Be "1^Twenty three pied pipers"
+            $formattedResult[1] | Should -Be "2^Twenty four pied pipers"
         }
     }
 
