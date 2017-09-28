@@ -6,7 +6,7 @@ $featureType = "Utilities"
 . "$here\..\$featureType\$sut"
 . "$here\Configuration\DbConfig.ps1"
 
-$workingDbName = "TestDb_{0}" -f $(Get-Random)
+$workingDbName = [string]::Empty
 
 Describe "DatabaseUtility" {
     # don't want to hang around waiting for 30 seconds...
@@ -70,11 +70,11 @@ Describe "DatabaseUtility" {
         }
     }
 
-    <#
-    BeforeEach {
-        if ($workingDbName = $null) {
+    
+    BeforeAll {
+
             $workingDbName = "TestDb_{0}" -f $(Get-Random)
-        }
+
     }
 
     AfterEach {
