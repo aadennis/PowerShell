@@ -21,7 +21,7 @@ Describe "DatabaseUtility" {
 
         It "throws an exception if no connection string is passed" {
             try {
-                $dbConnection = Open-DbConnection
+                Open-DbConnection
                 throw "Expected: database could not be opened. Actual: database was likely opened."
             } 
             catch {

@@ -28,11 +28,11 @@ function Read-SQL($conn, $sql) {
     $table
 }
 
-function Format-SQL($dataSet) {
+function Format-SQL($dataSet, $delimiter = "^") {
     $result = @()
     $dataSet | foreach {
         $currentRow = $_
-        $result += "{0}^{1}" -f $currentRow[0],$currentRow[1]
+        $result += "{0}{1}{2}" -f $currentRow[0],$delimiter,$currentRow[1]
     }
     $result
 }
