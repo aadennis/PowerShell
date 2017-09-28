@@ -68,4 +68,16 @@ Describe "DatabaseUtility" {
         }
     }
 
+    <#
+    BeforeEach {
+        if ($workingDbName = $null) {
+            $workingDbName = "TestDb_{0}" -f $(Get-Random)
+        }
+    }
+
+    AfterEach {
+        #$afterEachVariable = 'AfterEach has been executed'
+    }
+#>
+
 }
