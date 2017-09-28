@@ -29,8 +29,10 @@ function Read-SQL($conn, $sql) {
 }
 
 function Format-SQL($dataSet) {
-    $dataSet | % {
+    $dataSet | foreach {
+        $result = $null
         $currentRow = $_
-        write-host "Content of current row:" + $currentRow[0] + "/" + $currentRow[1]
+        $result +=  "{0}/{1}" -f $currentRow[0],$currentRow[1]
     }
+    $result
 }

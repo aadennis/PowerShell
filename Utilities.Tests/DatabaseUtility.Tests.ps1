@@ -4,8 +4,9 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 $featureType = "Utilities"
 . "$here\..\$featureType\$sut"
-
 . "$here\Configuration\DbConfig.ps1"
+
+$workingDbName = "TestDb_{0}" -f $(Get-Random)
 
 Describe "DatabaseUtility" {
     # don't want to hang around waiting for 30 seconds...
@@ -49,21 +50,20 @@ Describe "DatabaseUtility" {
     Context "Execute-SQL" {
         It "executes non-select SQL" {
             $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnection
-            try {
-            Execute-SQL $dbConnection  "create database mahDb" } catch {}
-            try {
-            Execute-SQL $dbConnection  "create table [mahDb].[dbo].[mahTable] (id bigint identity, description nvarchar(80))" } catch {}
-            try {
-                Execute-SQL $dbConnection  "insert into [mahDb].[dbo].[mahTable] (description) values ('Twenty three pied pipers')" } catch {}
-            
+          
+            Execute-SQL $dbConnection $("create database {0}" -f  $workingDbName)
+            Execute-SQL $dbConnection $("create table [{0}].[dbo].[mahTable] (id bigint identity, description nvarchar(80))" -f $workingDbName)
+            Execute-SQL $dbConnection $("insert into [{0}].[dbo].[mahTable] (description) values ('Twenty three pied pipers')" -f $workingDbName)
+           
         }
     }
 
     Context "Read-SQL" {
         It "Selects SQL" {
             $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnection
-            $x = Read-SQL $dbConnection "select * from  [mahDb].[dbo].[mahTable]" 
-            Format-sql $x
+            $result = Read-SQL $dbConnection $("select * from  [{0}].[dbo].[mahTable]" -f $workingDbName)
+            $formattedResult = Format-sql $result
+            $formattedResult | Should -Be "1/Twenty three pied pipers"
             
         }
     }
