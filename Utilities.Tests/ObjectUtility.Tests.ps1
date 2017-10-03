@@ -4,7 +4,6 @@ $featureType = "Utilities"
 . "$here\..\$featureType\$sut"
 
 Describe "ObjectUtility" {
-
     Context "ConvertFrom-CsvRecordToObject" {
         It "converts from a delimited record to an object - default delimiter" {
             $csvRecord = "Apple^99^Orange-peel"
