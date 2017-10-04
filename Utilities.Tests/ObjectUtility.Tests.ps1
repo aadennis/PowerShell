@@ -22,4 +22,18 @@ Describe "ObjectUtility" {
             $result.field3 | Should -Be "Orange-Peel"
         }
     }
+
+   Context "ConvertFrom-CsvObjectToPsObject" {
+        It "converts from a delimited record to an object - default delimiter" {
+            $csvObject = @()
+            $csvObject += 'field1^Field2^fielD3'
+            $csvObject +=  'Apple^99^Orange-peel'
+
+            $result = ConvertFrom-CsvObjectToPsObject -csvObject $csvObject -Delimiter "^"
+            
+            $result[0].field1  | should be "Apple"
+            $result[0].field2  | should be 99
+            $result[0].field3  | should be "Orange-peel"
+        }
+    } 
 }
