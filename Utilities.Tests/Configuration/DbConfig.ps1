@@ -1,1 +1,1 @@
-$dbPassword="tamoshanter"
+$dbPassword="Alive123"

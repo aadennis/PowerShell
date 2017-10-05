@@ -95,4 +95,26 @@ Describe "DatabaseUtility" {
             Teardown-TestDatabase $dbConnection $workingDbName
         }
     }
+
+    Context "Insert-SQLWithScope" {
+        It "inserts a row and returns the scope_identity" {
+
+            # arrange
+            $dbConnection = Open-DbConnection -sqlConnectionString $defaultDatabaseConnectionString
+            $workingDbName = "TestDb_{0}" -f $(Get-Random)
+            Execute-SQL $dbConnection $("create database {0}" -f $workingDbName)
+            Execute-SQL $dbConnection $("create table [{0}].[dbo].[mahTable] (id bigint identity, shoeSize int)" -f $workingDbName)
+            1..10 | ForEach-Object {
+                Insert-SQLWithScope $dbConnection $("insert into [{0}].[dbo].[mahTable] (shoeSize) values (99)" -f $workingDbName)
+            }
+
+            # act
+            $identity = Insert-SQLWithScope $dbConnection $("insert into [{0}].[dbo].[mahTable] (shoeSize) values (99)" -f $workingDbName)
+
+            # assert - Having done 10 inserts on a new table, the next identity value returned should be 11
+            $identity | Should -Be 11
+
+            Close-DbConnection $dbConnection
+        }
+    }
 }
