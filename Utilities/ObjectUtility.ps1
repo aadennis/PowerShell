@@ -14,6 +14,6 @@ function ConvertFrom-CsvRecordToObject($csvRecord, $header, $delimiter = "^") {
     $dynamicObject
 }
 
-function ConvertFrom-CsvObjectToPsObject($csvObject, $delimiter) {
+function ConvertFrom-CsvObjectToPsObject($csvObject, $delimiter = "^") {
     $csvObject | ConvertFrom-Csv -Delimiter $delimiter
 }
