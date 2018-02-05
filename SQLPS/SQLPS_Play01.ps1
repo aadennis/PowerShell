@@ -10,8 +10,9 @@
 #Import-Module SQLPS
 
 $sqlInstance = "`(Localdb`)\MSSQLLocalDB"
-$randomName = Get-Random(1..1000)
-$randomName
+# naive...
+$tempDirName = "c:/temp/DbBackup" + $(Get-Random(1..1000))
+$tempDirName
 
 gci SQLSERVER:\\
 gci SQLSERVER:\SQL\$sqlInstance 
@@ -20,7 +21,7 @@ $dbSet = gci SQLSERVER:\SQL\$sqlInstance\Databases
 $dbset | % {
     $currentDatabase = $_.name
     "This is [$currentDatabase]"
-    $backupFile = "c:/sandbox/$($currentDatabase)_$($randomName).bak"
+    $backupFile = $tempDirName + "/${currentDatabase}.bak"
     $backupFile
     Backup-SqlDatabase -ServerInstance $sqlInstance -Database $currentDatabase -BackupFile $backupFile 
     sleep 3
