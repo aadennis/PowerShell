@@ -53,4 +53,24 @@ Describe "ZipUtility" {
 
         }
     }
+
+    Context "Get-FileHashForEachFileInFolder" {
+        It "Gets the (SHA-256) hash value for each file in the given directory" {
+            #arrange
+            $inputFileName = "TestArchive.zip"
+            New-Item -Path $outputFolder -ItemType Directory
+            $inputZipPath = "$here/Data/$inputFileName"
+            $outputfolder | should exist
+            $inputZipPath | should exist
+            ConvertTo-ExpandedFileSetFromZipFile -zipFile $inputZipPath -outputfolder $outputFolder
+
+            #act
+            # returns a string just to get it working...
+            $fileHashSet = Get-FileHashForEachFileInFolder -folder $outputfolder
+           
+            #assert
+            $fileHashSet | should be "asdfafd"
+
+        }
+    }
 }
