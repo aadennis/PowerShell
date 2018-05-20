@@ -32,11 +32,15 @@ function Test-EmptyFileInZipFile ($zipFile) {
     $emptyFileCount = 0
     ConvertTo-ExpandedFileSetFromZipFile $zipFile $tempOutputFolderName
     $fileSet = Get-ChildItem -path $tempOutputFolderName -Recurse
-    $fileSet | foreach {
+    $fileSet | ForEach-Object {
         $file = $_
         if ($file.Directory -and $file.Length -eq 0) {
             $emptyFileCount++
         }
     }
     $emptyFileCount
+}
+
+function Get-FileHashForEachFileInFolder($folder) {
+    return "asdadf"
 }
