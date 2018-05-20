@@ -42,5 +42,20 @@ function Test-EmptyFileInZipFile ($zipFile) {
 }
 
 function Get-FileHashForEachFileInFolder($folder) {
-    return "asdadf"
+    $fileHashSetForFolder = ""
+    $fileset = Get-ChildItem -Path $folder -Recurse
+    $fileset | ForEach-Object {
+        $file = $_
+        if ($file.PSIsContainer) {
+            Write-Host "Folder: $file"
+        } else {
+            $fileHashSetForFolder = "$fileHashSetForFolder$file :"
+            $tempHash = Get-FileHash -Path $file.FullName
+            $tempHash = "$($tempHash.Hash)"
+            $fileHashSetForFolder = "$fileHashSetForFolder$tempHash ; "
+    
+        }
+
+    }
+    $fileHashSetForFolder
 }
