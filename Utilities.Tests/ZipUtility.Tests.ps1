@@ -98,6 +98,15 @@ Describe "ZipUtility" {
             }
             Save-FolderHashValuesToFile $inputDataFileFolder $outFile
             #assert
+
+            $expectedFile = "$here/Data/ExpectedResultFiles/ExpectedFileHashValues.dat"
+            
+            $OK=$false
+            if ((Get-FileHash $expectedFile).hash -ne (Get-FileHash $outFile).hash) {
+                $OK=$false
+            }
+            else {$OK=$true}
+            $OK | should be $true "Expected result file ($expectedFile) and Actual result file ($outFile) are not the same."
         }
     }
 }
