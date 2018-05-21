@@ -41,21 +41,18 @@ function Test-EmptyFileInZipFile ($zipFile) {
     $emptyFileCount
 }
 
+# returns a hashtable (dictionary), containing the name and hashvalue for each file found (not folder)
 function Get-FileHashForEachFileInFolder($folder) {
-    $fileHashSetForFolder = ""
+    $fileHashSetForFolder = @{}
     $fileset = Get-ChildItem -Path $folder -Recurse
     $fileset | ForEach-Object {
         $file = $_
         if ($file.PSIsContainer) {
             Write-Host "Folder: $file"
         } else {
-            $fileHashSetForFolder = "$fileHashSetForFolder$file :"
-            $tempHash = Get-FileHash -Path $file.FullName
-            $tempHash = "$($tempHash.Hash)"
-            $fileHashSetForFolder = "$fileHashSetForFolder$tempHash ; "
-    
+            $currHash = Get-FileHash -Path $file.FullName
+            $fileHashSetForFolder.Add($file, $currHash.Hash)
         }
-
     }
     $fileHashSetForFolder
 }
