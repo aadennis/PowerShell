@@ -54,3 +54,12 @@ function Get-FileHashForEachFileInFolder($folder) {
     }
     $fileHashSetForFolder
 }
+
+function Save-FolderHashValuesToFile($folder, $outFile) {
+    $fileHashSet = Get-FileHashForEachFileInFolder $folder
+    $fileHashSet.Keys | ForEach-Object {
+        $key = $_
+        $value = $fileHashSet.Item($key)
+        "$key`: $value" | Out-File -Append $outFile
+   }
+}

@@ -12,13 +12,14 @@ Describe "ZipUtility" {
 
     if ($useTestDrive) {
         $outputFolder = "TestDrive:/TestArchiveRoot"
-    } else {
+    }
+    else {
         $tempRoot = [System.IO.Path]::GetTempPath()
         $tempFolder = Get-Random -Minimum 1 -Maximum 1000000
         $outputFolder = "$tempRoot$tempFolder"
     }
 
-   Context "ConvertTo-ExpandedFileSetFromZipFile" {
+    Context "ConvertTo-ExpandedFileSetFromZipFile" {
         It "expands all entries in a zip file to the named folder" {
             # arrange
             $inputFileName = "TestArchive.zip"
@@ -38,18 +39,18 @@ Describe "ZipUtility" {
 
     Context "Test-EmptyFileInZipFile" {
         It "Tests for 1 or more empty files in a zip file" {
-              # arrange
-              $inputFileName = "TestArchive.zip"
-              $outputFolder = "TestDrive:/TestArchiveRoot"
-              New-Item -Path $outputFolder -ItemType Directory
-              $inputZipPath = "$here/Data/$inputFileName"
-              $inputZipPath | should exist
+            # arrange
+            $inputFileName = "TestArchive.zip"
+            $outputFolder = "TestDrive:/TestArchiveRoot"
+            New-Item -Path $outputFolder -ItemType Directory
+            $inputZipPath = "$here/Data/$inputFileName"
+            $inputZipPath | should exist
   
-              # act
-              $emptyFileCount = Test-EmptyFileInZipFile -zipFile $inputZipPath
+            # act
+            $emptyFileCount = Test-EmptyFileInZipFile -zipFile $inputZipPath
               
-              # assert
-              $emptyFileCount | Should be 1
+            # assert
+            $emptyFileCount | Should be 1
         }
     }
 
@@ -58,7 +59,7 @@ Describe "ZipUtility" {
             #arrange
             $expectedList = [System.Collections.ArrayList]@()
             $expectedList.Add("NpmInit04.JPG: 73215B239E4658A4AD45A594B529C6ECF3BBE226B6D49A74C4709B2F56CE93DB")
-             $expectedList.Add("CW136.pdf: 3D6C376391FCBBF3271C5653542A37B63F670F563FF4553190431A6B9E42AEF4")
+            $expectedList.Add("CW136.pdf: 3D6C376391FCBBF3271C5653542A37B63F670F563FF4553190431A6B9E42AEF4")
             $expectedList.Add("EmptyFile.txt: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855")
             $expectedList.Add("1537.pdf: 2314487C9336A2AD64D1169F8C7D29CCA03D4E6CD5335FAAA99A125279D33C5A")
             $expectedList.Add("Get-HelloWorld.ps1: CC5FFC55AD0EC511BC241FC92E7E088B94C5C5CEDCDD8B8A006DED28E63E050E")
@@ -80,7 +81,23 @@ Describe "ZipUtility" {
                 $value = $fileHashSet.Item($key)
                 "$key`: $value" | should be $expectedList[$count]
                 $count++
-           }
+            }
+        }
+    }
+
+    Context "Save-FolderHashValuesToFile" {
+        It "For the given folder, it saves the hash name and values for each file in the given output file" {
+            #arrange
+            $inputDataFileFolder = "$here/Data/FileHashTestData"
+            $inputDataFileFolder | should exist
+
+            #act
+            $outFile = "c:/temp/x123.txt"
+            if (Test-Path -Path $outFile) {
+                Remove-Item -Path $outFile
+            }
+            Save-FolderHashValuesToFile $inputDataFileFolder $outFile
+            #assert
         }
     }
 }
