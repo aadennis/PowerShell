@@ -50,20 +50,18 @@ Describe "ZipUtility" {
               
               # assert
               $emptyFileCount | Should be 1
-
         }
     }
 
     Context "Get-FileHashForEachFileInFolder" {
         It "Gets the (SHA-256) hash value for each file in the given directory" {
             #arrange
-            $expectedHashList = @{}
-            $expectedHashList.Add("NpmInit04.JPG", "73215B239E4658A4AD45A594B529C6ECF3BBE226B6D49A74C4709B2F56CE93DB")
-            $expectedHashList.Add("CW136.pdf", "3D6C376391FCBBF3271C5653542A37B63F670F563FF4553190431A6B9E42AEF4")
-            $expectedHashList.Add("EmptyFile.txt", "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855")
-            $expectedHashList.Add("1537.pdf", "2314487C9336A2AD64D1169F8C7D29CCA03D4E6CD5335FAAA99A125279D33C5A")
-            $expectedHashList.Add("Get-HelloWorld.ps1", "CC5FFC55AD0EC511BC241FC92E7E088B94C5C5CEDCDD8B8A006DED28E63E050E")
-
+            $expectedList = [System.Collections.ArrayList]@()
+            $expectedList.Add("NpmInit04.JPG: 73215B239E4658A4AD45A594B529C6ECF3BBE226B6D49A74C4709B2F56CE93DB")
+             $expectedList.Add("CW136.pdf: 3D6C376391FCBBF3271C5653542A37B63F670F563FF4553190431A6B9E42AEF4")
+            $expectedList.Add("EmptyFile.txt: E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855")
+            $expectedList.Add("1537.pdf: 2314487C9336A2AD64D1169F8C7D29CCA03D4E6CD5335FAAA99A125279D33C5A")
+            $expectedList.Add("Get-HelloWorld.ps1: CC5FFC55AD0EC511BC241FC92E7E088B94C5C5CEDCDD8B8A006DED28E63E050E")
 
             $inputFileName = "TestArchive.zip"
             New-Item -Path $outputFolder -ItemType Directory
@@ -73,19 +71,16 @@ Describe "ZipUtility" {
             ConvertTo-ExpandedFileSetFromZipFile -zipFile $inputZipPath -outputfolder $outputFolder
 
             #act
-            # returns a string just to get it working...
             $fileHashSet = Get-FileHashForEachFileInFolder -folder $outputfolder
            
             #assert
-           
-           $fileHashSet.Keys | ForEach-Object {
-               $currentHash = $_
-               Write-Host $currentHash $fileHashSet[$currentHash]
+            $count = 0
+            $fileHashSet.Keys | ForEach-Object {
+                $key = $_
+                $value = $fileHashSet.Item($key)
+                "$key`: $value" | should be $expectedList[$count]
+                $count++
            }
-           
-            $expectedFileHashSet = " ; Get-HelloWorld.ps1 :CC5FFC55AD0EC511BC241FC92E7E088B94C5C5CEDCDD8B8A006DED28E63E050E ; "
-            $fileHashSet | should be $expectedFileHashSet
-
         }
     }
 }

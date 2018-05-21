@@ -43,7 +43,7 @@ function Test-EmptyFileInZipFile ($zipFile) {
 
 # returns a hashtable (dictionary), containing the name and hashvalue for each file found (not folder)
 function Get-FileHashForEachFileInFolder($folder) {
-    $fileHashSetForFolder = @{}
+    $fileHashSetForFolder = [System.Collections.Specialized.OrderedDictionary] @{}
     $fileset = Get-ChildItem -Path $folder -Recurse
     $fileset | ForEach-Object {
         $file = $_
