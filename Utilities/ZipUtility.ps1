@@ -47,9 +47,7 @@ function Get-FileHashForEachFileInFolder($folder) {
     $fileset = Get-ChildItem -Path $folder -Recurse
     $fileset | ForEach-Object {
         $file = $_
-        if ($file.PSIsContainer) {
-            Write-Host "Folder: $file"
-        } else {
+        if (-not ($file.PSIsContainer)) {
             $currHash = Get-FileHash -Path $file.FullName
             $fileHashSetForFolder.Add($file, $currHash.Hash)
         }

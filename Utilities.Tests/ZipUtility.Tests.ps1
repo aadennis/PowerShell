@@ -31,7 +31,7 @@ Describe "ZipUtility" {
             ConvertTo-ExpandedFileSetFromZipFile -zipFile $inputZipPath -outputfolder $outputFolder
 
             #assert
-            $fileSet = gci $outputFolder -Recurse
+            $fileSet = Get-ChildItem $outputFolder -Recurse
             $fileSet.Count | should be 8
         }
     }
