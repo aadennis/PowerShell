@@ -8,24 +8,28 @@ I don't know how this behaves at high-volume yet, and indeed it needs to be re-t
 make the rows the columns and the columns the rows (because it is natural for this to have
 the counter types along the top, and the intervals on the y axis)
 #>
+
+
 function Show-FormattedPerformanceCounters() {
+    Set-StrictMode -Version Latest
 
     $inputFile = "C:\GitHub\PowerShell\PerformanceCounters\PerfCountersOutput.csv" # for testing, populate this with the example below
     $outputFile = "c:\temp\FormattedPerfCountersOutput.csv"
+    $formatMask = "0.####"
 
     $inputArray = import-csv $inputFile
     $outputArray = @()
-    foreach ($path in $inputArray.Path | Select -Unique) {
+    foreach ($path in $inputArray.Path | Select-Object -Unique) {
         $paths = [ordered]@{ Path = $path }
-        foreach ($timeStamp in $inputArray.TimeStamp | Select -Unique){ 
+        foreach ($timeStamp in $inputArray.TimeStamp | Select-Object -Unique){ 
             $value = ($inputArray.where({ $_.TimeStamp -eq $timeStamp -and $_.Path -eq $path })).Value
-            $formattedValue = ([decimal] $value).ToString("0.####")
+            $formattedValue = ([decimal] $value).ToString($formatMask)
             $paths += @{ $timeStamp = $formattedValue }
         }
         $outputArray += New-Object -TypeName PSObject -Property $paths
     }
 
-    $outputArray | FT -AutoSize
+    $outputArray | Format-Table -AutoSize
     $outputArray | Export-Csv $outputFile -NoTypeInformation 
 }
 
