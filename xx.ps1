@@ -36,4 +36,6 @@ if ($result -eq [System.Windows.Forms.DialogResult]::OK)
 {
     $date = $calendar.SelectionStart
     Write-Host "Date selected: $($date)"
+} else {
+    Write-Host "Probably said Cancel"
 }
