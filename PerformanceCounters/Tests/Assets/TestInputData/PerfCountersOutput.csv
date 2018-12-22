@@ -1,38 +1,3 @@
-﻿<#
-All credit for the pivot principle here:
-https://gallery.technet.microsoft.com/scriptcenter/Powershell-Script-to-7c8368be (Sam Boutros)
-
-Beyond that principle, this script takes the output from my performance counter PowerShell script
-and groups by performance counter type, separated by each second in the sample.
-I don't know how this behaves at high-volume yet.
-#>
-
-
-function Show-FormattedPerformanceCounters($inputFile, $outputFile) {
-    Set-StrictMode -Version Latest
-    
-    $formatMask = "0.#####"
-
-    $inputArray = import-csv $inputFile
-    $outputArray = @()
-    foreach ($timeStamp in $inputArray.TimeStamp | Select-Object -Unique) {
-        $timeStamps = [ordered]@{ TimeStamp = $timeStamp }
-        foreach ($path in $inputArray.Path | Select-Object -Unique){ 
-            $value = ($inputArray.where({ $_.Path -eq $path -and $_.TimeStamp -eq $timeStamp })).Value
-            $formattedValue = ([decimal] $value).ToString($formatMask)
-            $timeStamps += @{ $path = $formattedValue }
-        }
-        $outputArray += New-Object -TypeName PSObject -Property $timeStamps
-    }
-
-    $outputArray | Format-Table -AutoSize
-    $outputArray | Export-Csv $outputFile -NoTypeInformation 
-}
-
-#Show-FormattedPerformanceCounters
-
-<#
-Test input file example:
 "TimeStamp","Path","Value"
 "20/12/2018 22:16:22","\\denpc\memory\% committed bytes in use","70.2999309334671"
 "20/12/2018 22:16:22","\\denpc\memory\cache faults/sec","52.8245748693165"
@@ -174,5 +139,3 @@ Test input file example:
 "20/12/2018 22:16:31","\\denpc\mssql$sqlexpress:general statistics\user connections","2"
 "20/12/2018 22:16:31","\\denpc\mssql$sqlexpress:memory manager\memory grants pending","0"
 "20/12/2018 22:16:31","\\denpc\mssql$sqlexpress:sql statistics\batch requests/sec","0"
-
-#>
