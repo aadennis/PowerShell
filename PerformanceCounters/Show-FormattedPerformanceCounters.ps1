@@ -8,10 +8,8 @@ I don't know how this behaves at high-volume yet.
 #>
 
 
-function Show-FormattedPerformanceCounters($inputFile, $outputFile) {
+function Show-FormattedPerformanceCounters($inputFile, $outputFile, $formatMask = "0.#####") {
     Set-StrictMode -Version Latest
-    
-    $formatMask = "0.#####"
 
     $inputArray = import-csv $inputFile
     $outputArray = @()
