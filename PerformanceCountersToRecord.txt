@@ -1,0 +1,14 @@
+memory\% committed bytes in use
+memory\cache faults/sec
+physicaldisk(_total)\% disk time
+physicaldisk(_total)\current disk queue length
+system\Processor Queue Length
+memory\available mbytes
+physicaldisk(_total)\avg. disk sec/read
+physicaldisk(_total)\avg. disk sec/write
+physicaldisk(_total)\disk reads/sec
+physicaldisk(_total)\disk writes/sec
+processor(_total)\% processor time
+${sqlInstance}:General Statistics\User Connections
+${sqlInstance}:Memory Manager\Memory Grants Pending
+${sqlInstance}:SQL Statistics\Batch Requests/sec
