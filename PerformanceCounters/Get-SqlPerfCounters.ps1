@@ -15,7 +15,7 @@ Get-Counter -Counter "\\desktop-3fe014p\physicaldisk(_total)\avg. disk writes/se
 Note that $ in SQL etc must be escaped (e.g. $SQLEXPRESS)
 #>
 
-$counterMetadataPath = "C:\Temp\SomeRepoRoot\Tests\PerfCountersToRecord.txt"
+$counterMetadataPath = "C:\GitHub\PowerShell\PerformanceCounters\Metadata\PerformanceCountersToRecord.txt"
 $sut = "\\" + $env:COMPUTERNAME #'\\desktop-3fe014p'
 $sqlInstance = "MSSQL`$SQLEXPRESS"
 $maxSamples = 10
