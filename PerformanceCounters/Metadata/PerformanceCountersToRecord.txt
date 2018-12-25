@@ -19,4 +19,4 @@ ${sqlInstance}:General Statistics\Processes blocked
 ${sqlInstance}:SQL Statistics\SQL Compilations/sec
 ${sqlInstance}:SQL Statistics\SQL Re-Compilations/sec
 Paging File(_Total)\% Usage
-Network interface\Bytes total/sec
+Network Interface(*)\Bytes Total/sec
