@@ -20,11 +20,15 @@ $sut = "\\" + $env:COMPUTERNAME #'\\desktop-3fe014p'
 $sqlInstance = "MSSQL`$SQLEXPRESS"
 $maxSamples = 10
 $outputFile = "c:\temp\PerfCountersOutput.csv"
+$commentCharacter = "#"
 
 cd $env:TEMP
 $counters = @()
 Get-Content -Path $counterMetadataPath | % {
-    $counters += "$sut\" + $ExecutionContext.InvokeCommand.ExpandString($_)
+    [string] $unParsed = $_
+    if (!$unParsed.StartsWith($commentCharacter)) {
+        $counters += "$sut\" + $ExecutionContext.InvokeCommand.ExpandString($unParsed)
+    }
 }
 
 "Running Performance counters. Finishes in about [${maxSamples}] seconds"
