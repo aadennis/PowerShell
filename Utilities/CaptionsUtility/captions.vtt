@@ -1,0 +1,1008 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:08.160 --> 00:00:12.209 align:start position:0%
+ 
+hi<00:00:09.160><c> this</c><00:00:09.519><c> is</c><00:00:09.580><c> a</c><00:00:09.760><c> short</c><00:00:10.330><c> video</c><00:00:10.480><c> about</c><00:00:11.219><c> very</c>
+
+00:00:12.209 --> 00:00:12.219 align:start position:0%
+hi this is a short video about very
+ 
+
+00:00:12.219 --> 00:00:16.769 align:start position:0%
+hi this is a short video about very
+basics<00:00:13.090><c> of</c><00:00:13.830><c> Alexa</c><00:00:14.830><c> development</c><00:00:15.430><c> at</c><00:00:16.420><c> the</c><00:00:16.630><c> end</c>
+
+00:00:16.769 --> 00:00:16.779 align:start position:0%
+basics of Alexa development at the end
+ 
+
+00:00:16.779 --> 00:00:18.870 align:start position:0%
+basics of Alexa development at the end
+of<00:00:16.960><c> this</c><00:00:17.110><c> I</c><00:00:17.410><c> think</c><00:00:17.529><c> I'm</c><00:00:18.070><c> gonna</c><00:00:18.220><c> spend</c><00:00:18.460><c> about</c>
+
+00:00:18.870 --> 00:00:18.880 align:start position:0%
+of this I think I'm gonna spend about
+ 
+
+00:00:18.880 --> 00:00:21.089 align:start position:0%
+of this I think I'm gonna spend about
+ten<00:00:19.270><c> minutes</c><00:00:19.450><c> on</c><00:00:19.720><c> this</c><00:00:19.900><c> you'll</c><00:00:20.410><c> have</c>
+
+00:00:21.089 --> 00:00:21.099 align:start position:0%
+ten minutes on this you'll have
+ 
+
+00:00:21.099 --> 00:00:22.729 align:start position:0%
+ten minutes on this you'll have
+something<00:00:21.460><c> coming</c><00:00:21.939><c> out</c><00:00:22.090><c> of</c><00:00:22.270><c> your</c><00:00:22.450><c> computer</c>
+
+00:00:22.729 --> 00:00:22.739 align:start position:0%
+something coming out of your computer
+ 
+
+00:00:22.739 --> 00:00:26.249 align:start position:0%
+something coming out of your computer
+that<00:00:23.739><c> says</c><00:00:24.009><c> welcome</c><00:00:24.669><c> this</c><00:00:24.880><c> is</c><00:00:25.060><c> a</c><00:00:25.090><c> demo</c><00:00:25.540><c> Alexa</c>
+
+00:00:26.249 --> 00:00:26.259 align:start position:0%
+that says welcome this is a demo Alexa
+ 
+
+00:00:26.259 --> 00:00:29.909 align:start position:0%
+that says welcome this is a demo Alexa
+development<00:00:26.829><c> for</c><00:00:27.130><c> the</c><00:00:27.340><c> RNIB</c><00:00:28.090><c> forums</c><00:00:29.050><c> that's</c>
+
+00:00:29.909 --> 00:00:29.919 align:start position:0%
+development for the RNIB forums that's
+ 
+
+00:00:29.919 --> 00:00:33.240 align:start position:0%
+development for the RNIB forums that's
+not<00:00:30.160><c> necessarily</c><00:00:30.579><c> a</c><00:00:30.910><c> useful</c><00:00:31.689><c> end</c><00:00:31.930><c> product</c><00:00:32.770><c> but</c>
+
+00:00:33.240 --> 00:00:33.250 align:start position:0%
+not necessarily a useful end product but
+ 
+
+00:00:33.250 --> 00:00:36.270 align:start position:0%
+not necessarily a useful end product but
+it<00:00:33.340><c> kind</c><00:00:33.550><c> gets</c><00:00:33.820><c> you</c><00:00:33.970><c> on</c><00:00:34.000><c> the</c><00:00:34.120><c> way</c><00:00:34.360><c> to</c><00:00:35.140><c> how</c><00:00:35.680><c> to</c>
+
+00:00:36.270 --> 00:00:36.280 align:start position:0%
+it kind gets you on the way to how to
+ 
+
+00:00:36.280 --> 00:00:39.660 align:start position:0%
+it kind gets you on the way to how to
+develop<00:00:37.210><c> an</c><00:00:37.360><c> Alexa</c><00:00:38.050><c> and</c><00:00:38.440><c> I'm</c><00:00:38.620><c> hoping</c><00:00:39.130><c> this</c>
+
+00:00:39.660 --> 00:00:39.670 align:start position:0%
+develop an Alexa and I'm hoping this
+ 
+
+00:00:39.670 --> 00:00:43.530 align:start position:0%
+develop an Alexa and I'm hoping this
+will<00:00:39.850><c> be</c><00:00:39.990><c> the</c><00:00:41.160><c> starting</c><00:00:42.160><c> point</c><00:00:42.430><c> for</c><00:00:42.790><c> us</c><00:00:43.090><c> all</c><00:00:43.390><c> to</c>
+
+00:00:43.530 --> 00:00:43.540 align:start position:0%
+will be the starting point for us all to
+ 
+
+00:00:43.540 --> 00:00:46.880 align:start position:0%
+will be the starting point for us all to
+have<00:00:43.600><c> a</c><00:00:43.750><c> conversation</c><00:00:43.960><c> on</c><00:00:44.650><c> the</c><00:00:45.220><c> RNIB</c><00:00:45.760><c> forums</c><00:00:46.450><c> I</c>
+
+00:00:46.880 --> 00:00:46.890 align:start position:0%
+have a conversation on the RNIB forums I
+ 
+
+00:00:46.890 --> 00:00:51.300 align:start position:0%
+have a conversation on the RNIB forums I
+have<00:00:47.890><c> a</c><00:00:47.920><c> relative</c><00:00:48.700><c> who</c><00:00:49.030><c> I</c><00:00:49.710><c> let's</c><00:00:50.710><c> say</c><00:00:50.860><c> support</c>
+
+00:00:51.300 --> 00:00:51.310 align:start position:0%
+have a relative who I let's say support
+ 
+
+00:00:51.310 --> 00:00:54.630 align:start position:0%
+have a relative who I let's say support
+she's<00:00:51.700><c> visually</c><00:00:52.090><c> impaired</c><00:00:52.620><c> and</c><00:00:53.620><c> she</c><00:00:54.340><c> finds</c>
+
+00:00:54.630 --> 00:00:54.640 align:start position:0%
+she's visually impaired and she finds
+ 
+
+00:00:54.640 --> 00:00:58.770 align:start position:0%
+she's visually impaired and she finds
+Alexa<00:00:55.630><c> and</c><00:00:55.780><c> the</c><00:00:56.560><c> few</c><00:00:56.890><c> things</c><00:00:57.130><c> I</c><00:00:57.340><c> do</c><00:00:57.400><c> in</c><00:00:58.060><c> Alexa</c><00:00:58.570><c> a</c>
+
+00:00:58.770 --> 00:00:58.780 align:start position:0%
+Alexa and the few things I do in Alexa a
+ 
+
+00:00:58.780 --> 00:01:04.740 align:start position:0%
+Alexa and the few things I do in Alexa a
+great<00:00:59.770><c> use</c><00:00:59.980><c> to</c><00:01:00.010><c> her</c><00:01:02.579><c> right</c><00:01:03.579><c> let's</c><00:01:04.059><c> start</c><00:01:04.420><c> some</c>
+
+00:01:04.740 --> 00:01:04.750 align:start position:0%
+great use to her right let's start some
+ 
+
+00:01:04.750 --> 00:01:07.080 align:start position:0%
+great use to her right let's start some
+actual<00:01:05.170><c> development</c><00:01:05.590><c> could</c><00:01:06.280><c> you</c><00:01:06.430><c> please</c><00:01:06.759><c> go</c>
+
+00:01:07.080 --> 00:01:07.090 align:start position:0%
+actual development could you please go
+ 
+
+00:01:07.090 --> 00:01:09.719 align:start position:0%
+actual development could you please go
+to<00:01:07.710><c> this</c><00:01:08.710><c> location</c>
+
+00:01:09.719 --> 00:01:09.729 align:start position:0%
+to this location
+ 
+
+00:01:09.729 --> 00:01:13.830 align:start position:0%
+to this location
+I'll<00:01:10.360><c> put</c><00:01:11.259><c> any</c><00:01:11.590><c> links</c><00:01:12.100><c> and</c><00:01:12.630><c> snippets</c><00:01:13.630><c> and</c>
+
+00:01:13.830 --> 00:01:13.840 align:start position:0%
+I'll put any links and snippets and
+ 
+
+00:01:13.840 --> 00:01:16.740 align:start position:0%
+I'll put any links and snippets and
+things<00:01:14.080><c> like</c><00:01:14.229><c> that</c><00:01:14.290><c> in</c><00:01:14.680><c> the</c><00:01:15.270><c> notes</c><00:01:16.270><c> either</c><00:01:16.540><c> on</c>
+
+00:01:16.740 --> 00:01:16.750 align:start position:0%
+things like that in the notes either on
+ 
+
+00:01:16.750 --> 00:01:20.640 align:start position:0%
+things like that in the notes either on
+youtube<00:01:17.140><c> or</c><00:01:17.380><c> on</c><00:01:17.409><c> the</c><00:01:17.650><c> forum</c><00:01:19.229><c> now</c><00:01:20.229><c> when</c><00:01:20.470><c> you</c><00:01:20.530><c> get</c>
+
+00:01:20.640 --> 00:01:20.650 align:start position:0%
+youtube or on the forum now when you get
+ 
+
+00:01:20.650 --> 00:01:24.300 align:start position:0%
+youtube or on the forum now when you get
+to<00:01:20.710><c> this</c><00:01:20.920><c> point</c><00:01:21.190><c> you</c><00:01:21.460><c> may</c><00:01:21.729><c> find</c><00:01:22.950><c> the</c><00:01:23.950><c> Pentagon</c>
+
+00:01:24.300 --> 00:01:24.310 align:start position:0%
+to this point you may find the Pentagon
+ 
+
+00:01:24.310 --> 00:01:26.640 align:start position:0%
+to this point you may find the Pentagon
+web<00:01:24.520><c> that</c><00:01:24.670><c> you</c><00:01:24.850><c> have</c><00:01:25.090><c> previously</c><00:01:25.750><c> signed</c><00:01:26.380><c> up</c>
+
+00:01:26.640 --> 00:01:26.650 align:start position:0%
+web that you have previously signed up
+ 
+
+00:01:26.650 --> 00:01:29.910 align:start position:0%
+web that you have previously signed up
+or<00:01:26.890><c> looked</c><00:01:27.400><c> in</c><00:01:27.780><c> that</c><00:01:28.780><c> you</c><00:01:29.049><c> are</c><00:01:29.170><c> prompted</c><00:01:29.620><c> to</c><00:01:29.650><c> do</c>
+
+00:01:29.910 --> 00:01:29.920 align:start position:0%
+or looked in that you are prompted to do
+ 
+
+00:01:29.920 --> 00:01:33.719 align:start position:0%
+or looked in that you are prompted to do
+that<00:01:30.190><c> this</c><00:01:31.120><c> video</c><00:01:31.890><c> doesn't</c><00:01:32.890><c> cover</c><00:01:33.220><c> the</c><00:01:33.370><c> area</c>
+
+00:01:33.719 --> 00:01:33.729 align:start position:0%
+that this video doesn't cover the area
+ 
+
+00:01:33.729 --> 00:01:35.580 align:start position:0%
+that this video doesn't cover the area
+it<00:01:34.150><c> assumes</c><00:01:34.630><c> that</c><00:01:34.810><c> you've</c><00:01:35.049><c> done</c><00:01:35.290><c> all</c><00:01:35.440><c> those</c>
+
+00:01:35.580 --> 00:01:35.590 align:start position:0%
+it assumes that you've done all those
+ 
+
+00:01:35.590 --> 00:01:37.440 align:start position:0%
+it assumes that you've done all those
+settings<00:01:35.830><c> but</c><00:01:36.400><c> we</c><00:01:36.580><c> can</c><00:01:36.760><c> have</c><00:01:36.909><c> that</c><00:01:37.090><c> discussion</c>
+
+00:01:37.440 --> 00:01:37.450 align:start position:0%
+settings but we can have that discussion
+ 
+
+00:01:37.450 --> 00:01:40.380 align:start position:0%
+settings but we can have that discussion
+on<00:01:37.690><c> the</c><00:01:37.780><c> forums</c><00:01:38.200><c> if</c><00:01:38.619><c> you're</c><00:01:39.430><c> struggling</c><00:01:40.240><c> with</c>
+
+00:01:40.380 --> 00:01:40.390 align:start position:0%
+on the forums if you're struggling with
+ 
+
+00:01:40.390 --> 00:01:45.510 align:start position:0%
+on the forums if you're struggling with
+that<00:01:41.130><c> once</c><00:01:42.130><c> you</c><00:01:42.310><c> get</c><00:01:42.549><c> to</c><00:01:42.820><c> this</c><00:01:42.970><c> place</c><00:01:43.510><c> I</c><00:01:44.520><c> would</c>
+
+00:01:45.510 --> 00:01:45.520 align:start position:0%
+that once you get to this place I would
+ 
+
+00:01:45.520 --> 00:01:49.830 align:start position:0%
+that once you get to this place I would
+like<00:01:45.729><c> you</c><00:01:45.909><c> to</c><00:01:45.940><c> click</c><00:01:46.540><c> create</c><00:01:46.960><c> skill</c><00:01:48.840><c> select</c>
+
+00:01:49.830 --> 00:01:49.840 align:start position:0%
+like you to click create skill select
+ 
+
+00:01:49.840 --> 00:01:54.510 align:start position:0%
+like you to click create skill select
+custom<00:01:51.390><c> down</c><00:01:52.390><c> here</c><00:01:52.840><c> by</c><00:01:53.470><c> default</c><00:01:53.530><c> provision</c>
+
+00:01:54.510 --> 00:01:54.520 align:start position:0%
+custom down here by default provision
+ 
+
+00:01:54.520 --> 00:01:55.859 align:start position:0%
+custom down here by default provision
+your<00:01:54.700><c> own</c><00:01:54.909><c> is</c><00:01:55.150><c> selected</c>
+
+00:01:55.859 --> 00:01:55.869 align:start position:0%
+your own is selected
+ 
+
+00:01:55.869 --> 00:01:59.789 align:start position:0%
+your own is selected
+please<00:01:56.470><c> pick</c><00:01:56.799><c> Alexa</c><00:01:57.400><c> host</c><00:01:57.640><c> it</c><00:01:58.320><c> go</c><00:01:59.320><c> back</c><00:01:59.590><c> up</c>
+
+00:01:59.789 --> 00:01:59.799 align:start position:0%
+please pick Alexa host it go back up
+ 
+
+00:01:59.799 --> 00:02:02.820 align:start position:0%
+please pick Alexa host it go back up
+here<00:01:59.830><c> and</c><00:02:00.250><c> click</c><00:02:00.630><c> at</c><00:02:01.630><c> so</c><00:02:01.900><c> it</c><00:02:02.020><c> first</c><00:02:02.320><c> of</c><00:02:02.439><c> all</c><00:02:02.530><c> you</c>
+
+00:02:02.820 --> 00:02:02.830 align:start position:0%
+here and click at so it first of all you
+ 
+
+00:02:02.830 --> 00:02:06.929 align:start position:0%
+here and click at so it first of all you
+need<00:02:02.979><c> to</c><00:02:03.100><c> put</c><00:02:03.220><c> in</c><00:02:03.369><c> the</c><00:02:03.460><c> actual</c><00:02:03.610><c> skill</c><00:02:05.729><c> let</c><00:02:06.729><c> us</c>
+
+00:02:06.929 --> 00:02:06.939 align:start position:0%
+need to put in the actual skill let us
+ 
+
+00:02:06.939 --> 00:02:10.199 align:start position:0%
+need to put in the actual skill let us
+call<00:02:07.270><c> it</c><00:02:07.439><c> I'm</c><00:02:08.439><c> just</c><00:02:08.619><c> copying</c><00:02:08.830><c> it</c><00:02:09.099><c> from</c><00:02:09.209><c> my</c>
+
+00:02:10.199 --> 00:02:10.209 align:start position:0%
+call it I'm just copying it from my
+ 
+
+00:02:10.209 --> 00:02:14.490 align:start position:0%
+call it I'm just copying it from my
+other<00:02:10.390><c> screen</c><00:02:11.430><c> talking</c><00:02:12.430><c> book</c><00:02:12.930><c> click</c><00:02:13.930><c> create</c>
+
+00:02:14.490 --> 00:02:14.500 align:start position:0%
+other screen talking book click create
+ 
+
+00:02:14.500 --> 00:02:17.589 align:start position:0%
+other screen talking book click create
+skill
+
+00:02:17.589 --> 00:02:17.599 align:start position:0%
+ 
+ 
+
+00:02:17.599 --> 00:02:22.470 align:start position:0%
+ 
+that<00:02:17.989><c> will</c><00:02:18.349><c> take</c><00:02:18.739><c> about</c><00:02:18.980><c> a</c><00:02:19.610><c> minute</c><00:02:20.540><c> as</c><00:02:20.840><c> it</c><00:02:21.079><c> says</c>
+
+00:02:22.470 --> 00:02:22.480 align:start position:0%
+that will take about a minute as it says
+ 
+
+00:02:22.480 --> 00:02:31.110 align:start position:0%
+that will take about a minute as it says
+I'll<00:02:23.480><c> come</c><00:02:23.810><c> back</c><00:02:24.640><c> when</c><00:02:25.640><c> it's</c><00:02:25.819><c> just</c><00:02:26.090><c> about</c><00:02:26.209><c> done</c>
+
+00:02:31.110 --> 00:02:31.120 align:start position:0%
+ 
+ 
+
+00:02:31.120 --> 00:02:34.300 align:start position:0%
+ 
+that<00:02:32.120><c> has</c><00:02:32.450><c> finished</c><00:02:32.959><c> we've</c><00:02:33.469><c> got</c><00:02:33.709><c> full</c><00:02:34.040><c> build</c>
+
+00:02:34.300 --> 00:02:34.310 align:start position:0%
+that has finished we've got full build
+ 
+
+00:02:34.310 --> 00:02:35.170 align:start position:0%
+that has finished we've got full build
+successful
+
+00:02:35.170 --> 00:02:35.180 align:start position:0%
+successful
+ 
+
+00:02:35.180 --> 00:02:37.330 align:start position:0%
+successful
+I<00:02:35.209><c> appreciate</c><00:02:36.200><c> that</c><00:02:36.230><c> if</c><00:02:36.560><c> this</c><00:02:36.739><c> is</c><00:02:36.950><c> the</c><00:02:36.980><c> first</c>
+
+00:02:37.330 --> 00:02:37.340 align:start position:0%
+I appreciate that if this is the first
+ 
+
+00:02:37.340 --> 00:02:40.660 align:start position:0%
+I appreciate that if this is the first
+time<00:02:37.670><c> or</c><00:02:38.269><c> even</c><00:02:38.799><c> not</c><00:02:39.799><c> even</c><00:02:40.069><c> the</c><00:02:40.189><c> first</c><00:02:40.400><c> time</c>
+
+00:02:40.660 --> 00:02:40.670 align:start position:0%
+time or even not even the first time
+ 
+
+00:02:40.670 --> 00:02:42.809 align:start position:0%
+time or even not even the first time
+that<00:02:41.000><c> you've</c><00:02:41.120><c> looked</c><00:02:41.299><c> at</c><00:02:41.569><c> this</c><00:02:42.409><c> area</c>
+
+00:02:42.809 --> 00:02:42.819 align:start position:0%
+that you've looked at this area
+ 
+
+00:02:42.819 --> 00:02:48.069 align:start position:0%
+that you've looked at this area
+developing<00:02:43.819><c> in</c><00:02:44.000><c> in</c><00:02:44.500><c> for</c><00:02:45.500><c> Alexa</c><00:02:46.040><c> then</c><00:02:46.840><c> it</c><00:02:47.840><c> may</c>
+
+00:02:48.069 --> 00:02:48.079 align:start position:0%
+developing in in for Alexa then it may
+ 
+
+00:02:48.079 --> 00:02:51.369 align:start position:0%
+developing in in for Alexa then it may
+look<00:02:48.349><c> terribly</c><00:02:48.980><c> puzzling</c><00:02:49.519><c> but</c><00:02:50.420><c> this</c><00:02:50.870><c> is</c><00:02:51.079><c> just</c>
+
+00:02:51.369 --> 00:02:51.379 align:start position:0%
+look terribly puzzling but this is just
+ 
+
+00:02:51.379 --> 00:02:54.789 align:start position:0%
+look terribly puzzling but this is just
+the<00:02:51.620><c> starting</c><00:02:52.129><c> point</c><00:02:52.750><c> to</c><00:02:53.750><c> encourage</c><00:02:54.409><c> you</c><00:02:54.620><c> to</c>
+
+00:02:54.789 --> 00:02:54.799 align:start position:0%
+the starting point to encourage you to
+ 
+
+00:02:54.799 --> 00:02:56.860 align:start position:0%
+the starting point to encourage you to
+actually<00:02:54.950><c> prove</c><00:02:55.430><c> that</c><00:02:55.459><c> oh</c><00:02:55.819><c> look</c><00:02:56.060><c> I</c><00:02:56.419><c> can</c><00:02:56.450><c> get</c>
+
+00:02:56.860 --> 00:02:56.870 align:start position:0%
+actually prove that oh look I can get
+ 
+
+00:02:56.870 --> 00:02:59.949 align:start position:0%
+actually prove that oh look I can get
+some<00:02:57.139><c> spoken</c><00:02:58.099><c> text</c><00:02:58.639><c> out</c><00:02:58.790><c> that</c><00:02:59.329><c> I've</c><00:02:59.540><c> written</c>
+
+00:02:59.949 --> 00:02:59.959 align:start position:0%
+some spoken text out that I've written
+ 
+
+00:02:59.959 --> 00:03:02.080 align:start position:0%
+some spoken text out that I've written
+proving<00:03:00.650><c> I</c><00:03:00.859><c> have</c><00:03:01.099><c> control</c><00:03:01.489><c> over</c><00:03:01.790><c> this</c><00:03:01.909><c> and</c>
+
+00:03:02.080 --> 00:03:02.090 align:start position:0%
+proving I have control over this and
+ 
+
+00:03:02.090 --> 00:03:04.330 align:start position:0%
+proving I have control over this and
+then<00:03:02.659><c> we</c><00:03:02.780><c> can</c><00:03:02.810><c> take</c><00:03:03.169><c> things</c><00:03:03.409><c> from</c><00:03:03.650><c> there</c><00:03:03.950><c> so</c>
+
+00:03:04.330 --> 00:03:04.340 align:start position:0%
+then we can take things from there so
+ 
+
+00:03:04.340 --> 00:03:07.210 align:start position:0%
+then we can take things from there so
+very<00:03:04.370><c> gentle</c><00:03:05.060><c> steps</c><00:03:05.329><c> to</c><00:03:05.450><c> start</c><00:03:05.750><c> with</c><00:03:06.220><c> let's</c>
+
+00:03:07.210 --> 00:03:07.220 align:start position:0%
+very gentle steps to start with let's
+ 
+
+00:03:07.220 --> 00:03:10.089 align:start position:0%
+very gentle steps to start with let's
+close<00:03:07.549><c> that</c><00:03:07.579><c> so</c><00:03:08.239><c> the</c><00:03:08.419><c> full</c><00:03:08.659><c> build</c><00:03:09.099><c> was</c>
+
+00:03:10.089 --> 00:03:10.099 align:start position:0%
+close that so the full build was
+ 
+
+00:03:10.099 --> 00:03:12.490 align:start position:0%
+close that so the full build was
+successful<00:03:11.030><c> so</c><00:03:11.359><c> what</c><00:03:11.840><c> it's</c><00:03:11.989><c> done</c><00:03:12.200><c> is</c><00:03:12.319><c> it's</c>
+
+00:03:12.490 --> 00:03:12.500 align:start position:0%
+successful so what it's done is it's
+ 
+
+00:03:12.500 --> 00:03:15.429 align:start position:0%
+successful so what it's done is it's
+built<00:03:12.739><c> this</c><00:03:12.919><c> template</c><00:03:13.579><c> you</c><00:03:14.569><c> had</c><00:03:14.750><c> no</c><00:03:14.989><c> influence</c>
+
+00:03:15.429 --> 00:03:15.439 align:start position:0%
+built this template you had no influence
+ 
+
+00:03:15.439 --> 00:03:18.670 align:start position:0%
+built this template you had no influence
+over<00:03:15.739><c> the</c><00:03:16.430><c> content</c><00:03:17.090><c> of</c><00:03:17.180><c> that</c><00:03:17.209><c> template</c><00:03:17.840><c> we'll</c>
+
+00:03:18.670 --> 00:03:18.680 align:start position:0%
+over the content of that template we'll
+ 
+
+00:03:18.680 --> 00:03:21.069 align:start position:0%
+over the content of that template we'll
+come<00:03:18.889><c> to</c><00:03:19.040><c> that</c><00:03:19.159><c> in</c><00:03:19.220><c> a</c><00:03:19.370><c> moment</c><00:03:19.810><c> we'll</c><00:03:20.810><c> help</c><00:03:20.959><c> we</c>
+
+00:03:21.069 --> 00:03:21.079 align:start position:0%
+come to that in a moment we'll help we
+ 
+
+00:03:21.079 --> 00:03:22.649 align:start position:0%
+come to that in a moment we'll help we
+can<00:03:21.230><c> at</c><00:03:21.290><c> least</c><00:03:21.409><c> change</c><00:03:21.680><c> something</c><00:03:22.040><c> in</c><00:03:22.280><c> there</c>
+
+00:03:22.649 --> 00:03:22.659 align:start position:0%
+can at least change something in there
+ 
+
+00:03:22.659 --> 00:03:27.309 align:start position:0%
+can at least change something in there
+so<00:03:23.659><c> let's</c><00:03:23.810><c> click</c><00:03:24.470><c> that</c><00:03:24.879><c> get</c><00:03:25.879><c> rid</c><00:03:26.000><c> of</c><00:03:26.090><c> that</c><00:03:26.319><c> so</c>
+
+00:03:27.309 --> 00:03:27.319 align:start position:0%
+so let's click that get rid of that so
+ 
+
+00:03:27.319 --> 00:03:33.520 align:start position:0%
+so let's click that get rid of that so
+that<00:03:27.440><c> was</c><00:03:27.560><c> build</c><00:03:27.949><c> let's</c><00:03:28.519><c> now</c><00:03:28.909><c> go</c><00:03:29.299><c> to</c><00:03:29.329><c> code</c><00:03:32.530><c> now</c>
+
+00:03:33.520 --> 00:03:33.530 align:start position:0%
+that was build let's now go to code now
+ 
+
+00:03:33.530 --> 00:03:38.379 align:start position:0%
+that was build let's now go to code now
+the<00:03:33.590><c> code</c><00:03:35.229><c> again</c><00:03:36.229><c> it's</c><00:03:36.709><c> a</c><00:03:37.129><c> template</c><00:03:37.909><c> is</c><00:03:38.150><c> just</c>
+
+00:03:38.379 --> 00:03:38.389 align:start position:0%
+the code again it's a template is just
+ 
+
+00:03:38.389 --> 00:03:41.319 align:start position:0%
+the code again it's a template is just
+paste<00:03:38.750><c> of</c><00:03:39.049><c> this</c><00:03:39.199><c> stuff</c><00:03:39.470><c> in</c><00:03:39.709><c> let's</c><00:03:40.609><c> think</c><00:03:40.849><c> stand</c>
+
+00:03:41.319 --> 00:03:41.329 align:start position:0%
+paste of this stuff in let's think stand
+ 
+
+00:03:41.329 --> 00:03:43.689 align:start position:0%
+paste of this stuff in let's think stand
+what<00:03:42.049><c> will</c><00:03:42.229><c> happen</c><00:03:42.650><c> and</c><00:03:42.949><c> we</c><00:03:43.129><c> will</c><00:03:43.220><c> actually</c><00:03:43.489><c> do</c>
+
+00:03:43.689 --> 00:03:43.699 align:start position:0%
+what will happen and we will actually do
+ 
+
+00:03:43.699 --> 00:03:46.839 align:start position:0%
+what will happen and we will actually do
+this<00:03:43.989><c> when</c><00:03:44.989><c> we</c><00:03:45.260><c> press</c><00:03:46.040><c> the</c><00:03:46.220><c> right</c><00:03:46.250><c> buttons</c>
+
+00:03:46.839 --> 00:03:46.849 align:start position:0%
+this when we press the right buttons
+ 
+
+00:03:46.849 --> 00:03:49.089 align:start position:0%
+this when we press the right buttons
+then<00:03:47.269><c> it</c><00:03:47.389><c> will</c><00:03:47.510><c> say</c><00:03:47.720><c> welcome</c><00:03:48.169><c> you</c><00:03:48.739><c> can</c><00:03:48.919><c> say</c>
+
+00:03:49.089 --> 00:03:49.099 align:start position:0%
+then it will say welcome you can say
+ 
+
+00:03:49.099 --> 00:03:51.159 align:start position:0%
+then it will say welcome you can say
+hello<00:03:49.310><c> or</c><00:03:49.489><c> help</c><00:03:49.970><c> which</c><00:03:50.359><c> would</c><00:03:50.599><c> you</c><00:03:50.750><c> like</c><00:03:50.959><c> to</c>
+
+00:03:51.159 --> 00:03:51.169 align:start position:0%
+hello or help which would you like to
+ 
+
+00:03:51.169 --> 00:03:53.770 align:start position:0%
+hello or help which would you like to
+try<00:03:51.500><c> so</c><00:03:52.250><c> let's</c><00:03:52.430><c> we're</c><00:03:52.790><c> going</c><00:03:52.940><c> to</c><00:03:53.000><c> do</c><00:03:53.239><c> that</c><00:03:53.510><c> just</c>
+
+00:03:53.770 --> 00:03:53.780 align:start position:0%
+try so let's we're going to do that just
+ 
+
+00:03:53.780 --> 00:03:55.719 align:start position:0%
+try so let's we're going to do that just
+to<00:03:53.900><c> prove</c><00:03:54.199><c> that</c><00:03:54.260><c> we</c><00:03:54.769><c> can</c><00:03:54.889><c> get</c><00:03:55.040><c> the</c><00:03:55.129><c> basic</c><00:03:55.519><c> thing</c>
+
+00:03:55.719 --> 00:03:55.729 align:start position:0%
+to prove that we can get the basic thing
+ 
+
+00:03:55.729 --> 00:04:09.350 align:start position:0%
+to prove that we can get the basic thing
+working<00:03:56.180><c> so</c><00:03:56.959><c> let's</c><00:03:57.109><c> click</c><00:03:57.560><c> deploy</c>
+
+00:04:09.350 --> 00:04:09.360 align:start position:0%
+ 
+ 
+
+00:04:09.360 --> 00:04:12.850 align:start position:0%
+ 
+okay<00:04:10.320><c> so</c><00:04:10.380><c> that</c><00:04:10.770><c> deployment</c><00:04:11.490><c> was</c><00:04:11.640><c> successful</c>
+
+00:04:12.850 --> 00:04:12.860 align:start position:0%
+okay so that deployment was successful
+ 
+
+00:04:12.860 --> 00:04:17.960 align:start position:0%
+okay so that deployment was successful
+that<00:04:13.860><c> and</c><00:04:14.720><c> now</c><00:04:15.720><c> we'll</c><00:04:15.960><c> go</c><00:04:16.170><c> to</c><00:04:16.200><c> the</c><00:04:16.830><c> test</c><00:04:17.640><c> so</c><00:04:17.820><c> we</c>
+
+00:04:17.960 --> 00:04:17.970 align:start position:0%
+that and now we'll go to the test so we
+ 
+
+00:04:17.970 --> 00:04:20.240 align:start position:0%
+that and now we'll go to the test so we
+went<00:04:18.120><c> through</c><00:04:18.180><c> build</c><00:04:18.769><c> well</c><00:04:19.769><c> first</c><00:04:20.010><c> of</c><00:04:20.100><c> all</c><00:04:20.160><c> we</c>
+
+00:04:20.240 --> 00:04:20.250 align:start position:0%
+went through build well first of all we
+ 
+
+00:04:20.250 --> 00:04:22.820 align:start position:0%
+went through build well first of all we
+call<00:04:20.459><c> it</c><00:04:20.580><c> talking</c><00:04:20.820><c> phonebook</c><00:04:21.690><c> that's</c><00:04:22.380><c> kind</c><00:04:22.770><c> of</c>
+
+00:04:22.820 --> 00:04:22.830 align:start position:0%
+call it talking phonebook that's kind of
+ 
+
+00:04:22.830 --> 00:04:36.820 align:start position:0%
+call it talking phonebook that's kind of
+a<00:04:22.920><c> detail</c><00:04:23.510><c> right</c><00:04:24.510><c> now</c><00:04:25.340><c> we</c><00:04:26.340><c> went</c><00:04:26.550><c> to</c><00:04:26.760><c> build</c><00:04:35.060><c> and</c>
+
+00:04:36.820 --> 00:04:36.830 align:start position:0%
+a detail right now we went to build and
+ 
+
+00:04:36.830 --> 00:04:40.040 align:start position:0%
+a detail right now we went to build and
+yeah<00:04:37.830><c> it's</c><00:04:38.070><c> called</c><00:04:38.280><c> talking</c><00:04:38.490><c> phonebook</c><00:04:39.050><c> we</c>
+
+00:04:40.040 --> 00:04:40.050 align:start position:0%
+yeah it's called talking phonebook we
+ 
+
+00:04:40.050 --> 00:04:43.930 align:start position:0%
+yeah it's called talking phonebook we
+went<00:04:40.290><c> to</c><00:04:40.500><c> code</c><00:04:40.950><c> we</c><00:04:41.430><c> didn't</c><00:04:41.670><c> make</c><00:04:41.790><c> any</c><00:04:41.850><c> changes</c>
+
+00:04:43.930 --> 00:04:43.940 align:start position:0%
+went to code we didn't make any changes
+ 
+
+00:04:43.940 --> 00:04:48.530 align:start position:0%
+went to code we didn't make any changes
+we<00:04:44.940><c> simply</c><00:04:45.360><c> deployed</c><00:04:45.780><c> that</c><00:04:46.970><c> we</c><00:04:47.970><c> are</c><00:04:48.090><c> now</c><00:04:48.270><c> going</c>
+
+00:04:48.530 --> 00:04:48.540 align:start position:0%
+we simply deployed that we are now going
+ 
+
+00:04:48.540 --> 00:04:56.570 align:start position:0%
+we simply deployed that we are now going
+to<00:04:48.660><c> tech</c><00:04:49.520><c> so</c><00:04:50.520><c> I'm</c><00:04:51.240><c> going</c><00:04:51.810><c> to</c><00:04:52.050><c> paste</c><00:04:53.040><c> in</c><00:04:55.580><c> the</c>
+
+00:04:56.570 --> 00:04:56.580 align:start position:0%
+to tech so I'm going to paste in the
+ 
+
+00:04:56.580 --> 00:05:02.030 align:start position:0%
+to tech so I'm going to paste in the
+magic<00:04:56.940><c> words</c><00:04:58.580><c> first</c><00:04:59.580><c> of</c><00:04:59.730><c> all</c><00:04:59.790><c> we</c><00:04:59.910><c> have</c><00:05:00.060><c> to</c><00:05:01.040><c> by</c>
+
+00:05:02.030 --> 00:05:02.040 align:start position:0%
+magic words first of all we have to by
+ 
+
+00:05:02.040 --> 00:05:04.520 align:start position:0%
+magic words first of all we have to by
+default<00:05:02.100><c> the</c><00:05:02.790><c> skill</c><00:05:03.270><c> testing</c><00:05:03.630><c> is</c><00:05:03.750><c> disabled</c><00:05:04.320><c> so</c>
+
+00:05:04.520 --> 00:05:04.530 align:start position:0%
+default the skill testing is disabled so
+ 
+
+00:05:04.530 --> 00:05:08.360 align:start position:0%
+default the skill testing is disabled so
+I<00:05:04.560><c> just</c><00:05:04.950><c> enabled</c><00:05:05.550><c> that</c><00:05:06.320><c> now</c><00:05:07.320><c> we're</c><00:05:07.650><c> going</c><00:05:07.890><c> to</c>
+
+00:05:08.360 --> 00:05:08.370 align:start position:0%
+I just enabled that now we're going to
+ 
+
+00:05:08.370 --> 00:05:11.420 align:start position:0%
+I just enabled that now we're going to
+paste<00:05:08.940><c> in</c><00:05:09.240><c> the</c><00:05:09.810><c> entry</c><00:05:10.350><c> that</c><00:05:10.380><c> we</c><00:05:10.740><c> want</c><00:05:10.980><c> it</c><00:05:11.160><c> to</c>
+
+00:05:11.420 --> 00:05:11.430 align:start position:0%
+paste in the entry that we want it to
+ 
+
+00:05:11.430 --> 00:05:14.210 align:start position:0%
+paste in the entry that we want it to
+detect<00:05:11.940><c> we</c><00:05:12.840><c> could</c><00:05:13.080><c> use</c><00:05:13.260><c> the</c><00:05:13.380><c> microphone</c><00:05:14.010><c> I'm</c>
+
+00:05:14.210 --> 00:05:14.220 align:start position:0%
+detect we could use the microphone I'm
+ 
+
+00:05:14.220 --> 00:05:18.260 align:start position:0%
+detect we could use the microphone I'm
+not<00:05:14.460><c> going</c><00:05:14.730><c> to</c><00:05:15.830><c> I've</c><00:05:16.830><c> just</c><00:05:17.070><c> hit</c><00:05:17.220><c> welcome</c><00:05:17.760><c> you</c>
+
+00:05:18.260 --> 00:05:18.270 align:start position:0%
+not going to I've just hit welcome you
+ 
+
+00:05:18.270 --> 00:05:20.659 align:start position:0%
+not going to I've just hit welcome you
+can<00:05:18.480><c> say</c><00:05:18.720><c> hello</c><00:05:18.990><c> or</c><00:05:19.380><c> help</c><00:05:19.620><c> which</c><00:05:20.340><c> would</c><00:05:20.550><c> you</c>
+
+00:05:20.659 --> 00:05:20.669 align:start position:0%
+can say hello or help which would you
+ 
+
+00:05:20.669 --> 00:05:23.810 align:start position:0%
+can say hello or help which would you
+like<00:05:20.820><c> to</c><00:05:21.030><c> try</c><00:05:21.560><c> so</c><00:05:22.560><c> there</c><00:05:22.830><c> we've</c><00:05:23.130><c> got</c><00:05:23.160><c> a</c><00:05:23.430><c> basic</c>
+
+00:05:23.810 --> 00:05:23.820 align:start position:0%
+like to try so there we've got a basic
+ 
+
+00:05:23.820 --> 00:05:27.080 align:start position:0%
+like to try so there we've got a basic
+proof<00:05:24.450><c> there</c><00:05:24.840><c> sure</c><00:05:25.560><c> we</c><00:05:25.919><c> can</c><00:05:26.160><c> this</c><00:05:26.370><c> template</c><00:05:26.850><c> we</c>
+
+00:05:27.080 --> 00:05:27.090 align:start position:0%
+proof there sure we can this template we
+ 
+
+00:05:27.090 --> 00:05:29.780 align:start position:0%
+proof there sure we can this template we
+can<00:05:27.210><c> get</c><00:05:27.419><c> it</c><00:05:27.510><c> to</c><00:05:27.630><c> work</c><00:05:27.780><c> now</c><00:05:28.770><c> what</c><00:05:29.040><c> I</c><00:05:29.070><c> want</c><00:05:29.460><c> to</c><00:05:29.520><c> do</c>
+
+00:05:29.780 --> 00:05:29.790 align:start position:0%
+can get it to work now what I want to do
+ 
+
+00:05:29.790 --> 00:05:34.010 align:start position:0%
+can get it to work now what I want to do
+is<00:05:30.330><c> to</c><00:05:30.540><c> go</c><00:05:30.750><c> back</c><00:05:31.050><c> and</c><00:05:31.290><c> change</c><00:05:31.919><c> the</c><00:05:32.280><c> code</c><00:05:33.020><c> going</c>
+
+00:05:34.010 --> 00:05:34.020 align:start position:0%
+is to go back and change the code going
+ 
+
+00:05:34.020 --> 00:05:36.230 align:start position:0%
+is to go back and change the code going
+to<00:05:34.200><c> prove</c><00:05:34.500><c> that</c><00:05:34.530><c> we</c><00:05:34.890><c> can</c><00:05:35.130><c> just</c><00:05:35.580><c> a</c><00:05:35.730><c> little</c><00:05:36.060><c> bit</c>
+
+00:05:36.230 --> 00:05:36.240 align:start position:0%
+to prove that we can just a little bit
+ 
+
+00:05:36.240 --> 00:05:39.470 align:start position:0%
+to prove that we can just a little bit
+influence<00:05:37.080><c> what's</c><00:05:37.380><c> being</c><00:05:37.620><c> said</c><00:05:37.980><c> here</c><00:05:38.210><c> so</c><00:05:39.210><c> I'm</c>
+
+00:05:39.470 --> 00:05:39.480 align:start position:0%
+influence what's being said here so I'm
+ 
+
+00:05:39.480 --> 00:05:41.420 align:start position:0%
+influence what's being said here so I'm
+going<00:05:39.630><c> to</c><00:05:39.720><c> change</c><00:05:40.050><c> the</c><00:05:40.320><c> text</c><00:05:40.650><c> that</c><00:05:41.010><c> it</c><00:05:41.190><c> just</c>
+
+00:05:41.420 --> 00:05:41.430 align:start position:0%
+going to change the text that it just
+ 
+
+00:05:41.430 --> 00:05:45.230 align:start position:0%
+going to change the text that it just
+spoke<00:05:41.760><c> to</c><00:05:41.790><c> something</c><00:05:42.419><c> different</c><00:05:42.690><c> and</c><00:05:44.030><c> if</c><00:05:45.030><c> it</c>
+
+00:05:45.230 --> 00:05:45.240 align:start position:0%
+spoke to something different and if it
+ 
+
+00:05:45.240 --> 00:05:48.140 align:start position:0%
+spoke to something different and if it
+works<00:05:45.630><c> then</c><00:05:46.080><c> we</c><00:05:47.040><c> will</c><00:05:47.220><c> hear</c><00:05:47.430><c> this</c><00:05:47.580><c> text</c>
+
+00:05:48.140 --> 00:05:48.150 align:start position:0%
+works then we will hear this text
+ 
+
+00:05:48.150 --> 00:05:50.630 align:start position:0%
+works then we will hear this text
+welcome<00:05:48.720><c> this</c><00:05:49.169><c> is</c><00:05:49.230><c> a</c><00:05:49.380><c> demo</c><00:05:49.860><c> of</c><00:05:50.040><c> a</c><00:05:50.220><c> lexer</c>
+
+00:05:50.630 --> 00:05:50.640 align:start position:0%
+welcome this is a demo of a lexer
+ 
+
+00:05:50.640 --> 00:05:54.650 align:start position:0%
+welcome this is a demo of a lexer
+development<00:05:51.240><c> for</c><00:05:51.480><c> the</c><00:05:51.630><c> RNIB</c><00:05:52.320><c> forums</c><00:05:53.040><c> I</c><00:05:53.660><c> want</c>
+
+00:05:54.650 --> 00:05:54.660 align:start position:0%
+development for the RNIB forums I want
+ 
+
+00:05:54.660 --> 00:05:57.080 align:start position:0%
+development for the RNIB forums I want
+to<00:05:54.810><c> make</c><00:05:54.960><c> it</c><00:05:55.110><c> quite</c><00:05:55.410><c> clear</c><00:05:55.440><c> I</c><00:05:55.830><c> have</c><00:05:56.130><c> nothing</c><00:05:56.850><c> to</c>
+
+00:05:57.080 --> 00:05:57.090 align:start position:0%
+to make it quite clear I have nothing to
+ 
+
+00:05:57.090 --> 00:06:02.480 align:start position:0%
+to make it quite clear I have nothing to
+do<00:05:57.540><c> with</c><00:05:57.890><c> RNIB</c><00:05:58.890><c> my</c><00:06:00.530><c> it's</c><00:06:01.530><c> a</c><00:06:01.650><c> very</c><00:06:01.919><c> good</c>
+
+00:06:02.480 --> 00:06:02.490 align:start position:0%
+do with RNIB my it's a very good
+ 
+
+00:06:02.490 --> 00:06:04.610 align:start position:0%
+do with RNIB my it's a very good
+organization<00:06:02.760><c> but</c><00:06:03.690><c> I</c><00:06:03.750><c> have</c><00:06:03.900><c> nothing</c><00:06:04.169><c> to</c><00:06:04.350><c> do</c>
+
+00:06:04.610 --> 00:06:04.620 align:start position:0%
+organization but I have nothing to do
+ 
+
+00:06:04.620 --> 00:06:06.830 align:start position:0%
+organization but I have nothing to do
+them<00:06:04.860><c> this</c><00:06:05.010><c> is</c><00:06:05.190><c> all</c><00:06:05.340><c> voluntary</c><00:06:06.120><c> just</c><00:06:06.570><c> trying</c>
+
+00:06:06.830 --> 00:06:06.840 align:start position:0%
+them this is all voluntary just trying
+ 
+
+00:06:06.840 --> 00:06:08.810 align:start position:0%
+them this is all voluntary just trying
+to<00:06:06.900><c> help</c><00:06:07.050><c> the</c><00:06:07.200><c> community</c><00:06:07.400><c> just</c><00:06:08.400><c> to</c><00:06:08.460><c> make</c><00:06:08.640><c> that</c>
+
+00:06:08.810 --> 00:06:08.820 align:start position:0%
+to help the community just to make that
+ 
+
+00:06:08.820 --> 00:06:13.850 align:start position:0%
+to help the community just to make that
+quite<00:06:09.150><c> clear</c><00:06:11.210><c> so</c><00:06:12.210><c> having</c><00:06:12.450><c> done</c><00:06:12.660><c> that</c><00:06:12.720><c> I</c><00:06:13.229><c> will</c>
+
+00:06:13.850 --> 00:06:13.860 align:start position:0%
+quite clear so having done that I will
+ 
+
+00:06:13.860 --> 00:06:19.210 align:start position:0%
+quite clear so having done that I will
+click<00:06:14.520><c> Save</c><00:06:14.630><c> and</c><00:06:16.400><c> I</c><00:06:17.400><c> will</c><00:06:17.580><c> then</c><00:06:17.789><c> click</c><00:06:18.090><c> deploy</c>
+
+00:06:19.210 --> 00:06:19.220 align:start position:0%
+click Save and I will then click deploy
+ 
+
+00:06:19.220 --> 00:06:21.590 align:start position:0%
+click Save and I will then click deploy
+now<00:06:20.220><c> we've</c><00:06:20.400><c> already</c><00:06:20.550><c> done</c><00:06:20.910><c> the</c><00:06:21.090><c> save</c><00:06:21.330><c> and</c><00:06:21.570><c> the</c>
+
+00:06:21.590 --> 00:06:21.600 align:start position:0%
+now we've already done the save and the
+ 
+
+00:06:21.600 --> 00:06:23.279 align:start position:0%
+now we've already done the save and the
+deploy<00:06:21.960><c> before</c><00:06:22.169><c> but</c><00:06:22.650><c> now</c><00:06:22.860><c> we've</c>
+
+00:06:23.279 --> 00:06:23.289 align:start position:0%
+deploy before but now we've
+ 
+
+00:06:23.289 --> 00:06:26.459 align:start position:0%
+deploy before but now we've
+changed<00:06:23.649><c> things</c><00:06:24.129><c> we</c><00:06:24.909><c> have</c><00:06:25.149><c> to</c><00:06:25.419><c> do</c><00:06:25.930><c> the</c><00:06:26.080><c> safer</c>
+
+00:06:26.459 --> 00:06:26.469 align:start position:0%
+changed things we have to do the safer
+ 
+
+00:06:26.469 --> 00:06:31.170 align:start position:0%
+changed things we have to do the safer
+and<00:06:26.649><c> the</c><00:06:26.830><c> deploy</c><00:06:27.159><c> again</c><00:06:29.759><c> so</c><00:06:30.759><c> we're</c><00:06:30.909><c> changing</c>
+
+00:06:31.170 --> 00:06:31.180 align:start position:0%
+and the deploy again so we're changing
+ 
+
+00:06:31.180 --> 00:06:38.999 align:start position:0%
+and the deploy again so we're changing
+the<00:06:31.479><c> code</c><00:06:31.719><c> here</c><00:06:36.869><c> deployment</c><00:06:37.869><c> successful</c><00:06:38.349><c> ok</c>
+
+00:06:38.999 --> 00:06:39.009 align:start position:0%
+the code here deployment successful ok
+ 
+
+00:06:39.009 --> 00:06:45.269 align:start position:0%
+the code here deployment successful ok
+so<00:06:39.999><c> now</c><00:06:40.210><c> we</c><00:06:40.270><c> can</c><00:06:40.539><c> go</c><00:06:40.719><c> to</c><00:06:40.749><c> tests</c><00:06:43.499><c> and</c><00:06:44.499><c> we</c><00:06:45.069><c> will</c>
+
+00:06:45.269 --> 00:06:45.279 align:start position:0%
+so now we can go to tests and we will
+ 
+
+00:06:45.279 --> 00:06:51.119 align:start position:0%
+so now we can go to tests and we will
+again<00:06:45.809><c> paste</c><00:06:46.809><c> in</c><00:06:47.139><c> our</c><00:06:48.029><c> open</c><00:06:49.029><c> know</c><00:06:49.599><c> nothing</c><00:06:50.169><c> we</c>
+
+00:06:51.119 --> 00:06:51.129 align:start position:0%
+again paste in our open know nothing we
+ 
+
+00:06:51.129 --> 00:06:56.480 align:start position:0%
+again paste in our open know nothing we
+can<00:06:51.399><c> now</c><00:06:51.699><c> paste</c><00:06:52.300><c> in</c><00:06:52.539><c> again</c><00:06:52.899><c> our</c><00:06:53.789><c> open</c><00:06:55.050><c> talking</c>
+
+00:06:56.480 --> 00:06:56.490 align:start position:0%
+can now paste in again our open talking
+ 
+
+00:06:56.490 --> 00:06:59.279 align:start position:0%
+can now paste in again our open talking
+phonebook<00:06:57.490><c> command</c><00:06:58.059><c> I'm</c><00:06:58.779><c> going</c><00:06:59.050><c> to</c><00:06:59.139><c> hit</c>
+
+00:06:59.279 --> 00:06:59.289 align:start position:0%
+phonebook command I'm going to hit
+ 
+
+00:06:59.289 --> 00:07:01.589 align:start position:0%
+phonebook command I'm going to hit
+return<00:06:59.439><c> again</c><00:06:59.649><c> and</c><00:07:00.279><c> this</c><00:07:00.399><c> time</c><00:07:00.459><c> I</c><00:07:00.999><c> expect</c>
+
+00:07:01.589 --> 00:07:01.599 align:start position:0%
+return again and this time I expect
+ 
+
+00:07:01.599 --> 00:07:05.249 align:start position:0%
+return again and this time I expect
+different<00:07:01.959><c> text</c><00:07:03.119><c> ok</c><00:07:04.119><c> this</c><00:07:04.659><c> is</c><00:07:04.839><c> a</c><00:07:04.869><c> demo</c><00:07:05.229><c> of</c>
+
+00:07:05.249 --> 00:07:05.259 align:start position:0%
+different text ok this is a demo of
+ 
+
+00:07:05.259 --> 00:07:08.089 align:start position:0%
+different text ok this is a demo of
+Alexa<00:07:05.830><c> development</c><00:07:06.399><c> for</c><00:07:06.550><c> the</c><00:07:06.639><c> RNIB</c><00:07:07.149><c> forums</c>
+
+00:07:08.089 --> 00:07:08.099 align:start position:0%
+Alexa development for the RNIB forums
+ 
+
+00:07:08.099 --> 00:07:11.790 align:start position:0%
+Alexa development for the RNIB forums
+and<00:07:09.099><c> there</c><00:07:09.819><c> we</c><00:07:09.909><c> go</c><00:07:10.149><c> so</c><00:07:10.539><c> just</c><00:07:10.930><c> starting</c><00:07:11.529><c> point</c>
+
+00:07:11.790 --> 00:07:11.800 align:start position:0%
+and there we go so just starting point
+ 
+
+00:07:11.800 --> 00:07:14.519 align:start position:0%
+and there we go so just starting point
+I'd<00:07:12.669><c> be</c><00:07:12.879><c> really</c><00:07:13.330><c> interested</c><00:07:13.569><c> to</c><00:07:14.080><c> get</c><00:07:14.349><c> the</c>
+
+00:07:14.519 --> 00:07:14.529 align:start position:0%
+I'd be really interested to get the
+ 
+
+00:07:14.529 --> 00:07:16.499 align:start position:0%
+I'd be really interested to get the
+conversation<00:07:14.889><c> going</c><00:07:15.189><c> on</c><00:07:15.669><c> our</c><00:07:15.849><c> own</c>
+
+00:07:16.499 --> 00:07:16.509 align:start position:0%
+conversation going on our own
+ 
+
+00:07:16.509 --> 00:07:19.199 align:start position:0%
+conversation going on our own
+RNIB<00:07:17.139><c> forum</c><00:07:17.680><c> for</c><00:07:17.830><c> anyone</c><00:07:18.189><c> in</c><00:07:18.699><c> a</c><00:07:18.849><c> similar</c>
+
+00:07:19.199 --> 00:07:19.209 align:start position:0%
+RNIB forum for anyone in a similar
+ 
+
+00:07:19.209 --> 00:07:21.119 align:start position:0%
+RNIB forum for anyone in a similar
+position<00:07:19.330><c> to</c><00:07:19.659><c> me</c><00:07:20.020><c> that</c><00:07:20.619><c> is</c>
+
+00:07:21.119 --> 00:07:21.129 align:start position:0%
+position to me that is
+ 
+
+00:07:21.129 --> 00:07:25.529 align:start position:0%
+position to me that is
+I'm<00:07:21.339><c> a</c><00:07:22.139><c> someone</c><00:07:23.139><c> who</c><00:07:23.259><c> wants</c><00:07:23.589><c> to</c><00:07:23.649><c> does</c><00:07:24.639><c> some</c>
+
+00:07:25.529 --> 00:07:25.539 align:start position:0%
+I'm a someone who wants to does some
+ 
+
+00:07:25.539 --> 00:07:29.059 align:start position:0%
+I'm a someone who wants to does some
+minor<00:07:26.379><c> alexa</c><00:07:27.069><c> development</c><00:07:27.580><c> specifically</c><00:07:28.389><c> for</c>
+
+00:07:29.059 --> 00:07:29.069 align:start position:0%
+minor alexa development specifically for
+ 
+
+00:07:29.069 --> 00:07:31.980 align:start position:0%
+minor alexa development specifically for
+their<00:07:30.069><c> visually</c><00:07:30.939><c> impaired</c><00:07:31.360><c> friend</c><00:07:31.809><c> or</c>
+
+00:07:31.980 --> 00:07:31.990 align:start position:0%
+their visually impaired friend or
+ 
+
+00:07:31.990 --> 00:07:35.189 align:start position:0%
+their visually impaired friend or
+relative<00:07:32.669><c> and</c><00:07:33.669><c> i</c><00:07:33.819><c> want</c><00:07:34.449><c> to</c><00:07:34.569><c> share</c><00:07:34.809><c> the</c><00:07:35.050><c> little</c>
+
+00:07:35.189 --> 00:07:35.199 align:start position:0%
+relative and i want to share the little
+ 
+
+00:07:35.199 --> 00:07:38.999 align:start position:0%
+relative and i want to share the little
+that<00:07:35.499><c> I</c><00:07:35.559><c> know</c><00:07:35.589><c> thanks</c><00:07:36.279><c> for</c><00:07:36.309><c> watching</c><00:07:36.729><c> bye</c>
+
