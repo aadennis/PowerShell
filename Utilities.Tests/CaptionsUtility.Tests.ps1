@@ -11,8 +11,10 @@ Describe "CaptionsUtility" {
     Context "Convert-fromVttToText" {
         It "Returns text when passed a Vtt file" {
             $file = "$here/Data/captions.vtt"
+            $expectedContent = get-content "$here/Data/ExpectedResultFiles/ExpectedCaptionsText.txt"
             $textConvertedFromVtt = Convert-fromVttToText $file
-            $textConvertedFromVtt | Should Be "WEBVTT"
+
+            $textConvertedFromVtt | Should Be $expectedContent
         }
     }
 }
