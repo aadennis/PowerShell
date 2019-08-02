@@ -7,7 +7,7 @@ $Global:configFilePath = "$here\Metadata\Friends.spec.json"
 Describe "DirectoryUtility" {
 
     Context "Get-FileNamesInFolder" {
-        It "Returns the names of the given folder, sorted by name" {
+        It "Returns the names of the files in the given folder, sorted by name" {
             # Sadly, Directory class does not play ball with TestDrive
             #New-Item "TestDrive:\Testfolder" -ItemType Dir
             $testFolder = New-Item -Path "C:\temp\$(Get-Random)" -ItemType Dir
