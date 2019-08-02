@@ -10,15 +10,19 @@ Describe "DirectoryUtility" {
         It "Returns the names of the files in the given folder, sorted by name" {
             # Sadly, Directory class does not play ball with TestDrive
             #New-Item "TestDrive:\Testfolder" -ItemType Dir
+
+            # arrange 
             $testFolder = New-Item -Path "C:\temp\$(Get-Random)" -ItemType Dir
             $testFileSet = "File123.txt", "File789.txt", "aardvark","File456.txt"
             $testFileSet | % {
                 New-Item -Path "$testFolder\$_" -ItemType File
             }
 
+            # act
             $fileNameSet = Get-FileNamesInFolder $testFolder
-            $fileNameSet.length | Should Be 4
 
+            # assert
+            $fileNameSet.length | Should Be 4
             $fileNameSet[0] | Should Be $(Join-Path $testFolder $testFileSet[2])
             $fileNameSet[1] | Should Be $(Join-Path $testFolder $testFileSet[0])
             $fileNameSet[2] | Should Be $(Join-Path $testFolder $testFileSet[3])
