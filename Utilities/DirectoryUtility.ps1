@@ -29,3 +29,31 @@ function Get-FileNamesInFolder {
     #[System.IO.Directory]::EnumerateFiles($Folder, "*.txt")
     [System.IO.Directory]::EnumerateFiles($Folder)
 }
+
+<#
+.SYNOPSIS
+    Given a folder, return the lowest named (e.g folder/aardvark) filename in that folder.
+#>
+function Get-LowNameInFolder {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory=$true)]
+        $Folder
+    )
+    $file = Get-FileNamesInFolder -Folder $Folder
+    $file[0]
+}
+
+<#
+.SYNOPSIS
+    Given a folder, return the highest named (e.g folder/zygote) filename in that folder.
+#>
+function Get-HighNameInFolder {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory=$true)]
+        $Folder
+    )
+    $file = Get-FileNamesInFolder -Folder $Folder
+    $file[-1]
+}
