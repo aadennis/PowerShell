@@ -133,6 +133,25 @@ Describe "DirectoryUtility" {
           $actualFolderSet[1] | Should Be $(Join-Path $testFolder $subFolderSet[1])
       }
 
+      It "Returns the single folder which matches the passed wildcard in the passed folder" {
+        #arrange 
+        $testFolder = New-TempFolder
+        
+        $subFolderSet = "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
+        $subFolderSet | ForEach-Object {
+            New-Item -Path "$testFolder\$_" -ItemType Directory
+        }
+
+        # act
+        $actualFolderSet = Get-FolderNamesInFolder -folder $testFolder -wildcard "*AB*"
+
+       # assert 
+       # Note that when a single element is returned, it is a string, and not a collection of one.
+       # Therefore the length becomes the length of the string, and not of the collection.
+       # However, because the path is random (TestDrive), you cannot test the length of the string, as it 
+       # changes.
+        $actualFolderSet | Should Be $(Join-Path $testFolder $subFolderSet[0])
+  }
 
     }
 
