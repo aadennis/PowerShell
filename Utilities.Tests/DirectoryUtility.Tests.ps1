@@ -24,7 +24,7 @@ Describe "DirectoryUtility" {
 
             # arrange 
             $testFolder = New-TempFolder
-            $testFileSet = "File123.txt", "File789.txt", "aardvark","File456.txt"
+            $testFileSet = "File123.txt", "File789.txt", "aardvark", "File456.txt"
             $testFileSet | ForEach-Object {
                 New-Item -Path "$testFolder\$_" -ItemType File
             }
@@ -43,69 +43,69 @@ Describe "DirectoryUtility" {
 
     Context "Get-LowNameInFolder" {
         It "Returns the lowest-named pathname (e.g folder\aardvark) in the given folder" {
-              # arrange 
-              $testFolder = New-TempFolder
-              $testFileSet = "File123.txt", "File789.txt", "aardvark","File456.txt"
-              $testFileSet | ForEach-Object {
-                  New-Item -Path "$testFolder\$_" -ItemType File
-              }
+            # arrange 
+            $testFolder = New-TempFolder
+            $testFileSet = "File123.txt", "File789.txt", "aardvark", "File456.txt"
+            $testFileSet | ForEach-Object {
+                New-Item -Path "$testFolder\$_" -ItemType File
+            }
   
-              # act
-              $file = Get-LowNameInFolder $testFolder
+            # act
+            $file = Get-LowNameInFolder $testFolder
   
-              # assert
-              $file | Should Be $(Join-Path $testFolder "aardvark")
+            # assert
+            $file | Should Be $(Join-Path $testFolder "aardvark")
         }
     }
 
     Context "Get-HighNameInFolder" {
         It "Returns the highest-named pathname (e.g folder\zygote) in the given folder" {
-                #arrange 
-                $testFolder = New-TempFolder
-                $testFileSet = "File123.txt", "File789.txt", "zygote", "aardvark","File456.txt"
-                $testFileSet | ForEach-Object {
-                    New-Item -Path "$testFolder\$_" -ItemType File
-                }
+            #arrange 
+            $testFolder = New-TempFolder
+            $testFileSet = "File123.txt", "File789.txt", "zygote", "aardvark", "File456.txt"
+            $testFileSet | ForEach-Object {
+                New-Item -Path "$testFolder\$_" -ItemType File
+            }
     
-                # act
-                $file = Get-HighNameInFolder $testFolder
+            # act
+            $file = Get-HighNameInFolder $testFolder
     
-                # assert
-                $file | Should Be $(Join-Path $testFolder "zygote")
+            # assert
+            $file | Should Be $(Join-Path $testFolder "zygote")
         }
     }
 
     Context "Get-HighNameInFolder" {
         It "Returns the highest-named pathname (e.g folder\zygote) in the given folder" {
-                #arrange 
-                $testFolder = New-TempFolder
-                $testFileSet = "File123.txt", "File789.txt", "zygote", "aardvark","File456.txt"
-                $testFileSet | ForEach-Object {
-                    New-Item -Path "$testFolder\$_" -ItemType File
-                }
+            #arrange 
+            $testFolder = New-TempFolder
+            $testFileSet = "File123.txt", "File789.txt", "zygote", "aardvark", "File456.txt"
+            $testFileSet | ForEach-Object {
+                New-Item -Path "$testFolder\$_" -ItemType File
+            }
     
-                # act
-                $file = Get-HighNameInFolder $testFolder
+            # act
+            $file = Get-HighNameInFolder $testFolder
     
-                # assert
-                $file | Should Be $(Join-Path $testFolder "zygote")
+            # assert
+            $file | Should Be $(Join-Path $testFolder "zygote")
         }
     }
 
     Context Get-FolderNamesInFolder {
         It "Returns all the folders in the passed folder" {
-              #arrange 
-              $testFolder = New-TempFolder
+            #arrange 
+            $testFolder = New-TempFolder
               
-              $subFolderSet = "20190801 Dir 3 (AB)", "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
-              $subFolderSet | ForEach-Object {
-                  New-Item -Path "$testFolder\$_" -ItemType Directory
-              }
+            $subFolderSet = "20190801 Dir 3 (AB)", "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
+            $subFolderSet | ForEach-Object {
+                New-Item -Path "$testFolder\$_" -ItemType Directory
+            }
   
-              # act
-              $actualFolderSet = Get-FolderNamesInFolder $testFolder
+            # act
+            $actualFolderSet = Get-FolderNamesInFolder $testFolder
   
-             # assert (EnumerateDirectories clearly sorts by lowest alphabetical first)
+            # assert (EnumerateDirectories clearly sorts by lowest alphabetical first)
 
             $actualFolderSet.length | Should Be 4
             $actualFolderSet[0] | Should Be $(Join-Path $testFolder $subFolderSet[0])
@@ -126,34 +126,31 @@ Describe "DirectoryUtility" {
             # act
             $actualFolderSet = Get-FolderNamesInFolder -folder $testFolder -wildcard "*AB*"
 
-           # assert (EnumerateDirectories clearly sorts by lowest alphabetical first)
+            # assert (EnumerateDirectories clearly sorts by lowest alphabetical first)
 
-          $actualFolderSet.length | Should Be 2
-          $actualFolderSet[0] | Should Be $(Join-Path $testFolder $subFolderSet[0])
-          $actualFolderSet[1] | Should Be $(Join-Path $testFolder $subFolderSet[1])
-      }
-
-      It "Returns the single folder which matches the passed wildcard in the passed folder" {
-        #arrange 
-        $testFolder = New-TempFolder
-        
-        $subFolderSet = "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
-        $subFolderSet | ForEach-Object {
-            New-Item -Path "$testFolder\$_" -ItemType Directory
+            $actualFolderSet.length | Should Be 2
+            $actualFolderSet[0] | Should Be $(Join-Path $testFolder $subFolderSet[0])
+            $actualFolderSet[1] | Should Be $(Join-Path $testFolder $subFolderSet[1])
         }
 
-        # act
-        $actualFolderSet = Get-FolderNamesInFolder -folder $testFolder -wildcard "*AB*"
+        It "Returns the single folder which matches the passed wildcard in the passed folder" {
+            #arrange 
+            $testFolder = New-TempFolder
+        
+            $subFolderSet = "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
+            $subFolderSet | ForEach-Object {
+                New-Item -Path "$testFolder\$_" -ItemType Directory
+            }
 
-       # assert 
-       # Note that when a single element is returned, it is a string, and not a collection of one.
-       # Therefore the length becomes the length of the string, and not of the collection.
-       # However, because the path is random (TestDrive), you cannot test the length of the string, as it 
-       # changes.
-        $actualFolderSet | Should Be $(Join-Path $testFolder $subFolderSet[0])
-  }
+            # act
+            $actualFolderSet = Get-FolderNamesInFolder -folder $testFolder -wildcard "*AB*"
 
+            # assert 
+            # Note that when a single element is returned, it is a string, and not a collection of one.
+            # Therefore the length becomes the length of the string, and not of the collection.
+            # However, because the path is random (TestDrive), you cannot test the length of the string, as it 
+            # changes.
+            $actualFolderSet | Should Be $(Join-Path $testFolder $subFolderSet[0])
+        }
     }
-
-
 }
