@@ -74,4 +74,67 @@ Describe "DirectoryUtility" {
                 $file | Should Be $(Join-Path $testFolder "zygote")
         }
     }
+
+    Context "Get-HighNameInFolder" {
+        It "Returns the highest-named pathname (e.g folder\zygote) in the given folder" {
+                #arrange 
+                $testFolder = New-TempFolder
+                $testFileSet = "File123.txt", "File789.txt", "zygote", "aardvark","File456.txt"
+                $testFileSet | ForEach-Object {
+                    New-Item -Path "$testFolder\$_" -ItemType File
+                }
+    
+                # act
+                $file = Get-HighNameInFolder $testFolder
+    
+                # assert
+                $file | Should Be $(Join-Path $testFolder "zygote")
+        }
+    }
+
+    Context Get-FolderNamesInFolder {
+        It "Returns all the folders in the passed folder" {
+              #arrange 
+              $testFolder = New-TempFolder
+              
+              $subFolderSet = "20190801 Dir 3 (AB)", "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
+              $subFolderSet | ForEach-Object {
+                  New-Item -Path "$testFolder\$_" -ItemType Directory
+              }
+  
+              # act
+              $actualFolderSet = Get-FolderNamesInFolder $testFolder
+  
+             # assert (EnumerateDirectories clearly sorts by lowest alphabetical first)
+
+            $actualFolderSet.length | Should Be 4
+            $actualFolderSet[0] | Should Be $(Join-Path $testFolder $subFolderSet[0])
+            $actualFolderSet[1] | Should Be $(Join-Path $testFolder $subFolderSet[3])
+            $actualFolderSet[2] | Should Be $(Join-Path $testFolder $subFolderSet[1])
+            $actualFolderSet[3] | Should Be $(Join-Path $testFolder $subFolderSet[2])
+        }
+
+        It "Returns only the folders which match the passed wildcard in the passed folder" {
+            #arrange 
+            $testFolder = New-TempFolder
+            
+            $subFolderSet = "20190801 Dir 3 (AB)", "20190802 Dir 2 (AB)", "20190802 Dir 3 (XY)", "20190801 Dir 3 (XY)"
+            $subFolderSet | ForEach-Object {
+                New-Item -Path "$testFolder\$_" -ItemType Directory
+            }
+
+            # act
+            $actualFolderSet = Get-FolderNamesInFolder -folder $testFolder -wildcard "*AB*"
+
+           # assert (EnumerateDirectories clearly sorts by lowest alphabetical first)
+
+          $actualFolderSet.length | Should Be 2
+          $actualFolderSet[0] | Should Be $(Join-Path $testFolder $subFolderSet[0])
+          $actualFolderSet[1] | Should Be $(Join-Path $testFolder $subFolderSet[1])
+      }
+
+
+    }
+
+
 }

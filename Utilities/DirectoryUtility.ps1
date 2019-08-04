@@ -30,6 +30,9 @@ function Get-FileNamesInFolder {
     [System.IO.Directory]::EnumerateFiles($Folder)
 }
 
+
+
+
 <#
 .SYNOPSIS
     Given a folder, return the lowest named (e.g folder/aardvark) filename in that folder.
@@ -56,4 +59,26 @@ function Get-HighNameInFolder {
     )
     $file = Get-FileNamesInFolder -Folder $Folder
     $file[-1]
+}
+
+<#
+.SYNOPSIS
+    Get list of folders within the passed folder - no recurson
+
+#>
+function Get-FolderNamesInFolder {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory=$true)]
+        $Folder,
+        $WildCard
+    )
+    
+    if ($null -eq $WildCard) {
+    #[System.IO.Directory]::EnumerateFiles($Folder, "*.txt")
+        [System.IO.Directory]::EnumerateDirectories($Folder)
+    } else {
+        [System.IO.Directory]::EnumerateDirectories($Folder, $WildCard)
+    }
+    
 }
