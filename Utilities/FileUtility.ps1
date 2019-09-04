@@ -349,3 +349,30 @@ function Show-File
  
     $msg = [string]::Format("Finished rendering... [{0}]", [System.DateTime]::utcnow); Write-Verbose $msg
 }
+
+<#
+.SYNOPSIS
+    RUN FROM THE COMMAND LINE.
+   Get a folder using a Windows dialog
+.DESCRIPTION
+    See these entries for some challenges:
+    https://www.powershellmagazine.com/2013/06/28/pstip-using-the-system-windows-forms-folderbrowserdialog-class/
+    https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.folderbrowserdialog?view=netframework-4.8
+    https://stackoverflow.com/questions/7809370/is-it-possible-to-set-folderbrowserdialog-rootfolder-to-an-arbitrary-path-from-a
+
+.EXAMPLE
+   $folder = Get-Folder
+   Write-Host "Selected folder is [$folder]" -BackgroundColor Cyan -ForegroundColor DarkGreen
+.INPUTS
+    Inputs (if any)
+.OUTPUTS
+    Output (if any)
+.NOTES
+    General notes
+#>
+function Get-Folder {
+    $((New-Object -ComObject "Shell.Application").BrowseForFolder(0,"Select a folder:",0)).Self.Path
+}
+
+
+
