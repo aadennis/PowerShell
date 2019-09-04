@@ -1,4 +1,4 @@
-set strict-mode latest
+Set-StrictMode -version latest
 <#
 .SYNOPSIS
     Reads name/value pairs from xml that are the children of the passed node,
