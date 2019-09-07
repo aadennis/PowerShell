@@ -15,10 +15,9 @@ Describe "Get and Set environment variables" {
         <Team>Accrington Stanley</Team>
     </MyVars>
 '@
-    It "reads a property set by set-EnvVars" {
+    It "reads a string property value set by Set-EnvVars" {
 
         # Arrange
-        Remove-Variable -Name ShoeSize -ErrorAction Ignore
         Remove-Variable -Name Team -ErrorAction Ignore
         $xml = [xml] $payLoad
 
@@ -28,15 +27,23 @@ Describe "Get and Set environment variables" {
 
         # Assert - dynamic creation and population of variables
         $team | Should be  "Accrington Stanley"
+    }
 
+    It "reads an integer property value set by Set-EnvVars" {
+        # Arrange
+        Remove-Variable -Name ShoeSize -ErrorAction Ignore
+        $xml = [xml] $payLoad
+
+        # Act
+        Set-EnvVars -xml $xml -root "MyVars"
         $ShoeSize = Get-EnvVar -propertyKey "ShoeSize"
+
+        # Assert - dynamic creation and population of variables
         $ShoeSize | Should be  "42"
     }
 
     It "returns null for a property that has not been set" {
         # Arrange
-        Remove-Variable -Name ShoeSize -ErrorAction Ignore
-        Remove-Variable -Name Team -ErrorAction Ignore
         $xml = [xml] $payLoad
 
         # Act
