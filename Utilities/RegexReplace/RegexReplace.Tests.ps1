@@ -67,4 +67,14 @@ Describe "RegexMatch" {
         Test-RegexMatch $pattern $testInput $message $expectedResult
     }
 
+    It "returns true because cricket is found at the start of the string (scenario includes CR)" {
+        $pattern = "^cricket"
+        $testInput = "cricket\nbat" 
+
+        $expectedResult = "TRUE"
+        $message = "Expects 'cricket' at start of string (note the backslash escape, not backtick)"
+        Test-RegexMatch $pattern $testInput $message $expectedResult
+    }
+
+
 }

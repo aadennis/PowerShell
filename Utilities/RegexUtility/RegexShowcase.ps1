@@ -93,13 +93,6 @@ function Test-RegexSplit($stringToParse, $pattern, [array] $expectedResult, [boo
 }
 
 
-$pattern = "^cricket"
-
-$input = "cricket\nbat"
-$expectedResult = "TRUE"
-$message = "cricket is found at the start of the string (note the backslash escape, not backtick)"
-Test-RegexMatch $pattern $input $message $expectedResult
-
 $pattern = "cricket$"
 
 $input = "cricket"
