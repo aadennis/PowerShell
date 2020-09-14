@@ -13,7 +13,7 @@ Describe "RegexMatch" {
     }
 
     It "returns false if the pattern is not wholly found in the input" {
-        $pattern = "cricket"
+        $pattern = "cricket" 
         $testInput = "ricket"
 
         $expectedResult = "FALSE"
