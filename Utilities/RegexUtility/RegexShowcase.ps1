@@ -20,7 +20,7 @@ function Test-RegexMatch($pattern, $inputToMatch, $message, $expectedResult) {
 
     $actualBooleanResult = $($regexPattern.IsMatch($inputToMatch)).ToString().ToUpper()
 
-    Write-Host "Test [$Global:testId] pattern:[$pattern]input:[$inputToMatch][expected result:$expectedResult ($pattern) $message][actual result:$actualBooleanResult]"
+    Write-Host "Test Id[$Global:testId] pattern:[$pattern]input:[$inputToMatch][expected result:$expectedResult ($pattern) $message][actual result:$actualBooleanResult]"
     if ($actualBooleanResult -ne $expectedResult) {
         throw "*** Last test failed. exiting... ***"
     }
@@ -92,31 +92,8 @@ function Test-RegexSplit($stringToParse, $pattern, [array] $expectedResult, [boo
     write-host "*******************************************" -ForegroundColor Yellow 
 }
 
-$pattern = "cricket"
-
-$input = "cricket"
-$expectedResult = "TRUE"
-$message = "straight match"
-Test-RegexMatch $pattern $input $message $expectedResult
-
-
-$input = "ricket"
-$expectedResult = "FALSE"
-$message = "[$pattern] not wholly found in [$input]"
-Test-RegexMatch $pattern $input $message $expectedResult
-
-$input = "a cricket"
-$expectedResult = "TRUE"
-$message = "[$pattern] wholly found in [$input]"
-Test-RegexMatch $pattern $input $message $expectedResult
-
-$input = "Cricket"
-$expectedResult = "FALSE"
-$message = "matches are case sensitive as this .Net, not PowerShell"
-Test-RegexMatch $pattern $input $message $expectedResult
 
 $pattern = "^cricket"
-
 $input = "cricket"
 $expectedResult = "TRUE"
 $message = "cricket is found at the start of the string"
