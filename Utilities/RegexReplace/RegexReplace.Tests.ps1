@@ -40,12 +40,21 @@ Describe "RegexMatch" {
         Test-RegexMatch $pattern $testInput $message $expectedResult
     }
 
-    It "returns true if cricket is found at the start of the string" {
+    It "returns true if [c] is found at the start of the string" {
+        $pattern = "^cricket"
+        $testInput = "cricket" 
+
+        $expectedResult = "TRUE"
+        $message = "Expects and finds lc 'c' at start of string"
+        Test-RegexMatch $pattern $testInput $message $expectedResult
+    }
+
+    It "returns false if [C]ricket is found at the start of the string" {
         $pattern = "^cricket"
         $testInput = "Cricket" 
 
-        $expectedResult = "TRUE"
-        $message = "matches are case sensitive as this .Net, not PowerShell"
+        $expectedResult = "FALSE"
+        $message = "Expects lc 'c' at start of string, but was 'C'"
         Test-RegexMatch $pattern $testInput $message $expectedResult
     }
 
