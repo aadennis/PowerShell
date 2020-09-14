@@ -40,7 +40,7 @@ Describe "RegexMatch" {
         Test-RegexMatch $pattern $testInput $message $expectedResult
     }
 
-    It "returns true if [c] is found at the start of the string" {
+    It "returns true if [c]ricket is found at the start of the string" {
         $pattern = "^cricket"
         $testInput = "cricket" 
 
@@ -58,5 +58,13 @@ Describe "RegexMatch" {
         Test-RegexMatch $pattern $testInput $message $expectedResult
     }
 
+    It "returns false because cricket is not found at the start of the string" {
+        $pattern = "^cricket"
+        $testInput = "a cricket" 
+
+        $expectedResult = "FALSE"
+        $message = "Expects 'cricket' at start of string, but was '[a ]cricket"
+        Test-RegexMatch $pattern $testInput $message $expectedResult
+    }
 
 }
