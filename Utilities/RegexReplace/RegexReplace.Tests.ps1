@@ -40,4 +40,14 @@ Describe "RegexMatch" {
         Test-RegexMatch $pattern $testInput $message $expectedResult
     }
 
+    It "returns true if cricket is found at the start of the string" {
+        $pattern = "^cricket"
+        $testInput = "Cricket"
+
+        $expectedResult = "TRUE"
+        $message = "matches are case sensitive as this .Net, not PowerShell"
+        Test-RegexMatch $pattern $testInput $message $expectedResult
+    }
+
+
 }
