@@ -12,6 +12,7 @@ PowerShell based utilities, including:
   * getting the size of a set of files in a folder and subfolders
 * Viewing the Registry 
 * Performance Counters
+* Music Theory (folder MusicTheory)
 
 
 
