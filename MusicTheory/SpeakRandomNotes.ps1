@@ -14,7 +14,7 @@ function Build-PollyString($pauseInSeconds=3, $guitarString=1) {
     $content = "On string $guitarString, find the right fret for the following notes."
     1..10 | % {
         $set | Get-Random | ForEach-Object {
-            $content += "<p><break time=`"$pauseInSeconds`s`"/><say-as interpret-as=`"spell-out`">$_</say-as></p>"
+            $content += "<p><break time=`"$pauseInSeconds`s`"/>$_</p>"
         }
     }  
     $content = "<speak>"+$content+"</speak>"
