@@ -100,7 +100,7 @@ function Invoke-QuestionSet() {
         
         if (!$found -or $Global:duplicatesOK) {
             Format-Question $currentString $currentNote
-            [int] $ans = read-host "Enter the fret"
+            $ans = read-host "Enter the fret"
             $ans
             Start-Sleep $Global:delayBetweenQuestions
             $fretAnswer = $fretPerStringNote["$currentString$currentNote"]
