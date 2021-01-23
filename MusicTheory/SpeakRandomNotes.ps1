@@ -10,20 +10,34 @@ Set-StrictMode -Version latest
 
 Set-Globals
 
-function Build-PollyString($pauseInSeconds = 3) {
+function Get-ContentWithPause($currentFret, $pauseInSeconds) {
+    if ($pauseInSeconds) {
+        return "<p><break time=`"$pauseInSeconds`s`"/>$currentFret</p>"
+    }
+    "<p>$currentFret</p>"
+}
+
+function Build-PollyString($pauseInSeconds = 5) {
     $breakTime = "<break time=`"$pauseInSeconds`s`"/>"
     $set = "a", "b", "c", "d", "e", "f", "g"
     $content = "Practice for guitar fretboard memorization. Naturals only. "
     $content += "$pauseInSeconds seconds pause between notes."
     $Global:pollyStringSequence | ForEach-Object {
+        $first = $true
         $guitarString = $_
         $perStringInstructions = " Now on string $guitarString. Remember, string $guitarString. Find the right fret for the following notes on string $guitarString. "
         $content += $perStringInstructions
-        # $stringContent = $null
         
         1..10 | ForEach-Object { # pick a random fret
             $set | Get-Random | ForEach-Object {
-                $content += "<p><break time=`"$pauseInSeconds`s`"/>$_</p>"
+                $currentFret = $_
+                if (!$first) { # most times
+                    $content += Get-ContentWithPause $currentFret $pauseInSeconds;
+                } else {
+                    $content += Get-ContentWithPause $currentFret ;
+                    $first = $false
+                }
+                
             }
         }
     }
