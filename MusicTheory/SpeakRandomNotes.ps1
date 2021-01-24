@@ -12,7 +12,7 @@ Set-Globals
 
 function Get-ContentWithPause($currentFret, $pauseInSeconds) {
     if ($pauseInSeconds) {
-        return "<p><break time=`"$pauseInSeconds`s`"/>$currentFret</p>"
+        return "<p>$currentFret<break time=`"$pauseInSeconds`s`"/></p>"
     }
     "<p>$currentFret</p>"
 }
@@ -30,7 +30,7 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
         "ON A NEW STRING"
         $first = $true
         $guitarString = $_
-        $perStringInstructions = "Choose a string.<break time=`"10s`" />. Ready. "
+        $perStringInstructions = "Choose a string.<break time=`"5s`" />. Ready. "
 
         $content += $perStringInstructions
         $previousNote = $null
@@ -64,5 +64,5 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 }
 
 # Entry point
-Build-PollyString 5 2 15
+Build-PollyString 3 2 15
 
