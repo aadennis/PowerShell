@@ -63,5 +63,6 @@ function Set-Globals() {
     $Global:speech = $null
 
     $Global:pollyStringSequence = "3","6","1","2","5","4"
+    $Global:maxDuplicateTries = "10"
 }
  

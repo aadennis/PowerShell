@@ -17,31 +17,46 @@ function Get-ContentWithPause($currentFret, $pauseInSeconds) {
     "<p>$currentFret</p>"
 }
 
-function Build-PollyString($pauseInSeconds = 5) {
+function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIterations = 15) {
     $breakTime = "<break time=`"$pauseInSeconds`s`"/>"
     $set = "a", "b", "c", "d", "e", "f", "g"
-    $content = "Practice for guitar fretboard memorization. Naturals only. "
-    $content += "$pauseInSeconds seconds pause between notes."
-    $Global:pollyStringSequence | ForEach-Object {
+    # $content = "Practice for guitar fretboard memorization. Naturals only. "
+    $content += "$pauseInSeconds seconds pause between notes. "
+    $content += "Using $stringIterations  string iterations. "
+    $content += "Using $noteIterations  note iterations. "
+    
+    
+    1..$stringIterations | ForEach-Object {
+        "ON A NEW STRING"
         $first = $true
         $guitarString = $_
-        $perStringInstructions = " Now on string $guitarString. Remember, string $guitarString. Find the right fret for the following notes on string $guitarString. "
-        $content += $perStringInstructions
-        
-        1..10 | ForEach-Object { # pick a random fret
-            $set | Get-Random | ForEach-Object {
-                $currentFret = $_
-                if (!$first) { # most times
-                    $content += Get-ContentWithPause $currentFret $pauseInSeconds;
-                } else {
-                    $content += Get-ContentWithPause $currentFret ;
-                    $first = $false
-                }
-                
-            }
-        }
-    }
+        $perStringInstructions = "Choose a string.<break time=`"10s`" />. Ready. "
 
+        $content += $perStringInstructions
+        $previousNote = $null
+        1..$noteIterations | ForEach-Object { # pick a random note
+            "here 1"
+            $duplicateTries = 0
+            do {
+           
+                $set | Get-Random | ForEach-Object {
+                    $currentNote = $_
+                    if ($previousNote -ne $currentNote) {
+                        "here 2 - $previousNote - $currentNote"
+                        # ok - not a duplicate of previous
+                        $content += Get-ContentWithPause $currentNote $pauseInSeconds;
+                        $previousNote = $currentNote
+                        $duplicateTries = 999
+                    }
+                    else {
+                        "did get a duplicate"
+                        $duplicateTries++
+                    }
+                   
+                }
+            
+            } while ($duplicateTries -lt $Global:maxDuplicateTries) }
+    }
 
     $content = "<speak>" + $content + "</speak>"
     $content | clip
@@ -49,5 +64,5 @@ function Build-PollyString($pauseInSeconds = 5) {
 }
 
 # Entry point
-Build-PollyString
+Build-PollyString 5 2 15
 
