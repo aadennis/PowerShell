@@ -17,17 +17,17 @@ function Get-ContentWithPause($currentFret, $pauseInSeconds) {
     "<p>$currentFret</p>"
 }
 
+function Break-ForSeconds($numberOfSeconds=1) {
+    "<break time=`"$numberOfSeconds`s`"/>"
+}
 function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIterations = 15) {
     $breakTime = "<break time=`"$pauseInSeconds`s`"/>"
     $set = "a", "b", "c", "d", "e", "f", "g"
-    # $content = "Practice for guitar fretboard memorization. Naturals only. "
-    $content += "Practice for guitar keyboard memory, with a $pauseInSeconds seconds pause between notes.<break time=`"2s`"/>"
-    $content += "We'll do $stringIterations string sets. <break time=`"1s`"/>"
-    $content += "And for each string set, we'll practice $noteIterations random notes. <break time=`"2s`"/>"
-    
+    $content = "Practice for guitar fretboard memorization. Naturals only. "
     
     1..$stringIterations | ForEach-Object {
-        $perStringInstructions = "Choose a string.<break time=`"3s`" />. Ready. "
+        $currentSet = $_
+        $perStringInstructions =  "Set $currentSet of $stringIterations $(Break-ForSeconds) Choose a string $(Break-ForSeconds) $pauseInSeconds seconds pause between notes $(Break-ForSeconds) Ready. $(Break-ForSeconds '2')  "
 
         $content += $perStringInstructions
         $previousNote = $null
