@@ -50,6 +50,9 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
             } while ($duplicateTries -lt $Global:maxDuplicateTries) }
     }
 
+    $content += Break-ForSeconds 2
+    $content += "The End"
+
     $content = "<speak>" + $content + "</speak>"
     $content | clip
     $uidPart = ([timespan] (Get-Date).ToLongTimeString()).TotalSeconds
