@@ -19,9 +19,7 @@ That is just a convenient number to make a practise session last between 3 and 1
 I use the [Amazon Polly console][1] to generate audio from the SSML files 
 #### So it's just a set of audio files. How does that help me improve my memory of the fretboard?
 
-[You can use numbers for reference-style link definitions][1]
-
-[1]: [https://eu-west-2.console.aws.amazon.com/polly/home?region=eu-west-2]
+[1]: https://eu-west-2.console.aws.amazon.com/polly/home?region=eu-west-2
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet  
 https://github.github.com/gfm/
 https://www.markdownguide.org/basic-syntax/
