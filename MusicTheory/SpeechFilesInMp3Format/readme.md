@@ -1,8 +1,8 @@
 Practising guitar fretboard memorization, using audio files.
 =======
-***Before reading this, please play one of the files, to give you some context. For example 10SecPause.3Strings.20Notes.JoannaVoice.mp3***  
+***Before reading this, please play one of the files in this folder, to give you some context. For example 10SecPause.3Strings.20Notes.JoannaVoice.mp3***  
 
-This is a collection of audio files, which ask you to find notes on a string, with a pause to give you time to find the note.  
+This is a collection of audio files, which prompt you to find notes on a string of a guitar, with a pause to give you time to find the note.  
 The name of the file tells you more about its content.  
 As an example, the name of this file...  
 `10SecPause.3Strings.20Notes.JoannaVoice.mp3`  
@@ -18,6 +18,16 @@ That is just a convenient number to make a practise session last between 3 and 1
 #### Why "JoannaVoice", "EmmaVoice", etc?
 I use the [Amazon Polly console][1] to generate audio from the [SSML][2] files. `Joanna` for example, is one of the English USA voices. `Emma` is 1 of the English UK voices. I have found that some of the UK recorded [phonemes][3] are not perfect, hence hopping between the 2 regions. Even using [IPA][4] for a more precise rendering has not helped.
 #### So it's just a set of audio files. How does that help me improve my memory of the fretboard?
+There is no set way, but let me tell you how I use them. We'll take say the "Joanna" set of 3, which has 10, 3 and 1 second pauses.
+When starting out, I will play the 10 second set, say on the E/6 string. 10 seconds gives me enough time to work out from the open string the spoken note. Let's say that is `C`. So I find and play `C` on the guitar, hopefully within the 10 seconds. If I don't manage to find it in 10 seconds, then I am immediately under pressure, because Joanna will not hear me saying "Er, hang on, haven't found it yet". So this is not a test with concrete feedback from an app where you are given feedback from the app. You are testing yourself, you are putting pressure on yourself. Coming back to Joanna relentlessly churning out notes at 10 second intervals, you can either skip that note you can't get, or rewind the file to the start. Of course, if you can't find the note in time, that tells you that you are not ready to move to the 3 second files, far less the 1 second files. 
+#### You've only discussed one string. Why does the file contain "3 string iterations"?
+Well, you could stop after that first iteration. But if you want to continue... let's say you successfully played the 20, random, uttered notes for that E/6 string within 10 seconds. You could either consolidate by using the `E/6` string for the second and indeed third iteration, to be truly confident that you can move to the "faster" notes. Or you might try the `A/5` string. Not quite so good on that? So you could repeat `A/5` for iteration 3 as well. I'm just emphasising that you can use it in a way that suits you - there is no fixed approach.
+#### And the 3 second and 1 second files?
+This is the same principle as the 10 second file. Only now Joanna gives you a shorter gap to play the notes. Then if you cannot yet succeed with the 3 second file, which still gives you a little time to work things out, without instant recall, you are probably not ready to graduate to the 1 second file.  
+By the time you get to the 1 second file, you are REALLY getting to a point where you know your keyboard. 
+#### Will this work for me then?
+I make no claims, but I use it myself.
+It is just one more tool, to go with the large number of techniques out there which aim to help with this.
 
 [1]: https://eu-west-2.console.aws.amazon.com/polly/home?region=eu-west-2
 [2]: https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
