@@ -30,6 +30,10 @@ By the time you get to the 1 second file, you are REALLY getting to a point wher
 I make no claims, but I use it myself.
 It is just one more tool, to go with the large number of techniques out there which aim to help with this.
 
+#### FAQ
+##### Why does she say "Naturals only"?
+The notes only cover A to G right now, not the chromatic scale. That is, it does not cover the sharps and flats. 
+
 [1]: https://eu-west-2.console.aws.amazon.com/polly/home?region=eu-west-2
 [2]: https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
 [3]: https://en.wikipedia.org/wiki/Phoneme
