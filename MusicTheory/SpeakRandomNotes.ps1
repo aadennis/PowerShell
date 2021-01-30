@@ -17,7 +17,7 @@ function Get-ContentWithPause($currentFret, $pauseInSeconds) {
     "<p>$currentFret</p>"
 }
 
-function Break-ForSeconds($numberOfSeconds=1) {
+function Break-ForSeconds($numberOfSeconds = 1) {
     "<break time=`"$numberOfSeconds`s`"/>"
 }
 function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIterations = 15) {
@@ -27,20 +27,22 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
     
     1..$stringIterations | ForEach-Object {
         $currentSet = $_
-        $perStringInstructions =  "Set $currentSet of $stringIterations $(Break-ForSeconds) Choose a string $(Break-ForSeconds) $pauseInSeconds seconds pause between notes $(Break-ForSeconds) Ready. $(Break-ForSeconds '2')  "
+        $perStringInstructions = "Set $currentSet of $stringIterations $(Break-ForSeconds) Choose a string $(Break-ForSeconds) $pauseInSeconds seconds pause between notes $(Break-ForSeconds) Ready. $(Break-ForSeconds '2')  "
 
         $content += $perStringInstructions
-        $previousNote = $null
+        $priorNote = $null
+        $priorPriorNote = $null
+
         1..$noteIterations | ForEach-Object { # pick a random note
             $duplicateTries = 0
             do {
-           
                 $set | Get-Random | ForEach-Object {
                     $currentNote = $_
-                    if ($previousNote -ne $currentNote) {
-                        # ok - not a duplicate of previous
+                    if (($priorNote -ne $currentNote) -and $priorPriorNote -ne $currentNote) {
+                        # ok - not a duplicate of previous or the one before that
                         $content += Get-ContentWithPause $currentNote $pauseInSeconds;
-                        $previousNote = $currentNote
+                        $priorPriorNote = $priorNote
+                        $priorNote = $currentNote
                         $duplicateTries = 999
                     }
                     else {
@@ -62,7 +64,7 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 }
 
 # Entry point
-# Next example is 10 seconds between notes, 2 string sets, 20 notes per string set...
+# Next example is 10 seconds between notes, 3 string sets, 20 notes per string set...
 Build-PollyString 10 3 20
 Build-PollyString 3 3 20
 Build-PollyString 1 3 20
