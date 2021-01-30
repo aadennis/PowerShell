@@ -15,7 +15,7 @@ It is the speaker uttering a note. A note is a letter between A and G. In the fi
 #### What is a string iteration?  
 It is a set of note-utterances, with a pause between each note-utterance.  
 #### Why does each file have 3 string iterations?  
-That is just a convenient number to make a practise session last between 3 and 10 minutes. The exact duration is the number of Strings, multiplied by the number of Notes, multiplied by the pause length... plus any speech introduction, which is not much. If there is interest, I can make files with 1 to 10 iterations. Beyond that, there is a practical size limitation as audio files take up a lot of space. You can obviously put a given file into a loop until you get bored.
+That is just a convenient number to make a practise session last between 3 and 10 minutes. The exact duration is the number of Strings, multiplied by the number of Notes, multiplied by the pause length... plus any speech introduction, which is not much. If you want more, you can obviously put a given file into a loop until you get bored.
 #### Why "JoannaVoice", "EmmaVoice", etc?
 I use the [Amazon Polly console][1] to generate audio from the [SSML][2] files. `Joanna` for example, is one of the English USA voices. `Emma` is 1 of the English UK voices. I have found that some of the UK recorded [phonemes][3] are not perfect, hence hopping between the 2 regions. Even using [IPA][4] for a more precise rendering has not helped.
 #### So it's just a set of audio files. How does that help me improve my memory of the fretboard?
