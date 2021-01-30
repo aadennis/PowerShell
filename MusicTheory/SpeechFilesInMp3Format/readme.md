@@ -5,9 +5,11 @@ Practising guitar fretboard memorization, using audio files.
 This is a collection of audio files, which prompt you to find notes on a string of a guitar, with a pause to give you time to find the note.  
 The name of the file tells you more about its content.  
 As an example, the name of this file...  
-`10SecPause.3Strings.20Notes.JoannaVoice.mp3`  <a href="https://github.com/aadennis/PowerShell/blob/master/MusicTheory/SpeechFilesInMp3Format/10SecPause.3Strings.20Notes.JoannaVoice.mp3">Click here for a separate link</a> 
+`10SecPause.3Strings.20Notes.JoannaVoice.mp3`  
+<a href="https://github.com/aadennis/PowerShell/blob/master/MusicTheory/SpeechFilesInMp3Format/10SecPause.3Strings.20Notes.JoannaVoice.mp3">Click here for a separate link</a> 
 means  
 > 10 seconds pause between each note-utterance, 3 string iterations, 20 note-utterances, using the "Joanna" voice.
+https://github.com/aadennis/PowerShell/raw/master/MusicTheory/SpeechFilesInMp3Format/10SecPause.3Strings.20Notes.JoannaVoice.mp3
 
 #### What is a note-utterance?  
 It is the speaker uttering a note. A note is a letter between A and G. In the file name, "Notes" is actually shorthand for "Note-utterance".  
