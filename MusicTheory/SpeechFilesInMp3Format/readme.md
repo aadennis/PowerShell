@@ -6,7 +6,6 @@ This is a collection of audio files, which prompt you to find notes on a string 
 The name of the file tells you more about its content.  
 As an example, the name of this file...  
 `10SecPause.3Strings.20Notes.JoannaVoice.mp3`  
-<a href="https://github.com/aadennis/PowerShell/blob/master/MusicTheory/SpeechFilesInMp3Format/10SecPause.3Strings.20Notes.JoannaVoice.mp3">Click here for a separate link</a> 
 means  
 > 10 seconds pause between each note-utterance, 3 string iterations, 20 note-utterances, using the "Joanna" voice.
 
@@ -35,7 +34,7 @@ It is just one more tool, to go with the large number of techniques out there wh
 [2]: https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
 [3]: https://en.wikipedia.org/wiki/Phoneme
 [4]: https://en.wikipedia.org/wiki/International_Phonetic_Alphabet
-[5]: https://github.com/aadennis/PowerShell/raw/master/MusicTheory/SpeechFilesInMp3Format/10SecPause.3Strings.20Notes.JoannaVoice.mp3
+[5]: https://github.com/aadennis/PowerShell/raw/master/MusicTheory/SpeechFilesInMp3Format/1SecPause.3Strings.20Notes.JoannaVoice.mp3
 
 ###### https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet  
 ###### https://github.github.com/gfm/
