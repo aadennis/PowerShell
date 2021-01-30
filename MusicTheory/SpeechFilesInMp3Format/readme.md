@@ -18,19 +18,20 @@ By the time you get to the 1 second file, you are REALLY getting to a point wher
 I make no claims, but I use it myself.
 It is just one more tool, to go with the large number of techniques out there which aim to help with this.
 
-### FAQ
+FAQ
+===
 #### What is this complicated file name all about?
 The name of the file tells you more about its content.  
 As an example, the name of this file...  
 `10SecPause.3Strings.20Notes.JoannaVoice.mp3`  
 means  
-> 10 seconds pause between each note-utterance, 3 string iterations, 20 note-utterances, using the "Joanna" voice.
+> 10 seconds pause between each note, 3 strings, 20 notes, using the "Joanna" voice.
 
-#### What is a note-utterance?  
-It is the speaker uttering a note. A note is a letter between A and G. In the file name, "Notes" is actually shorthand for "Note-utterance".  
-#### What is a string iteration?  
-It is a set of note-utterances, with a pause between each note-utterance.  
-#### Why does each file have 3 string iterations?  
+#### What exactly do you mean by "note"?  
+It is the speaker *uttering* a note. A note is a letter between A and G. In the file name, "Notes" is actually shorthand for "Note utterance". So in the example above, she will utter 20 notes.
+#### And what exactly do you mean by "string"?  
+It is a set of "note utterances", with a pause (10 seconds, etc) between each "note utterance". It is up to you to decide what string you will actually use. She doesn't know or care.
+#### Why does each file have 3 "strings"?  
 That is just a convenient number to make a practise session last between 3 and 10 minutes. The exact duration is the number of Strings, multiplied by the number of Notes, multiplied by the pause length... plus any speech introduction, which is not much. If you want more, you can obviously put a given file into a loop until you get bored.
 #### Why "JoannaVoice", "EmmaVoice", etc?
 I use the [Amazon Polly console][1] to generate audio from the [SSML][2] files. `Joanna` for example, is one of the English USA voices. `Emma` is 1 of the English UK voices. I have found that some of the UK recorded [phonemes][3] are not perfect, hence hopping between the 2 regions. Even using [IPA][4] for a more precise rendering has not helped.
