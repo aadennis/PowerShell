@@ -7,7 +7,7 @@ Each file asks you to find x notes on a given string at intervals of y seconds.
 As an example, the name of this file...  
 `10SecPause.3Strings.20Notes.JoannaVoice.mp3`  
 means  
-`10 seconds pause between each note-utterance, 3 string iterations, 20 note-utterances, using the "Joanna" voice.`
+> 10 seconds pause between each note-utterance, 3 string iterations, 20 note-utterances, using the "Joanna" voice.
 
 #### What is a note-utterance?  
 It is the speaker uttering a note. A note is a letter between A and G. In the file name, "Notes" is actually shorthand for "Note-utterance".  
