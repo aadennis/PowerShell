@@ -14,7 +14,7 @@ When starting out, I will play the 10 second set, say on the E/6 string. 10 seco
 Well, you could stop after that first iteration. But if you want to continue... let's say you successfully played the 20, random, uttered notes for that E/6 string within 10 seconds. You could either consolidate by using the `E/6` string for the second and indeed third iteration, to be truly confident that you can move to the "faster" notes. Or you might try the `A/5` string. Not quite so good on that? So you could repeat `A/5` for iteration 3 as well. I'm just emphasising that you can use it in a way that suits you - there is no fixed approach.
 #### And the 3 second and 1 second files?
 This is the same principle as the 10 second file. Only now `Joanna` gives you a shorter gap to play the notes. Then if you cannot yet succeed with the 3 second file, which still gives you a little time to work things out, without instant recall, you are probably not ready to graduate to the 1 second file.  
-By the time you get to the 1 second file, you are REALLY getting to a point where you know your keyboard. 
+By the time you get to the 1 second file, if you can get the bulk of those, you are REALLY getting to a point where you know your keyboard. 
 #### Will this work for me then?
 I make no claims, but I use it myself.
 It is just one more tool, to go with the large number of techniques out there which aim to help with this.
