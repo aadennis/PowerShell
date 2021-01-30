@@ -8,6 +8,7 @@ A file looks like this, as an example: `10SecPause.3Strings.20Notes.JoannaVoice.
 
 #### So it's just a set of audio files. How does that help me improve my memory of the fretboard?
 There is no set way, but let me tell you how I use them.  
+
 We'll take say the "Joanna" set of 3, which has 10, 3 and 1 second pauses.
 When starting out, I will play the 10 second set, say on the E/6 string. 10 seconds gives me enough time to work out from the open string the spoken note. Let's say the first note that `Joanna` speaks is `C`. So I find and play `C` on the guitar, hopefully within the 10 seconds. If I don't manage to find it in 10 seconds, then I am immediately under pressure, because `Joanna` will not hear me saying "Er, hang on, haven't found it yet", and will continue on to the next note on her list. So this is not a test with concrete feedback from an app. You are testing yourself, you are putting pressure on yourself. Coming back to `Joanna` relentlessly churning out notes at 10 second intervals, you can either skip that note you can't get, or rewind the file to the start. Of course, if you can't find the note in time, that tells you that you are not ready to move to the 3 second files, far less the 1 second files. 
 #### You've only discussed one string. Why does the file contain "3 string iterations"?
