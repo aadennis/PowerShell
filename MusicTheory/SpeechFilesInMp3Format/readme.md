@@ -1,6 +1,6 @@
 Practising guitar fretboard memorization, using audio files.
 =======
-***Before reading this, please play one of the files in this folder, to give you some context. For example, [this file][5] - right click, "save link as", then play it***  
+***Before reading this, please play one of the files in this folder, to give you some context. For example, [this file][5] - right click, "save link as", then play it.***  
 
 This is a collection of audio files, which prompt you to find notes on a string of a guitar, with a pause to give you time to find the note.  
 The name of the file tells you more about its content.  
