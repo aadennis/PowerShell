@@ -34,7 +34,7 @@ It is just one more tool, to go with the large number of techniques out there wh
 [2]: https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
 [3]: https://en.wikipedia.org/wiki/Phoneme
 [4]: https://en.wikipedia.org/wiki/International_Phonetic_Alphabet
-[5]: https://github.com/aadennis/PowerShell/raw/master/MusicTheory/SpeechFilesInMp3Format/1SecPause.3Strings.20Notes.JoannaVoice.mp3
+[5]: https://github.com/aadennis/PowerShell/raw/master/MusicTheory/SpeechFilesInMp3Format/10SecPause.3Strings.20Notes.JoannaVoice.mp3
 
 ###### https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet  
 ###### https://github.github.com/gfm/
