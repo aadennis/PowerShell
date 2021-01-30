@@ -1,6 +1,7 @@
 Practising guitar fretboard memorization, using audio files.
 =======
 ***Before reading this, please play one of the files, to give you some context. For example 10SecPause.3Strings.20Notes.JoannaVoice.mp3***  
+
 This is a collection of audio files, which ask you to find notes on a string, with a pause to give you time to find the note.  
 The name of the file tells you more about its content.  
 As an example, the name of this file...  
