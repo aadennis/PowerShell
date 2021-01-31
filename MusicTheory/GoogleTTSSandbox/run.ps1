@@ -1,11 +1,12 @@
 
-
+$root = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox"
 $outTextFile = "c:\temp\chap.txt"
 $outSpeechFile = "c:\temp\chap.mp3"
-$configFile = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox\config.json"
-$textToConvertToSpeech = "Mary had a little lamb"
+$configFile = Join-Path $root "config.json"
+$inTextFile = Join-Path $root "TextToConvertToSpeech.txt"
 
 $configData = get-content -path $configFile -raw | convertfrom-json
+$textToConvertToSpeech = get-content -path $inTextFile
 $jsonRequestTemplateFile = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox\requestTemplate.json"
 $jsonRequestTemplate = get-content -path $jsonRequestTemplateFile -raw
 $jsonRequestToParse = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox\request.json"
