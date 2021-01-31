@@ -40,7 +40,7 @@ That is just a convenient number to make a practise session last between 3 and 1
 #### Why "JoannaVoice", "EmmaVoice", etc?
 I use the [Amazon Polly console][1] to generate audio from the [SSML][2] files. `Joanna` for example, is one of the English USA voices. `Emma` is 1 of the English UK voices. I have found that some of the UK recorded [phonemes][3] are not perfect, hence hopping between the 2 regions. Even using [IPA][4] for a more precise rendering has not helped.
 #### Why does she say "Naturals only"?
-The notes only cover A to G right now, not the chromatic scale. That is, it does not cover the sharps and flats. 
+The notes only cover A to G natural notes right now, and so does not include the sharps and flats. 
 
 [1]: https://eu-west-2.console.aws.amazon.com/polly/home?region=eu-west-2
 [2]: https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
