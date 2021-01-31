@@ -23,11 +23,12 @@ function Break-ForSeconds($numberOfSeconds = 1) {
 function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIterations = 15) {
     $breakTime = "<break time=`"$pauseInSeconds`s`"/>"
     $set = "a", "b", "c", "d", "e", "f", "g"
-    $content = "Practice for guitar fretboard memorization. Naturals only. "
+    $content = "Practice for guitar fretboard memorization. $pauseInSeconds seconds pause between notes. Natural notes only. "
     
     1..$stringIterations | ForEach-Object {
         $currentSet = $_
-        $perStringInstructions = "Set $currentSet of $stringIterations $(Break-ForSeconds) Choose a string $(Break-ForSeconds) $pauseInSeconds seconds pause between notes $(Break-ForSeconds) Ready. $(Break-ForSeconds '2')  "
+        $perStringInstructions = "Set $currentSet of $stringIterations $(Break-ForSeconds) Choose a string $(Break-ForSeconds) `
+                  $(Break-ForSeconds) Ready. $(Break-ForSeconds '2')  "
 
         $content += $perStringInstructions
         $priorNote = $null
@@ -57,8 +58,7 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 
     $content = "<speak>" + $content + "</speak>"
     $content | clip
-    $uidPart = ([timespan] (Get-Date).ToLongTimeString()).TotalSeconds
-    $fileNameRoot = Join-Path SpeechFilesInSsmlFormat "$uidPart.$pauseInSeconds`SecPause.$stringIterations`Strings.$noteIterations`Notes.xml"
+    $fileNameRoot = Join-Path "SpeechFilesInSsmlFormat/NonIpa" "$pauseInSeconds`SecPause.$stringIterations`Strings.$noteIterations`Notes.xml"
     $fileNameRoot
     $content > $fileNameRoot
 }
