@@ -32,7 +32,8 @@ means
 #### What exactly do you mean by "note"?  
 It is the speaker *uttering* a note. A note is a letter between A and G. In the file name, "Notes" is actually shorthand for "Note utterance". So in the example above, she will utter 20 notes.
 #### Is there repetition of notes?
-Yes, but not immediately 1 after the other. For example, you will never hear a sequence of `C` `C`. There is always a gap of 2 or more different notes between two of the same note. For example, you will get the pattern `C` `E` `A` `C`.
+Yes, but not immediately 1 after the other. For example, you will never hear a sequence of `C` `C`. There is always a gap of 2 or more different notes between two of the same note. For example, you will get a pattern such as  `C` `E` `A` `C`, where the `C` in this example repeats, but with that 2 other-note gap. 
+
 #### And what exactly do you mean by "string"?  
 It is a set of "note utterances", with a pause (10 seconds, etc) between each "note utterance". It is up to you to decide what string you will actually use. She doesn't know or care.
 #### Why does each file have 3 "strings"?  
