@@ -5,11 +5,13 @@ const util = require('util');
 
 const client = new textToSpeech.TextToSpeechClient();
 
-const text = 'Text to synthesize, eg. hello';
 const outputFile = 'c:/temp/nodee.mp3';
+const inputFile = 'c:/temp/inner.txt'; // text file - no quotes at start and end, a CR should be the final character.
+const readFile = util.promisify(fs.readFileSync);
+const textToSpeak = fs.readFileSync(inputFile);
 
 const request = {
-    input: { text: text },
+    input: { text: textToSpeak },
     voice: { languageCode: 'en-GB', ssmlGender: 'FEMALE' },
     audioConfig: { audioEncoding: 'MP3' },
 };
