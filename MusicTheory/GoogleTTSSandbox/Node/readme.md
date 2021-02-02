@@ -1,9 +1,13 @@
 Node: Using Google Cloud Text-To-Speech libraries
 ===
 
+### Description
+Yet another text-to-speech console app, this time based on the Google TTS engine.   
+Dependencies: nodejs. I have not yet confirmed if you must be logged into your Google developer account to use the TTS engine.
+
 ### Parameters
 
-Parameter 0: this is always the argument 'node'  
+Parameter 0: This is always the argument 'node'.   
 Parameter 1: The called script. Mandatory.  
 Parameter 2: The FQPN of the text to convert to speech. Do not use quotes at the start and end. The last character should be followed by a CR/LF, else I find the speech is truncated. (TODO - fix that programmatically). Mandatory.  
 Parameter 3: The FQPN of the mp3 file to be created or overwritten. Mandatory.  
