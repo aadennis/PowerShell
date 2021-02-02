@@ -32,7 +32,7 @@ Pass values for language code and gender.
 `node .\GoogleTTSNode.js 'c:/temp/inner.txt' 'c:/temp/example3.mp3' 'en-US' 'MALE'  ` 
 
 #### Sample text for input files - thanks to Jane Austen and Gutenburg Press
->It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
-However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.
-"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"
-Mr. Bennet replied that he had not.
+>It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.  
+However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.  
+"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"  
+Mr. Bennet replied that he had not.  
