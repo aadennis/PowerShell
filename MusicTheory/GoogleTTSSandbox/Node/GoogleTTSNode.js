@@ -13,7 +13,6 @@ args.forEach((val, index) => {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
     switch (index) {
         case 2:
-            // text file - no quotes at start and end, a CR should be the final character.
             inputFile = val;
             break;
         case 3:
