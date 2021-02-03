@@ -10,7 +10,7 @@ Dependencies: nodejs. I have not yet confirmed if you must be logged into your G
 
 | Parameter        | Description          | Default |Mandatory?  |
 |:-------------:|:-------------|:-------------| :-----:|
-| 0     | This is always the argument literal 'node' | | Yes |
+| 0     | This is always the argument literal '**node**' | | Yes |
 | 1     | The called script | | Yes |
 | 2     | The FQPN of the text to convert to speech. Do not use quotes at the start and end. The last character should be followed by a CR/LF, else I find the speech is truncated. (TODO - fix that programmatically) | | Yes |
 | 3     | The FQPN of the mp3 file to be created or overwritten | | Yes |
