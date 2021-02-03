@@ -28,10 +28,10 @@ args.forEach((val, index) => {
     }
 });
 
-const textToSpeak = fs.readFileSync(inputFile);
+const textToSpeak = "<speak>" + fs.readFileSync(inputFile) + "</speak>";
 
 const request = {
-    input: { text: textToSpeak },
+    input: { ssml: textToSpeak},
     voice: { languageCode: inputlanguageCode, ssmlGender: inputSsmlGender },
     audioConfig: { audioEncoding: 'MP3' },
 };
