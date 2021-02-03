@@ -6,6 +6,9 @@ Yet another text-to-speech console app, this time based on the Google TTS engine
 The app takes text passed from a file on the command line, and outputs speech to a file, in mp3 format.  
 Dependencies: nodejs. I have not yet confirmed if you must be logged into your Google developer account to use the TTS engine.
 
+#### Example for context
+`node .\GoogleTTSNode.js 'c:/temp/inner.txt' 'c:/temp/example3.mp3' 'en-US' 'MALE'  ` 
+
 ### Parameters
 
 | Parameter        | Description          | Default |Mandatory?  |
@@ -16,8 +19,6 @@ Dependencies: nodejs. I have not yet confirmed if you must be logged into your G
 | 3     | The FQPN of the mp3 file to be created or overwritten |n/a | Yes |
 | 4     | The language code to use. For example, 'en-US' |en-GB | Conditional |
 | 5     | The input SSML gender to use. For example, 'MALE'|FEMALE | No |
-
-
 
 ### Examples
 
