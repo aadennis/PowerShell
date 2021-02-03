@@ -8,12 +8,16 @@ Dependencies: nodejs. I have not yet confirmed if you must be logged into your G
 
 ### Parameters
 
-Parameter 0: This is always the argument 'node'.   
-Parameter 1: The called script. Mandatory.  
-Parameter 2: The FQPN of the text to convert to speech. Do not use quotes at the start and end. The last character should be followed by a CR/LF, else I find the speech is truncated. (TODO - fix that programmatically). Mandatory.  
-Parameter 3: The FQPN of the mp3 file to be created or overwritten. Mandatory.  
-Parameter 4: The language code to use. For example, 'en-US'. Default: 'en-GB'. Mandatory if subsequent parameters are specified, else optional.  
-Parameter 5: The input SSML gender to use. For example, 'MALE'. Default: 'FEMALE'. Optional.  
+| Parameter        | Description          | Default |Mandatory?  |
+|:-------------:|:-------------|:-------------| :-----:|
+| 0     | This is always the argument literal 'node' | | Yes |
+| 1     | The called script | | Yes |
+| 2     | The FQPN of the text to convert to speech. Do not use quotes at the start and end. The last character should be followed by a CR/LF, else I find the speech is truncated. (TODO - fix that programmatically) | | Yes |
+| 3     | The FQPN of the mp3 file to be created or overwritten | | Yes |
+| 4     | The language code to use. For example, 'en-US'. Default: 'en-GB'. | | Conditional |
+| 5     | The input SSML gender to use. For example, 'MALE'. Default: 'FEMALE' | | No |
+
+
 
 ### Examples
 
