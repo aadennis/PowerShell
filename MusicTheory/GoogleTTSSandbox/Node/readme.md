@@ -41,3 +41,7 @@ Pass values for language code and gender.
 However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.  
 "My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"  
 Mr. Bennet replied that he had not.  
+
+###### Abbreviations
+<sup><sub>FQPN: fully qualified path name </sub></sup>
+
