@@ -4,7 +4,7 @@ Node: Using Google Cloud Text-To-Speech libraries
 ### Description
 Yet another text-to-speech console app, this time based on the Google TTS engine.   
 The app takes text passed from a file on the command line, and outputs speech to a file, in mp3 format.  
-Dependencies: nodejs. I have not yet confirmed if you must be logged into your Google developer account to use the TTS engine.
+Dependencies: nodejs and the project.json in this project. I have not yet confirmed if you must be logged into your Google developer account to use the TTS engine.
 
 #### Example for context
 `node .\GoogleTTSNode.js 'c:/temp/inner.txt' 'c:/temp/example3.mp3' 'en-US' 'MALE'  ` 
