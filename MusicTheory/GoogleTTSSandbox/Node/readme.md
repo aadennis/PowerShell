@@ -42,11 +42,12 @@ However little known the feelings or views of such a man may be on his first ent
 "My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"  
 Mr. Bennet replied that he had not.  
 
-
+### Screenshots
+![Example](../../PollyScreenshots/NodeTtsRun01.png)
 ---
 
 ###### Abbreviations
 <sup><sub>FQPN: fully qualified path name </sub></sup>
 
-![Example](../../PollyScreenshots/NodeTtsRun01.png)
+
 
