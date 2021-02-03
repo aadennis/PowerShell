@@ -13,12 +13,12 @@ Dependencies: nodejs and the project.json in this project. I have not yet confir
 
 | Parameter        | Description          | Default |Mandatory?  |
 |:-------------:|:-------------|:-------------| :-----:|
-| 0     | This is always the argument literal '**node**' | n/a | Yes |
-| 1     | The called script | n/a | Yes |
-| 2     | The FQPN of the text to convert to speech. Do not use quotes at the start and end. The last character should be followed by a CR/LF, else I find the speech is truncated. (TODO - fix that programmatically) |n/a | Yes |
-| 3     | The FQPN of the mp3 file to be created or overwritten |n/a | Yes |
-| 4     | The language code to use. For example, 'en-US' |en-GB | Conditional |
-| 5     | The input SSML gender to use. For example, 'MALE'|FEMALE | No |
+| 0     | This is always the argument literal '**node**'. | n/a | Yes |
+| 1     | The called script. | n/a | Yes |
+| 2     | The FQPN of the text to convert to speech. Do not use quotes at the start and end. The last character should be followed by a CR/LF, else I find the speech is truncated (TODO - fix that programmatically.). |n/a | Yes |
+| 3     | The FQPN of the mp3 file to be created or overwritten. |n/a | Yes |
+| 4     | The language code to use. For example, 'en-US'. This and 'en-GB' are the only allowed values. |en-GB | Conditional |
+| 5     | The input SSML gender to use. For example, 'MALE'. This and 'FEMALE' are the only allowed values.|FEMALE | No |
 
 ### Examples
 
