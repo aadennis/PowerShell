@@ -12,16 +12,18 @@ Set-Globals
 
 function Get-ContentWithPause($currentFret, $pauseInSeconds) {
     if ($pauseInSeconds) {
-        return "<p>$currentFret<break time=`"$pauseInSeconds`s`"/></p>"
+        return "<p>$currentFret<break time=`'$pauseInSeconds`s`'/></p>"
     }
     "<p>$currentFret</p>"
 }
 
 function Break-ForSeconds($numberOfSeconds = 1) {
-    "<break time=`"$numberOfSeconds`s`"/>"
+    "<break time=`'$numberOfSeconds`s`'/>"
 }
 function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIterations = 15) {
-    $breakTime = "<break time=`"$pauseInSeconds`s`"/>"
+    write-host "Number of string iterations: $stringIterations "
+  
+    $breakTime = "<break time=`'$pauseInSeconds`s`'/>"
     $set = "a", "b", "c", "d", "e", "f", "g"
     $content = "Practice for guitar fretboard memorization. $pauseInSeconds seconds pause between notes. Natural notes only. "
     
@@ -65,9 +67,9 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 
 # Entry point
 # Next example is 10 seconds between notes, 3 string sets, 20 notes per string set...
-Build-PollyString 10 3 20
-Build-PollyString 3 3 20
-Build-PollyString 1 3 20
+#Build-PollyString 10 3 20
+#Build-PollyString 3 10 20
+Build-PollyString 1 1 10
 
 
 
