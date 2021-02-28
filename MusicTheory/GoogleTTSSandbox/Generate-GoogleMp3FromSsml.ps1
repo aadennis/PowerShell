@@ -1,9 +1,14 @@
 
 $root = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox"
+$ssmlLocation = "F:\Den\Github\aadennis\PowerShell\MusicTheory\SpeechFilesInSsmlFormat\NonIpa"
 $outTextFile = "c:\temp\chap.txt"
 $outSpeechFile = "c:\temp\chap.mp3"
 $configFile = Join-Path $root "config.json"
-$inTextFile = Join-Path $root "TextToConvertToSpeech.txt"
+
+$inFile = Read-Host "Enter the name of the file in [$ssmlLocation] to convert"
+$inTextFile = Join-Path $ssmlLocation $inFile
+
+write-host "`$inTextFile: $inTextFile"
 
 $configData = get-content -path $configFile -raw | convertfrom-json
 $textToConvertToSpeech = get-content -path $inTextFile
@@ -20,6 +25,8 @@ remove-item $outSpeechFile
 # replace the token in the template with the required text...
 $newContent = $jsonRequestTemplate -replace $tokenToReplace, $textToConvertToSpeech
 $newContent | set-content -path $jsonRequestToParse
+
+read-host "Now check $jsonrequesttoparse"
 
 $cred = gcloud auth application-default print-access-token
 $headers = @{ "Authorization" = "Bearer $cred" }
