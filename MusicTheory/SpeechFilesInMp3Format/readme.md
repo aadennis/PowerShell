@@ -6,7 +6,7 @@ This is a collection of audio files, which prompt you to find notes on a string 
 A file looks like this, as an example: `10SecPause.3Strings.20Notes.JoannaVoice.mp3`.   
 *(Please see the FAQ at the bottom for an explanation of the name and content of the files.)*  
 
-#### So it's just a set of audio files. How does that help me improve my memory of the fretboard?
+#### So it's  x just a set of audio files. How does that help me improve my memory of the fretboard?
 There is no set way, but let me tell you how I use them.  
 
 We'll take say the "Joanna" set of 3, which has 10, 3 and 1 second pauses.
