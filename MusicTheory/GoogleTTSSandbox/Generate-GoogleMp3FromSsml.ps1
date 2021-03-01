@@ -1,26 +1,29 @@
 
-$root = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox"
-$ssmlLocation = "F:\Den\Github\aadennis\PowerShell\MusicTheory\SpeechFilesInSsmlFormat\NonIpa"
-$outTextFile = "c:\temp\chap.txt"
-$outSpeechFile = "c:\temp\chap.mp3"
-$configFile = Join-Path $root "config.json"
+$root = "d:/Github"
 
-$inFile = Read-Host "Enter the name of the file in [$ssmlLocation] to convert"
-$inTextFile = Join-Path $ssmlLocation $inFile
+$root += "/PowerShell/MusicTheory/"
+$textToAudioRoot = $root + "GoogleTTSSandbox"
+$ssmlLocation = $root + "/SpeechFilesInSsmlFormat/NonIpa"
+$configFile = Join-Path $textToAudioRoot "config.json"
+$outTextFile = "c:/temp/TempPreSpeech.sp"
 
-write-host "`$inTextFile: $inTextFile"
+Write-Host "SSML Location is: [$ssmlLocation]."
+$inFile = Read-Host "Enter the name of the SSML file to convert (Do not include the extension)"
+$inFileSsml = $inFile + ".ssml"
+$outSpeechFile = Join-Path $textToAudioRoot "$inFile.mp3"
+$inTextFile = Join-Path $ssmlLocation $inFileSsml
 
 $configData = get-content -path $configFile -raw | convertfrom-json
 $textToConvertToSpeech = get-content -path $inTextFile
-$jsonRequestTemplateFile = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox\requestTemplate.json"
+$jsonRequestTemplateFile =  "$textToAudioRoot/requestTemplate.json"
 $jsonRequestTemplate = get-content -path $jsonRequestTemplateFile -raw
-$jsonRequestToParse = "F:\Den\Github\aadennis\PowerShell\MusicTheory\GoogleTTSSandbox\request.json"
+$jsonRequestToParse = "$textToAudioRoot/request.json"
 $tokenToReplace = "1TOKEN1"
 
 $env:GOOGLE_APPLICATION_CREDENTIALS=$configData.googleAppCredentials
 
-remove-item $outTextFile
-remove-item $outSpeechFile
+# remove-item $outTextFile > dev/null
+remove-item $outSpeechFile -Force
 
 # replace the token in the template with the required text...
 $newContent = $jsonRequestTemplate -replace $tokenToReplace, $textToConvertToSpeech
@@ -30,6 +33,7 @@ read-host "Now check $jsonrequesttoparse"
 
 $cred = gcloud auth application-default print-access-token
 $headers = @{ "Authorization" = "Bearer $cred" }
+
 $audioAsJson = Invoke-WebRequest `
     -Method POST `
     -Headers $headers `

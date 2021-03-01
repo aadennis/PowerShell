@@ -60,7 +60,7 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 
     $content = "<speak>" + $content + "</speak>"
     $content | clip
-    $fileNameRoot = Join-Path "SpeechFilesInSsmlFormat/NonIpa" "$pauseInSeconds`SecPause.$stringIterations`Strings.$noteIterations`Notes.xml"
+    $fileNameRoot = Join-Path "SpeechFilesInSsmlFormat/NonIpa" "$pauseInSeconds`SecPause.$stringIterations`Strings.$noteIterations`Notes.ssml"
     $fileNameRoot
     $content > $fileNameRoot
 }
@@ -68,8 +68,9 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 # Entry point
 # Next example is 10 seconds between notes, 3 string sets, 20 notes per string set...
 #Build-PollyString 10 3 20
+Build-PollyString 3 7 20 # 6 strings ok (when generating mp3 in Google) , 8 not ok, 7 OK - suggests a limit imposed by Google
 #Build-PollyString 3 10 20
-Build-PollyString 1 1 10
+#Build-PollyString 1 1 10
 
 
 
