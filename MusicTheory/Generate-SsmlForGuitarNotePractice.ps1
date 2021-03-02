@@ -1,13 +1,11 @@
-# This is only for use in Amazon Polly, so this saves to a text file,
-# but does not render to speech.
-# You have to paste the clipboard content into the Amazon Polly console, e.g.
+# This generates SSML content.
+# It does not include the subsequent rendering to voice. Rendering is Done
+# a Amazon Polly, or a Google TTS script, also available in this repo.
+# For Polly,. you have to paste the clipboard content into the Amazon Polly console, e.g.
 # https://eu-west-2.console.aws.amazon.com/polly/home/SynthesizeSpeech
 Set-StrictMode -Version latest
 
 . ./Configuration.ps1
-
-# Music theory on the guitar - fretboard familiarisation
-
 Set-Globals
 
 function Get-ContentWithPause($currentFret, $pauseInSeconds) {
