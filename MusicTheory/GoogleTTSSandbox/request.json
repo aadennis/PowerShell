@@ -1,11 +1,11 @@
 {
     "input":{
-      "ssml":"<speak>Practice for guitar fretboard memorization. 1 seconds pause between notes. Natural notes only. Set 1 of 1 <break time='1s'/> Choose a string <break time='1s'/>                    <break time='1s'/> Ready. <break time='2s'/>  <p>b<break time='1s'/></p><p>g<break time='1s'/></p><p>a<break time='1s'/></p><p>f<break time='1s'/></p><p>c<break time='1s'/></p><p>d<break time='1s'/></p><p>a<break time='1s'/></p><p>g<break time='1s'/></p><p>f<break time='1s'/></p><p>b<break time='1s'/></p><break time='2s'/>The End</speak>"
+      "ssml":"<speak>Fretboard memorization. 1 seconds pause. Natural notes. Set 1 of 1 <break time='1s'/> Choose a string <break time='1s'/>                    <break time='1s'/> Ready. <break time='2s'/>  <p>a<break time='1s'/></p><p>dees<break time='1s'/></p><p>g<break time='1s'/></p><p>f<break time='1s'/></p><p>dees<break time='1s'/></p><p>a<break time='1s'/></p><p>g<break time='1s'/></p><p>c<break time='1s'/></p><p>dees<break time='1s'/></p><p>f<break time='1s'/></p><p>c<break time='1s'/></p><p>dees<break time='1s'/></p><p>beep<break time='1s'/></p><p>f<break time='1s'/></p><p>e<break time='1s'/></p><p>a<break time='1s'/></p><p>dees<break time='1s'/></p><p>g<break time='1s'/></p><p>beep<break time='1s'/></p><p>e<break time='1s'/></p><break time='2s'/>The End</speak>"
     },
     "voice":{
       "languageCode":"en-gb",
       "name":"en-GB-Standard-A",
-      "ssmlGender":"FEMALE"
+      "ssmlGender":"MALE"
     },
     "audioConfig":{
       "audioEncoding":"MP3"

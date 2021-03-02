@@ -22,8 +22,8 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
     write-host "Number of string iterations: $stringIterations "
   
     $breakTime = "<break time=`'$pauseInSeconds`s`'/>"
-    $set = "a", "b", "c", "d", "e", "f", "g"
-    $content = "Practice for guitar fretboard memorization. $pauseInSeconds seconds pause between notes. Natural notes only. "
+    $set = "a", "beep", "c", "dees", "e", "f", "g"
+    $content = "Fretboard memorization. $pauseInSeconds seconds pause. Natural notes. "
     
     1..$stringIterations | ForEach-Object {
         $currentSet = $_
@@ -66,9 +66,9 @@ function Build-PollyString($pauseInSeconds = 5, $stringIterations = 6, $noteIter
 # Entry point
 # Next example is 10 seconds between notes, 3 string sets, 20 notes per string set...
 #Build-PollyString 10 3 20
-Build-PollyString 3 7 20 # 6 strings ok (when generating mp3 in Google) , 8 not ok, 7 OK - suggests a limit imposed by Google
+#Build-PollyString 3 7 20 # 6 strings ok (when generating mp3 in Google) , 8 not ok, 7 OK - suggests a limit imposed by Google
 #Build-PollyString 3 10 20
-#Build-PollyString 1 1 10
+Build-PollyString 1 1 20
 
 
 
