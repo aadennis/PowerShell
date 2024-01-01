@@ -38,4 +38,12 @@ else {
 Write-Host "`$accountId is: [$accountId]"
 Write-Host "`$srcFolder is: [$srcFolder]"
 
+$result = Read-Host "Enter [Y] to continue, anything else to exit"
+
+if ($result -ne "Y") {
+    Write-Host "Exiting..."
+    exit
+}
+
+Write-Host "starting backup for account [$accountId] from [$srcFolder]"
 
