@@ -5,16 +5,16 @@ $accountId = $null
 # Displaying the options to the user
 Write-Host "accountName:"
 
-$accountName = Read-Host "Enter 1 for DWHotmail; Enter 2 for DWOutlook"
+$choice = Read-Host "Enter 1 for DWHotmail; Enter 2 for DWOutlook"
 
-if ($accountName -eq "1") {
+if ($choice -eq "1") {
     $accountId = "DWHotmail"
 }
-elseif ($accountName -eq "2") {
+elseif ($choice -eq "2") {
     $accountId = "DWOutlook"
 }
 else {
-    Write-Host "[$accountName] is not valid. Please choose 1 or 2."
+    Write-Host "[$choice] is not valid. Please choose 1 or 2."
     exit
 }
 
@@ -24,20 +24,20 @@ else {
 
 $srcFolder = $null  
 # Displaying the options to the user
-Write-Host "srcChoice:"
+Write-Host "source folder:"
 
-$srcChoice = Read-Host "Enter 1 for D:\onedrive; Enter 2 for D:\OutlookAcOneDrive"
+$choice = Read-Host "Enter 1 for D:\onedrive; Enter 2 for D:\OutlookAcOneDrive"
 
-if ($srcChoice -eq "1") {
+if ($choice -eq "1") {
     $srcFolder = "D:\onedrive"
     Write-Host "Using $srcFolder as `$srcFolder"
 }
-elseif ($srcChoice -eq "2") {
+elseif ($choice -eq "2") {
     $srcFolder = "D:\OutlookAcOneDrive"
     Write-Host "Using $srcFolder as `$srcFolder"
 }
 else {
-    Write-Host "[$srcChoice] is not valid. Please choose 1 or 2."
+    Write-Host "[$choice] is not valid. Please choose 1 or 2."
     exit
 }
 
