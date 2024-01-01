@@ -47,3 +47,20 @@ if ($result -ne "Y") {
 
 Write-Host "starting backup for account [$accountId] from [$srcFolder]"
 
+$target = "fullbackuptaken.2023.12.31"
+$targetroot = "E:\OneDriveBuDw\$accountId\"
+$target_path = $targetroot + $target
+
+$random = (Get-Random).ToString().Substring(0, 4)
+$logdir = "D:\onedrive\data\BackupNotes\Log\" + $target
+$logfile = $logdir + "\" + $accountId + "." + $random + "_log.txt"
+$srcFolder
+$target_path
+$logfile
+
+Read-Host "starting backup for account [$accountId] from [$srcFolder]"
+
+robocopy $srcFolder $target_path /E /TEE /LOG+:$logfile
+
+$logfile = $logdir + "\" + $accountId + "." + $random + "_log.txt"
+write-host "Logfile is here: [ $logfile ]"
