@@ -2,7 +2,6 @@
 # The script uses Robocopy.
 
 $accountId = $null  
-# Displaying the options to the user
 Write-Host "accountName:"
 
 $choice = Read-Host "Enter 1 for DWHotmail; Enter 2 for DWOutlook"
@@ -18,12 +17,7 @@ else {
     exit
 }
 
-
-
-##########
-
 $srcFolder = $null  
-# Displaying the options to the user
 Write-Host "source folder:"
 
 $choice = Read-Host "Enter 1 for D:\onedrive; Enter 2 for D:\OutlookAcOneDrive"
@@ -43,9 +37,5 @@ else {
 
 Write-Host "`$accountId is: [$accountId]"
 Write-Host "`$srcFolder is: [$srcFolder]"
-
-##########
-
-
 
 
