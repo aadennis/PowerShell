@@ -1,11 +1,13 @@
-# Track folders visited by File Explorer,
-# pausing for n seconds before comparing old and current locations.
+# Track folders visited by File Explorer
+# Pausing for n seconds before comparing old and current locations.
+# Do not log a path if it has already been recorded in this session.
+# 
 # Todo - add support for the Files app
 
 $logFile = "D:\sandbox\ExplorerHistory_Simplified.txt"
 $SLEEP_SECONDS = 5
 
-# Create or clear the file if it exists
+# Create or clear the log file
 Set-Content -Path $logFile -Value "Explorer History Log Started: $(Get-Date)`n"
 
 # Function to get current File Explorer paths
@@ -26,21 +28,27 @@ function Get-ExplorerPaths {
 }
 
 # Main monitoring loop
-$lastPaths = @()
+$loggedPaths = @{}  # Dictionary to store timestamped paths
 while ($true) {
     $currentPaths = Get-ExplorerPaths
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
     if ($currentPaths.Count -gt 0) {
         foreach ($path in $currentPaths) {
-            if ($path -notin $lastPaths) {
+            if (-not $loggedPaths.ContainsKey($path)) {
+                # Log the new path and add it to history
                 "$timestamp : New path detected: $path" | Out-File -Append -FilePath $logFile
+                $loggedPaths[$path] = $true
             }
         }
-        $lastPaths = $currentPaths
-    }
-    else {
+    } else {
         "$timestamp : No File Explorer window detected" | Out-File -Append -FilePath $logFile
+    }
+
+    # Optional: Clear old paths if log grows too large (e.g., after 500 unique entries)
+    if ($loggedPaths.Count -gt 500) {
+        $loggedPaths.Clear()
+        "$timestamp : Path log cleared due to size limit" | Out-File -Append -FilePath $logFile
     }
 
     Start-Sleep -Seconds $SLEEP_SECONDS
