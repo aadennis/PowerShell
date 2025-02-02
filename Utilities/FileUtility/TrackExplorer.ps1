@@ -1,11 +1,23 @@
 # Track folders visited by File Explorer
 # Pausing for n seconds before comparing old and current locations.
 # Do not log a path if it has already been recorded in this session.
-# 
+#
 # Todo - add support for the Files app
 
-$logFile = "D:\sandbox\ExplorerHistory_Simplified.txt"
+# Base path for log file
+$baseLogFile = "D:\sandbox\ExplorerHistory_Simplified.txt"
 $SLEEP_SECONDS = 5
+
+# Ensure unique log file by appending a timestamp if the base file exists
+if (Test-Path $baseLogFile) {
+    $timestampSuffix = (Get-Date -Format "yyyyMMdd_HHmmss")
+    $logFile = $baseLogFile -replace '\.txt$', "_$timestampSuffix.txt"
+} else {
+    $logFile = $baseLogFile
+}
+
+# Display the full path of the log file being used
+Write-Host "Tracking Explorer paths. Log file location: $logFile"
 
 # Create or clear the log file
 Set-Content -Path $logFile -Value "Explorer History Log Started: $(Get-Date)`n"
