@@ -7,6 +7,7 @@
 # Base path for log file
 $baseLogFile = "D:\sandbox\ExplorerHistory_Simplified.txt"
 $SLEEP_SECONDS = 5
+$SHOW_TIME = $false  # Show timestamp and "New path detected:" if true
 
 # Ensure unique log file by appending a timestamp if the base file exists
 if (Test-Path $baseLogFile) {
@@ -48,20 +49,27 @@ while ($true) {
     if ($currentPaths.Count -gt 0) {
         foreach ($path in $currentPaths) {
             if (-not $loggedPaths.ContainsKey($path)) {
-                # Log the new path and add it to history
-                "$timestamp : New path detected:" | Out-File -Append -FilePath $logFile
+                if ($SHOW_TIME) {
+                    # Log with timestamp and message
+                    "$timestamp : New path detected:" | Out-File -Append -FilePath $logFile
+                }
+                # Always log the path on a separate line
                 "  $path" | Out-File -Append -FilePath $logFile
                 $loggedPaths[$path] = $true
             }
         }
     } else {
-        "$timestamp : No File Explorer window detected" | Out-File -Append -FilePath $logFile
+        if ($SHOW_TIME) {
+            "$timestamp : No File Explorer window detected" | Out-File -Append -FilePath $logFile
+        }
     }
 
     # Optional: Clear old paths if log grows too large (e.g., after 500 unique entries)
     if ($loggedPaths.Count -gt 500) {
         $loggedPaths.Clear()
-        "$timestamp : Path log cleared due to size limit" | Out-File -Append -FilePath $logFile
+        if ($SHOW_TIME) {
+            "$timestamp : Path log cleared due to size limit" | Out-File -Append -FilePath $logFile
+        }
     }
 
     Start-Sleep -Seconds $SLEEP_SECONDS
