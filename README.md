@@ -1,6 +1,8 @@
 ## Dennis' PowerShell repository
 
 PowerShell based utilities, including:
+* FileUtilities:
+  * Track Explorer - log file paths visited in File Explorer
 * Desired State Configuration (DSC)
 * Pester-based tests
 * Hash table sandbox
