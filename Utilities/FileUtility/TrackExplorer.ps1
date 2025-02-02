@@ -49,7 +49,8 @@ while ($true) {
         foreach ($path in $currentPaths) {
             if (-not $loggedPaths.ContainsKey($path)) {
                 # Log the new path and add it to history
-                "$timestamp : New path detected: $path" | Out-File -Append -FilePath $logFile
+                "$timestamp : New path detected:" | Out-File -Append -FilePath $logFile
+                "  $path" | Out-File -Append -FilePath $logFile
                 $loggedPaths[$path] = $true
             }
         }
@@ -65,4 +66,3 @@ while ($true) {
 
     Start-Sleep -Seconds $SLEEP_SECONDS
 }
-
