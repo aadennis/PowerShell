@@ -25,24 +25,9 @@ Get-ChildItem -Path $sourcePath -Filter "*.zip" | Where-Object {
     $sourceFile = $_.FullName
     $destinationFile = Join-Path -Path $destPath -ChildPath $_.Name
 
+    Write-Host "Moving $($_.Name)..."
     Move-Item -Path $sourceFile -Destination $destinationFile
+
     $filesMoved++
-}
-
-# Eject USB drive (D:) using WMI
-Start-Sleep -Seconds 5 # Wait for files to finish moving
-
-$driveLetter = "D:"
-$volume = Get-WmiObject -Query "SELECT * FROM Win32_Volume WHERE DriveLetter = '$driveLetter'"
-if ($volume) {
-    $result = $volume.Dismount($false, $false)
-    if ($result.ReturnValue -eq 0) {
-        $volume.DriveLetter = $null
-        $volume.Put() | Out-Null
-        Write-Host "USB drive $driveLetter successfully ejected."
-    } else {
-        Write-Warning "Failed to eject USB drive $driveLetter. Error code: $($result.ReturnValue)"
-    }
-} else {
-    Write-Warning "Drive $driveLetter not found."
+    Write-Host "Moved $($_.Name) ($filesMoved of $Global:MaxFilesToMove)`n"
 }
