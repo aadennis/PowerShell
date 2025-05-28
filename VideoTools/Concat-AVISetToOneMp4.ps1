@@ -61,7 +61,9 @@ Remove-Item -Path $listFile -ErrorAction SilentlyContinue
 for ($i = 0; $i -lt $aviFiles.Count; $i++) {
     Add-Content -Path $listFile -Value ("file 'temp_$i.mp4'")
 }
-Log "Concat list complete with $($aviFiles.Count) files"
+Log "Concat list complete with $($aviFiles.Count) files (sleeping for 10 seconds to ensure all files are ready)..."
+
+start-sleep -Seconds 10
 
 # Final concat
 Log "Concatenating intermediate MP4s..."
