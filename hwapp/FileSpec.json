@@ -1,9 +1,0 @@
-{
-    "FriendsSpec": {
-        "columnSet": {
-            "column1": "pos",
-            "column2": "offset",
-            "column3": "name"
-        }
-    }
-}

@@ -3,7 +3,6 @@
 PowerShell based utilities, including:
 * FileUtilities:
   * Track Explorer - log file paths visited in File Explorer
-* Desired State Configuration (DSC)
 * Pester-based tests
 * Hash table sandbox
 * Azure
@@ -12,8 +11,6 @@ PowerShell based utilities, including:
 * File handling, including
   * conversion from avi to mp4, using Handbrake's CLI
   * getting the size of a set of files in a folder and subfolders
-* Viewing the Registry 
-* Performance Counters
 * Music Theory (folder MusicTheory)
 
 
