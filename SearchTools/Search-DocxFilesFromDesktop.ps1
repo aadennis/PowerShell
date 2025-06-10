@@ -1,6 +1,6 @@
 # This script searches for a specific phrase in all .docx files within a specified folder and its subfolders.
 # It assumes Microsoft Word is installed on the system.
-# # Usage:
+# Usage:
 # ./Search-DocxFilesFromDesktop.ps1 -Folder "D:\dummy" -Phrase "welcome to my"
 # In the desktop shortcut version, there is no need to add quotes around the phrase - PS will handle it.
 
@@ -50,8 +50,9 @@ $word.Quit()
 
 # Final match summary
 Write-Host "`n========================="
-Write-Host "Matched Files:" -ForegroundColor Yellow
+Write-Host "Matched Files for phrase: '$Phrase'" -ForegroundColor Yellow
 Write-Host "========================="
+
 
 if ($matchedFiles.Count -eq 0) {
     Write-Host "No matches found." -ForegroundColor Red
