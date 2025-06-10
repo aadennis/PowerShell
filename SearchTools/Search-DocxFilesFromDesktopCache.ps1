@@ -1,3 +1,7 @@
+# This script searches for a specific phrase in all .docx files within a specified folder and its subfolders.
+# It uses a cache to speed up subsequent searches by storing the text content of each file.
+# It assumes Word is installed and uses the .NET System.IO.Compression namespace to read .docx files as ZIP archives.
+
 param(
     [string]$Folder = "D:\OneDrive",
     [string]$CacheFile = "$env:TEMP\DocxTextCache.json"
