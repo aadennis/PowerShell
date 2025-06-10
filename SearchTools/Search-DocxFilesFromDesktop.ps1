@@ -19,6 +19,9 @@ $word.Visible = $false
 # Get all .docx files in folder and subfolders
 $files = Get-ChildItem -Path $Folder -Filter *.docx -Recurse -File
 
+# Initialize a list to collect matched file paths
+$matchedFiles = @()
+
 foreach ($file in $files) {
     try {
         Write-Host "Searching: $($file.FullName)" -ForegroundColor Cyan
@@ -26,6 +29,7 @@ foreach ($file in $files) {
         $text = $doc.Content.Text
         if ($text -match [regex]::Escape($Phrase)) {
             Write-Host "MATCH: $($file.FullName)" -ForegroundColor Green
+            $matchedFiles += $file.FullName
         }
         $doc.Close()
     } catch {
@@ -34,3 +38,16 @@ foreach ($file in $files) {
 }
 
 $word.Quit()
+
+# Final match summary
+Write-Host "`n========================="
+Write-Host "Matched Files:" -ForegroundColor Yellow
+Write-Host "========================="
+
+if ($matchedFiles.Count -eq 0) {
+    Write-Host "No matches found." -ForegroundColor Red
+} else {
+    foreach ($match in $matchedFiles) {
+        Write-Host $match -ForegroundColor Green
+    }
+}
