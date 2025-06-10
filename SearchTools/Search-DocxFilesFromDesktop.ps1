@@ -1,5 +1,11 @@
+# This script searches for a specific phrase in all .docx files within a specified folder and its subfolders.
+# It assumes Microsoft Word is installed on the system.
+# # Usage:
+# ./Search-DocxFilesFromDesktop.ps1 -Folder "D:\dummy" -Phrase "welcome to my"
+# In the desktop shortcut version, there is no need to add quotes around the phrase - PS will handle it.
+
 param (
-    [string]$Folder = "D:\OneDrive\Documents"
+    [string]$Folder = "D:\dummy"
 )
 
 # Prompt user for the phrase
