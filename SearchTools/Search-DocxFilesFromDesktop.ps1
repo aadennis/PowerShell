@@ -1,16 +1,19 @@
-# This script searches for a specific phrase in all .docx files within a specified folder and its subfolders.
 param (
-    [string]$Folder = "x"
+    [string]$Folder = "D:\OneDrive\Documents"
 )
 
 # Prompt user for the phrase
 $Phrase = Read-Host "Enter the phrase to search for in .docx files"
 
-# Validate input
 if ([string]::IsNullOrWhiteSpace($Phrase)) {
     Write-Error "No phrase entered. Exiting..."
     exit 1
 }
+
+# Kill existing Word processes
+Write-Host "Killing existing WINWORD.EXE processes..." -ForegroundColor DarkYellow
+Get-Process WINWORD -ErrorAction SilentlyContinue | ForEach-Object { $_.Kill() }
+Start-Sleep -Seconds 1
 
 # Create Word COM object
 $word = New-Object -ComObject Word.Application
