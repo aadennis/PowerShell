@@ -1,5 +1,4 @@
 # This script searches for a specific phrase in all .docx files within a specified folder and its subfolders.
-
 param (
     [string]$Folder = "x"
 )
@@ -22,10 +21,11 @@ $files = Get-ChildItem -Path $Folder -Filter *.docx -Recurse -File
 
 foreach ($file in $files) {
     try {
+        Write-Host "Searching: $($file.FullName)" -ForegroundColor Cyan
         $doc = $word.Documents.Open($file.FullName, $false, $true)
         $text = $doc.Content.Text
         if ($text -match [regex]::Escape($Phrase)) {
-            Write-Output $file.FullName
+            Write-Host "MATCH: $($file.FullName)" -ForegroundColor Green
         }
         $doc.Close()
     } catch {
