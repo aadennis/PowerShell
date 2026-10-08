@@ -38,6 +38,34 @@ def extract_text(path):
     return "\n".join(p for p in paragraphs if p).lower()
 
 
+ATTR_FLAGS = {
+    0x1000: "OFFLINE",
+    0x400000: "ONLINE_ONLY(recall on data access)",
+    0x40000: "ONLINE_ONLY(recall on open)",
+    0x400: "REPARSE_POINT",
+    0x4000: "ENCRYPTED(EFS)",
+    0x1: "READONLY",
+}
+
+
+def describe_failure(path, exc):
+    """Short diagnostic: error type, Windows error code, size, and notable file attributes."""
+    parts = [type(exc).__name__]
+    winerr = getattr(exc, "winerror", None)
+    if winerr is not None:
+        parts.append(f"winerror={winerr}")  # 5 = access denied, 32 = in use by another process
+    try:
+        st = os.stat(path)
+        parts.append(f"size={st.st_size}")
+        attrs = getattr(st, "st_file_attributes", 0)
+        flags = [name for bit, name in ATTR_FLAGS.items() if attrs & bit]
+        if flags:
+            parts.append("attrs=" + "+".join(flags))
+    except OSError:
+        pass
+    return ", ".join(parts)
+
+
 def find_docx(folder):
     for root, _dirs, files in os.walk(folder):
         for name in files:
@@ -112,7 +140,7 @@ def main():
             try:
                 text = extract_text(path)
             except Exception as e:  # bad zip, locked file, online-only and unreachable, etc.
-                print(f"WARN cannot read {path}: {e}")
+                print(f"WARN cannot read {path}: {describe_failure(path, e)}")
                 failed += 1
                 continue  # not cached, so it is retried next run
             read += 1
