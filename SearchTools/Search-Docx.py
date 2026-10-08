@@ -26,6 +26,16 @@ DEFAULT_DB = os.path.join(
     "cache.db",
 )
 
+# Colour support: ANSI escapes, only when writing to a terminal and NO_COLOR is not set.
+USE_COLOR = sys.stdout.isatty() and "NO_COLOR" not in os.environ
+if USE_COLOR and os.name == "nt":
+    os.system("")  # side effect: enables ANSI/VT processing in the Windows console
+
+
+def green(s):
+    return f"\033[1;32m{s}\033[0m" if USE_COLOR else s
+
+
 # <w:t> or <w:t xml:space="preserve">...</w:t>  (does not match <w:tab/> or <w:tbl>)
 T_RE = re.compile(r"<w:t(?:\s[^>]*)?>([^<]*)</w:t>")
 
@@ -150,7 +160,7 @@ def main():
             )
 
         if matches(text):
-            print(f"MATCH: {path}")
+            print(f"{green('MATCH')}: {path}")
             hits.append(path)
 
     # Drop cache entries for files that no longer exist under this folder.
@@ -169,5 +179,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
     
