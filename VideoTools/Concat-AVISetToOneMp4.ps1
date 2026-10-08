@@ -2,6 +2,10 @@
 # It checks if the video and audio codecs are compatible for stream copying.
 # If not, it re-encodes the files with medium quality settings.
 # Requires FFmpeg and FFprobe to be installed and available in the system PATH.
+# The substance is all in this command:
+# ffmpeg -hide_banner -loglevel error -i $file.FullName -c:v libx264 -crf 23 -preset faster -c:a aac -b:a 128k -movflags +faststart $tempFile
+# Reducing that to basics...
+# ffmpeg -hide_banner -loglevel error -f concat -safe 0 -i concat_list.txt -c copy output.mp4
 
 $inputFolder = "x"
 $outputFile = "y"
